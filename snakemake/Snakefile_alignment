@@ -37,8 +37,7 @@ rule get_seq_ids:
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     shell:
         """
-        python3 {folder}/py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab} \
-        --col_name "{params.col_name}" --col_value {params.col_value}
+        python3 {folder}/py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab}
         """
 
 rule aln_against_reference:
@@ -132,6 +131,6 @@ rule table2itol:
     params:
         mem = 2000,
         name = 'itol',
-        wd = os.path.join(data_dir, 'ALL', 'iTOL')
+        wd = os.path.join(data_dir, 'iTOL')
     threads: 1
     shell: "table2itol.R -i accession {input.data} -D {params.wd}"

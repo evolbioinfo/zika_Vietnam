@@ -8,8 +8,8 @@ if '__main__' == __name__:
 
     parser.add_argument('--input_data', required=True, type=str)
     parser.add_argument('--output_data', required=True, type=str)
-    parser.add_argument('--col_name', default=None, type=str)
-    parser.add_argument('--col_value', default=None, type=str)
+    parser.add_argument('--col_name', required=False, default=None, type=str)
+    parser.add_argument('--col_value', required=False, default=None, type=str)
     params = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s: %(message)s', datefmt="%Y-%m-%d %H:%M:%S")
