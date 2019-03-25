@@ -1,0 +1,384 @@
+import os
+
+# To run locally:
+# snakemake --snakefile Snakefile_trees --keep-going --cores 4 --config folder=.. --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
+
+# To run on bioevo:
+# module load conda && source /local/gensoft2/exe/conda/3.19.0/conda/bin/activate snakemake && module load singularity
+# snakemake --snakefile Snakefile_trees --config folder='/pasteur/homes/azhukova/projects/zika_atlas' --keep-going --cores 1 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~" --cluster "sbatch -c {threads} -o logs/{params.name}.log -e logs/{params.name}.log --mem {params.mem} -p bioevo --qos=bioevo -A bioevo -J {params.name}" --jobs 300
+
+# To visualise the pipeline
+# snakemake --snakefile Snakefile_trees --config folder=.. --dag | dot -Tsvg > pipeline_trees.svg
+
+localrules: all
+ruleorder: posttempest > nex2nwk > tempest > pretempest
+
+folder = os.path.abspath(config["folder"])
+data_dir = os.path.join(folder, 'data')
+
+tree_types = ['raxml', 'iq']
+partitions = ['pos']
+
+rule all:
+    input:
+        expand(os.path.join(data_dir, 'best_tree.{part}.tempest.rooted.no_outliers.dated.nwk'), part=partitions),
+        expand(os.path.join(data_dir, 'distances_all_trees.{part}.tab'), part=partitions),
+
+
+rule partitioning_nt:
+    '''
+    Prepare nucleotide partitioning files.
+    '''
+    input:
+        ref = os.path.join(data_dir, 'ref', 'ZIKV.xml'),
+    output:
+        part = os.path.join(data_dir, 'partition_{tool}.{type}.txt'),
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    params:
+        mem = 10000,
+        name = 'part',
+        tool = '{tool}',
+        type = '{type}'
+    shell:
+        """
+        python3 {folder}/py/dna_partitioner.py --input_xml {input.ref} --output_partitioning {output.part} \
+        --tool {params.tool} --level {params.type}
+        """
+
+rule raxml_nt:
+    '''
+    Reconstructs a tree with RAxML.
+    '''
+    input:
+        aln = os.path.join(data_dir, 'aln.fa'),
+        part = os.path.join(data_dir, 'partition_raxml.{type}.txt'),
+    output:
+        tree = os.path.join(data_dir, 'raxml_tree.{type,(gene|type|pos)}.nwk'),
+        log = os.path.join(data_dir, 'raxml_tree.{type,(gene|type|pos)}.log'),
+        model = os.path.join(data_dir, 'raxml_tree.{type,(gene|type|pos)}.model'),
+    threads: 12
+    singularity: "docker://evolbioinfo/raxml-ng:v0.8.0-beta"
+    params:
+        mem = 10000,
+        name = 'raxml.{type}',
+        part = '{type}',
+    shell:
+        """
+        cp {input.aln} {input.aln}.{params.part}
+        raxml-ng --model {input.part} --msa {input.aln}.{params.part} --msa-format FASTA --data-type DNA --tree rand{{10}} \
+        --seed 239 --threads {threads} --force
+        mv {input.aln}.{params.part}.raxml.bestTree {output.tree}
+        mv {input.aln}.{params.part}.raxml.log {output.log}
+        mv {input.aln}.{params.part}.raxml.bestModel {output.model}
+        rm -rf {input.aln}.{params.part}*
+        """
+
+rule iqtree_nt:
+    '''
+    Reconstructs a tree with IQTREE.
+    '''
+    input:
+        aln = os.path.join(data_dir, 'aln.fa'),
+        part = os.path.join(data_dir, 'partition_iq.{type}.txt'),
+    output:
+        tree = os.path.join(data_dir, 'iq_tree.{type,(gene|type|pos)}.nwk'),
+        log = os.path.join(data_dir, 'iq_tree.{type,(gene|type|pos)}.log'),
+    threads: 12
+    singularity: "docker://evolbioinfo/iqtree:v1.6.9"
+    params:
+        mem = 10000,
+        name = 'iq.{type}',
+    shell:
+        """
+        # --runs 10
+        iqtree -s {input.aln} -st DNA -t RANDOM -nt {threads} -alrt 0 -m GTR+FO+I+G6+MERGE -spp {input.part} --runs 1
+        mv {input.part}.treefile {output.tree}
+        sed -i -e 's/\\///g' {output.tree}
+        mv {input.part}.iqtree {output.log}
+        rm -rf {input.part}.*
+        """
+
+rule log_lh_nt:
+    '''
+    Compares tree likelihoods.
+    '''
+    input:
+        aln = os.path.join(data_dir, 'aln.fa'),
+        trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types),
+        part = os.path.join(data_dir, 'partition_raxml.{part}.txt'),
+    output:
+        log = os.path.join(data_dir, 'likelihoods_all_trees.{part}.log'),
+    threads: 12
+    singularity: "docker://evolbioinfo/raxml-ng:v0.8.0-beta"
+    params:
+        mem = 10000,
+        name = 'lh.{part}',
+    shell:
+        """
+        for t in `(ls {input.trees})`; do
+            l=`(raxml-ng --loglh --model {input.part} --msa {input.aln} --tree $t | grep "Final LogLikelihood:" | sed -e "s/Final LogLikelihood://g")`
+            echo `(basename $t .nwk)`"  $l">> {output.log}
+        done
+        """
+
+rule best_tree:
+    '''
+    Gets the best tree in terms of likelihood.
+    '''
+    input:
+        log = os.path.join(data_dir, 'likelihoods_all_trees.{part}.log'),
+        trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types),
+    output:
+        tree = os.path.join(data_dir, 'best_tree.{part,(gene|type|pos|aa)}.nwk'),
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    params:
+        mem = 10000,
+        name = 'best_tree.{part}',
+    shell:
+        """
+        python3 {folder}/py/best_tree.py --log {input.log} --trees {input.trees} --best_tree {output.tree}
+        """
+
+rule shuffled_tree:
+    '''
+    Shuffles the tip names in the given tree.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'best_tree.{part}.nwk'),
+    output:
+        tree = os.path.join(data_dir, 'best_tree.{part,(gene|type|pos|aa)}.shuffled_{i}.nwk'),
+    threads: 1
+    singularity: "docker://evolbioinfo/gotree:v0.3.0b"
+    params:
+        mem = 1000,
+        name = 'shuffle_{i}.{part}',
+    shell:
+        """
+        gotree shuffletips -i {input.tree} -o {output.tree}
+        """
+
+rule extract_dates:
+    '''
+    Reformats metadata into date file readable by LSD.
+    '''
+    input:
+        tab = os.path.join(data_dir, 'metadata.tab')
+    output:
+        tab = os.path.join(data_dir, 'dates.tab')
+    params:
+        mem = 1000,
+        name = 'dates',
+        date_col = 'collection_date'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/extract_dates.py --data {input.tab} --dates {output.tab} \
+        --date_col {params.date_col}
+        """
+
+rule pretempest:
+    '''
+    Create a date-annotated tree file for TempEst.
+    '''
+    input:
+        tab = os.path.join(data_dir, 'metadata.tab'),
+        tree = os.path.join(data_dir, '{tree}.nwk')
+    output:
+        tree = os.path.join(data_dir, '{tree}.tempest.nwk')
+    params:
+        mem = 1000,
+        name = 'pretempest_{tree}',
+        date_col = 'collection_date',
+        genotype_col = 'genotype'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/pretempest.py --data {input.tab} --input_tree {input.tree} --output_tree {output.tree} \
+        --date_col {params.date_col} --genotype_col {params.genotype_col}
+        """
+
+rule posttempest:
+    '''
+    Create a date-annotated tree file for TempEst.
+    '''
+    input:
+        tree = os.path.join(data_dir, '{tree}.tempest.rooted.nwk'),
+        tab = os.path.join(data_dir, '{tree}.tempest.tab')
+    output:
+        tree = os.path.join(data_dir, '{tree}.tempest.rooted.no_outliers.nwk')
+    params:
+        mem = 1000,
+        name = 'posttempest_{tree}'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/posttempest.py --data {input.tab} --input_tree {input.tree} --output_tree {output.tree}
+        """
+
+rule tempest:
+    '''
+    Manual step of running root-to-tip regression with TempEst.
+    '''
+    input:
+        tree = os.path.join(data_dir, '{tree}.tempest.nwk')
+    output:
+        tree = os.path.join(data_dir, '{tree}.tempest.rooted.nexus'),
+        tab = os.path.join(data_dir, '{tree}.tempest.tab')
+    params:
+        mem = 1000,
+        name = 'tempest_{tree}',
+    threads: 1
+    shell:
+        """
+        echo "This step has to be done by hand with TempEst."
+        """
+
+rule nex2nwk:
+    '''
+    Converts a nexus tree to newick.
+    '''
+    input:
+        tree = os.path.join(data_dir, '{tree}.nexus'),
+    output:
+        tree = os.path.join(data_dir, '{tree}.nwk'),
+    singularity:
+        "docker://evolbioinfo/gotree:v0.3.0b"
+    params:
+        mem = 2000,
+        name = 'nex2nwk',
+    threads: 1
+    shell:
+        """
+        gotree reformat newick -i {input.tree} -f nexus -o "{output.tree}"
+        """
+
+rule date:
+    '''
+    Dates a tree.
+    '''
+    input:
+        tree = os.path.join(data_dir, '{tree}.nwk'),
+        dates = os.path.join(data_dir, 'dates.tab'),
+        ref = os.path.join(data_dir, 'ref', 'ZIKV.fa')
+    output:
+        tree = os.path.join(data_dir, '{tree}.dated.nwk'),
+        log = os.path.join(data_dir, '{tree}.lsd.log'),
+    threads: 1
+    singularity: "docker://evolbioinfo/lsd:v0.3beta-55183ca9d0"
+    params:
+        mem = 2000,
+        name = 'date',
+        wd = os.path.join(data_dir,  '{tree}.dated')
+    shell:
+        """
+        n=$(( `(tail {input.ref} -n 1 | wc -m)` - 1))
+        lsd -i "{input.tree}" -d {input.dates} -v 2 -c -s $n -f 1000 -r a -o "{params.wd}"
+        mv "{params.wd}.date.newick" "{output.tree}"
+        mv "{params.wd}" "{output.log}"
+        rm "{params.wd}.newick"
+        rm "{params.wd}.nexus"
+        """
+
+
+rule test_dates:
+    '''
+    Check the strength of temporal signal in the data.
+    '''
+    input:
+        log = os.path.join(data_dir, '{tree}.lsd.log'),
+        random_logs = expand(os.path.join(data_dir, '{{tree}}.shuffled_{i}.lsd.log'), i=range(50))
+    output:
+        pdf = os.path.join(data_dir, '{tree}_date_randomisation.pdf'),
+    threads:
+        1
+    params:
+        mem = 2000,
+        name = 'rand_date'
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/date_randomisation.py --real_log {input.log} --logs {input.random_logs} \
+        --pdf {output.pdf}
+        """
+
+rule compare_trees:
+    '''
+    Calculates RF and quartet distances between the trees.
+    '''
+    input:
+        trees = os.path.join(data_dir, 'all_trees.{part}.nwk'),
+        names = os.path.join(data_dir, 'all_trees.{part}.names'),
+        qt = os.path.join(data_dir, 'distances_all_trees.{part}.quartet.tab'),
+    output:
+        log = os.path.join(data_dir, 'distances_all_trees.{part,(gene|type|pos|aa)}.tab')
+    threads: int(len(tree_types) * (len(tree_types) - 1) / 2)
+    params:
+        mem = 10000,
+        name = 'dist'
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/compare_trees.py --trees {input.trees} --labels {input.names} \
+        --output {output.log} --qt {input.qt}
+        """
+
+rule merge_nwk:
+    '''
+    Merge multiple one-tree newick files into one multiple-tree newick file.
+    '''
+    input:
+        trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types)
+    output:
+        trees = os.path.join(data_dir, 'all_trees.{part,(gene|type|pos|aa)}.nwk'),
+        names = os.path.join(data_dir, 'all_trees.{part,(gene|type|pos|aa)}.names')
+    params:
+        mem = 1000,
+        name = 'merge_nwk',
+        names = '\t'.join(tree_types)
+    threads: 1
+    shell:
+        """
+        ls {input.trees} | xargs cat >> {output.trees}
+        echo "{params.names}" >> {output.names}
+        """
+
+rule quartet_dists:
+    '''
+    Calculates quartet distances with tqDist.
+    '''
+    input:
+        trees = os.path.join(data_dir, 'all_trees.{part}.nwk')
+    output:
+        log = temp(os.path.join(data_dir, 'distances_all_trees.{part,(gene|type|pos|aa)}.quartet.tab')),
+    threads: 1
+    singularity: "docker://evolbioinfo/tqdist:v1.0.1"
+    params:
+        mem = 8000,
+        name = 'tqdist'
+    shell: "all_pairs_quartet_dist {input} {output}"
+
+
+
+rule name_tree:
+    '''
+    Names internal tree nodes and collapses zero branches.
+    '''
+    input:
+        tree = os.path.join(data_dir, '{tree}.nwk'),
+    output:
+        tree = os.path.join(data_dir, '{tree}.named.nwk'),
+    singularity:
+        "docker://evolbioinfo/python-evol:v3.6"
+    params:
+        mem = 2000,
+        name = 'name',
+    threads: 1
+    shell:
+        """
+        python3 {folder}/py/name_tree.py --input_tree "{input.tree}" --output_tree "{output.tree}"
+        """
