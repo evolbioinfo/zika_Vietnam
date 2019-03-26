@@ -15,5 +15,5 @@
     <protein abbreviation="NS4A" startPosition="6358" stopPosition="6739" />
     <protein abbreviation="pep2K" startPosition="6739" stopPosition="6808" />
     <protein abbreviation="NS4B" startPosition="6808" stopPosition="7561" />
-    <protein abbreviation="NS5" startPosition="7561" stopPosition="10273" />
+    <protein abbreviation="NS5" startPosition="7561" stopPosition="10270" />
 </orf>

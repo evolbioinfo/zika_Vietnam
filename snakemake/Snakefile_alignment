@@ -45,7 +45,7 @@ rule aln_against_reference:
     Align sequences against a reference.
     '''
     input:
-        fa = os.path.join(data_dir, 'sequences.fasta'),
+        fa = os.path.join(data_dir, 'sequences.fa'),
         ref = os.path.join(data_dir, 'ref', 'ZIKV.fa')
     output:
         aln = os.path.join(data_dir, 'aln.ref.fa')
