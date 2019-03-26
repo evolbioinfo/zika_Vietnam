@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def date2years(d, default='b(0,2019)'):
+def date2years(d, default='b(1900,2019)'):
     if pd.notnull(d):
         first_jan_this_year = pd.datetime(year=d.year, month=1, day=1)
         day_of_this_year = d - first_jan_this_year
