@@ -11,7 +11,7 @@ import os
 # snakemake --snakefile Snakefile_trees --config folder=.. --dag | dot -Tsvg > pipeline_trees.svg
 
 localrules: all
-ruleorder: posttempest > nex2nwk > tempest > pretempest
+ruleorder: date > posttempest > nex2nwk > tempest > pretempest > root_tree
 
 folder = os.path.abspath(config["folder"])
 data_dir = os.path.join(folder, 'data')
@@ -21,8 +21,39 @@ partitions = ['pos']
 
 rule all:
     input:
-        expand(os.path.join(data_dir, 'best_tree.{part}.tempest.rooted.no_outliers.dated.nwk'), part=partitions),
+        expand(os.path.join(data_dir, 'trees', 'Asian.{part}.dated.tempest.nwk'), part=partitions),
+        expand(os.path.join(data_dir, 'trees', 'All.{part}.dated.tempest.nwk'), part=partitions),
         expand(os.path.join(data_dir, 'distances_all_trees.{part}.tab'), part=partitions),
+
+
+
+rule result_tree_Asian:
+    input:
+        tree = os.path.join(data_dir, 'best_tree.{part}.rooted_African.tempest.rooted.no_outliers.dated.nwk'),
+    output:
+        tree = os.path.join(data_dir, 'trees', 'Asian.{part}.dated.tempest.nwk'),
+    threads: 1
+    params:
+        mem = 1000,
+        name = 'result_tree',
+    shell:
+        """
+        cp {input.tree} {output.tree}
+        """
+
+rule result_tree_full:
+    input:
+        tree = os.path.join(data_dir, 'best_tree.{part}.tempest.rooted.no_outliers.dated.nwk'),
+    output:
+        tree = os.path.join(data_dir, 'trees', 'All.{part}.dated.tempest.nwk'),
+    threads: 1
+    params:
+        mem = 1000,
+        name = 'result_tree',
+    shell:
+        """
+        cp {input.tree} {output.tree}
+        """
 
 
 rule partitioning_nt:
@@ -191,14 +222,13 @@ rule pretempest:
     params:
         mem = 1000,
         name = 'pretempest_{tree}',
-        date_col = 'collection_date',
-        genotype_col = 'genotype'
+        date_col = 'collection_date'
     threads: 1
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     shell:
         """
         python3 {folder}/py/pretempest.py --data {input.tab} --input_tree {input.tree} --output_tree {output.tree} \
-        --date_col {params.date_col} --genotype_col {params.genotype_col}
+        --date_col {params.date_col}
         """
 
 rule posttempest:
@@ -381,4 +411,47 @@ rule name_tree:
     shell:
         """
         python3 {folder}/py/name_tree.py --input_tree "{input.tree}" --output_tree "{output.tree}"
+        """
+
+rule get_seq_ids:
+    '''
+    Extract sequence ids of interest.
+    '''
+    input:
+        tab = os.path.join(data_dir, 'metadata.tab'),
+    output:
+        tab = os.path.join(data_dir, 'ids_{type}.txt')
+    params:
+        mem = 500,
+        name = 'ids_{type}',
+        col_value = '{type}',
+        col_name = 'type',
+        qos = 'fast'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab} \
+        --col_name "{params.col_name}" --col_value {params.col_value}
+        """
+
+
+rule root_tree:
+    '''
+    Roots a tree with an outgroup.
+    '''
+    input:
+        tree = os.path.join(data_dir, '{tree}.nwk'),
+        outgroup = os.path.join(data_dir, 'ids_{outgroup}.txt'),
+    output:
+        tree = os.path.join(data_dir, '{tree}.rooted_{outgroup}.nwk'),
+    singularity:
+        "docker://evolbioinfo/gotree:v0.3.0b"
+    params:
+        mem = 2000,
+        name = 'root_{outgroup}',
+    threads: 1
+    shell:
+        """
+        gotree reroot outgroup -i {input.tree} -l "{input.outgroup}" -o "{output.tree}" -r
         """

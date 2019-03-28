@@ -5,17 +5,17 @@ import os
 
 # To run on bioevo:
 # module load conda && source /local/gensoft2/exe/conda/3.19.0/conda/bin/activate snakemake && module load singularity
-# snakemake --snakefile Snakefile_acr --config folder='/pasteur/homes/azhukova/projects/dengue/ml_analysis' --keep-going --cores 1 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~" --cluster "sbatch -c {threads} -o logs/{params.name}.log -e logs/{params.name}.log --mem {params.mem} -p bioevo --qos=bioevo -A bioevo -J {params.name}" --jobs 300
+# snakemake --snakefile Snakefile_acr --config folder='/pasteur/homes/azhukova/projects/zika_atlas' --keep-going --cores 1 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~" --cluster "sbatch -c {threads} -o logs/{params.name}.log -e logs/{params.name}.log --mem {params.mem} -p bioevo --qos=bioevo -A bioevo -J {params.name}" --jobs 300
 
 # To visualise the pipeline
 # snakemake --snakefile Snakefile_acr --config folder=.. --dag | dot -Tsvg > pipeline_acr.svg
 
-localrules: all, itol_download, pastml_4_col
+localrules: all, pastml_4_col
 
-ruleorder: pastml_4_col > pastml_3_col > pastml_2_col > pastml
+ruleorder: pastml_4_col > pastml_3_col > pastml_2_col > pastml_F81 > pastml_JC
 
 folder = os.path.abspath(config["folder"])
-data_dir = os.path.join(folder, '..', 'data', 'few')
+data_dir = os.path.join(folder, 'data')
 
 serotypes = ['DENV1', 'DENV2', 'DENV3', 'DENV4']
 
@@ -30,11 +30,8 @@ rule all:
     input:
         expand(os.path.join(data_dir, maps_dir, '{loc}', 'geo_map_{loc}.html'), loc=locs),
 
-        expand(os.path.join(data_dir, maps_dir, '{loc}', 'acr_map_{loc}_{serotype}.dated.tempest.html'),
-        serotype=['{}.pos'.format(_) for _ in serotypes] + ['DENV.aa'], loc=['location_genotype', all_locs]),
-
-        expand(os.path.join(data_dir, 'figs', '{loc}', '{serotype}.dated.tempest.{format}'),
-        loc=locs, format=['eps', 'pdf'], serotype=['{}.pos'.format(_) for _ in serotypes] + ['DENV.aa']),
+        expand(os.path.join(data_dir, maps_dir, '{loc}', 'acr_map_{loc}_{type}.pos.dated.tempest.html'),
+        loc=['location_host_type', all_locs, all_locs + '_host_type', 'host_type'], type=['Asian', 'All']),
 
 
 
@@ -43,9 +40,9 @@ rule metadata_loc:
     Enriches location information in the metadata.
     '''
     input:
-        data = os.path.join(data_dir, 'ALL', 'metadata.tab'),
+        data = os.path.join(data_dir, 'metadata.tab'),
     output:
-        data = os.path.join(data_dir, 'ALL', 'metadata.location.tab')
+        data = os.path.join(data_dir, 'metadata.location.tab')
     params:
         mem = 2000,
         name = 'location'
@@ -56,31 +53,29 @@ rule metadata_loc:
         python3 {folder}/py/location_enchancer.py --output_data {output.data} --input_data {input.data}
         """
 
-
-
 rule pastml_2_col:
     '''
     ACR for 2 columns with PastML.
     '''
     input:
         tree = os.path.join(data_dir, 'trees', '{tree}.nwk'),
-        data = os.path.join(data_dir, 'ALL', 'metadata.location.tab'),
+        data = os.path.join(data_dir, 'metadata.location.tab'),
         param_col1 = os.path.join(data_dir, 'pastml', '{col1}', '{tree}', 'params.character_{col1}.method_MPPA.model_F81.tab'),
-        param_col2 = os.path.join(data_dir, 'pastml', '{col2}', '{tree}', 'params.character_{col2}.method_MPPA.model_F81.tab'),
+        param_col2 = os.path.join(data_dir, 'pastml', 'host_type', '{tree}', 'params.character_host_type.method_MPPA.model_JC.tab'),
     output:
         map = os.path.join(data_dir, maps_dir, \
-        '{col1,(country_code|location|continent|genotype)}_{col2,(country_code|location|continent|genotype)}', \
-        'acr_map_{col1}_{col2}_{tree}.html'),
-        tree = os.path.join(data_dir, maps_dir, '{col1}_{col2}', 'acr_tree_{col1}_{col2}_{tree}.html')
+        '{col1,(country_code|location|continent|genotype)}_host_type', \
+        'acr_map_{col1}_host_type_{tree}.html'),
+        tree = os.path.join(data_dir, maps_dir, '{col1}_host_type', 'acr_tree_{col1}_host_type_{tree}.html')
     threads: 3
     singularity: "docker://evolbioinfo/pastml:v1.9.12"
     params:
         mem = 4000,
-        name = 'pastml_{col1}_{col2}_{tree}',
+        name = 'pastml_{col1}_host_type_{tree}',
         col1 = '{col1}',
-        col2 = '{col2}',
+        col2 = 'host_type',
         date_col = 'collection_date',
-        wd = os.path.join(data_dir, 'pastml', '{col1}_{col2}', '{tree}')
+        wd = os.path.join(data_dir, 'pastml', '{col1}_host_type', '{tree}')
     shell:
         """
         pastml --tree {input.tree} --data {input.data} \
@@ -95,13 +90,13 @@ rule pastml_3_col:
     '''
     input:
         tree = os.path.join(data_dir, 'trees', '{tree}.nwk'),
-        data = os.path.join(data_dir, 'ALL', 'metadata.location.tab'),
+        data = os.path.join(data_dir, 'metadata.location.tab'),
         param_col1 = os.path.join(data_dir, 'pastml', '{col1}', '{tree}', 'params.character_{col1}.method_MPPA.model_F81.tab'),
         param_col2 = os.path.join(data_dir, 'pastml', '{col2}', '{tree}', 'params.character_{col2}.method_MPPA.model_F81.tab'),
         param_col3 = os.path.join(data_dir, 'pastml', '{col3}', '{tree}', 'params.character_{col3}.method_MPPA.model_F81.tab'),
     output:
         map = os.path.join(data_dir, maps_dir, \
-        '{col1,(country_code|location|continent|genotype)}_{col2,(country_code|location|continent|genotype)}_{col3,(country_code|location|continent|genotype)}', \
+        '{col1,(country_code|location|continent|host_type)}_{col2,(country_code|location|continent|host_type)}_{col3,(country_code|location|continent|host_type)}', \
         'acr_map_{col1}_{col2}_{col3}_{tree}.html'),
         tree = os.path.join(data_dir, maps_dir, '{col1}_{col2}_{col3}', 'acr_tree_{col1}_{col2}_{col3}_{tree}.html')
     threads: 3
@@ -129,28 +124,30 @@ rule pastml_4_col:
     '''
     input:
         tree = os.path.join(data_dir, 'trees', '{tree}.nwk'),
-        data = os.path.join(data_dir, 'ALL', 'metadata.location.tab'),
+        data = os.path.join(data_dir, 'metadata.location.tab'),
         param_col1 = os.path.join(data_dir, 'pastml', '{col1}', '{tree}', 'params.character_{col1}.method_MPPA.model_F81.tab'),
         param_col2 = os.path.join(data_dir, 'pastml', '{col2}', '{tree}', 'params.character_{col2}.method_MPPA.model_F81.tab'),
         param_col3 = os.path.join(data_dir, 'pastml', '{col3}', '{tree}', 'params.character_{col3}.method_MPPA.model_F81.tab'),
-        param_col4 = os.path.join(data_dir, 'pastml', '{col4}', '{tree}', 'params.character_{col4}.method_MPPA.model_F81.tab'),
+        param_col4 = os.path.join(data_dir, 'pastml', 'host_type', '{tree}', 'params.character_host_type.method_MPPA.model_JC.tab'),
     output:
-        map = os.path.join(data_dir, maps_dir, '{col1}_{col2}_{col3}_{col4}', 'acr_map_{col1}_{col2}_{col3}_{col4}_{tree}.html'),
-        tree = os.path.join(data_dir, maps_dir, '{col1}_{col2}_{col3}_{col4}', 'acr_tree_{col1}_{col2}_{col3}_{col4}_{tree}.html'),
-        url = os.path.join(data_dir, 'pastml', '{col1,(country_code|location|continent|genotype)}_{col2,(country_code|location|continent|genotype)}_{col3,(country_code|location|continent|genotype)}_{col4,(country_code|location|continent|genotype)}', \
+        map = os.path.join(data_dir, maps_dir, '{col1,((country_code)|(location)|(continent)|(host_type))}_{col2,((country_code)|(location)|(continent)|(host_type))}_{col3,((country_code)|(location)|(continent)|(host_type))}_host_type',\
+         'acr_map_{col1}_{col2}_{col3}_host_type_{tree}.html'),
+        tree = os.path.join(data_dir, maps_dir, '{col1,((country_code)|(location)|(continent)|(host_type))}_{col2,((country_code)|(location)|(continent)|(host_type))}_{col3,((country_code)|(location)|(continent)|(host_type))}_host_type', \
+        'acr_tree_{col1}_{col2}_{col3}_host_type_{tree}.html'),
+        url = os.path.join(data_dir, 'pastml', '{col1,((country_code)|(location)|(continent)|(host_type))}_{col2,((country_code)|(location)|(continent)|(host_type))}_{col3,((country_code)|(location)|(continent)|(host_type))}_host_type', \
         '{tree}', 'iTOL_tree_id.txt'),
     threads: 3
     singularity: "docker://evolbioinfo/pastml:v1.9.12"
     params:
         mem = 4000,
-        name = 'pastml_{col1}_{col2}_{col3}_{col4}_{tree}',
+        name = 'pastml_{col1}_{col2}_{col3}_host_type_{tree}',
         col1 = '{col1}',
         col2 = '{col2}',
         col3 = '{col3}',
-        col4 = '{col4}',
+        col4 = 'host_type',
         date_col = 'collection_date',
         itol_name = '{tree}',
-        wd = os.path.join(data_dir, 'pastml', '{col1}_{col2}_{col3}_{col4}', '{tree}')
+        wd = os.path.join(data_dir, 'pastml', '{col1}_{col2}_{col3}_host_type', '{tree}')
     shell:
         """
         pastml --tree {input.tree} --data {input.data} \
@@ -158,20 +155,20 @@ rule pastml_4_col:
         --name_column {params.col1} --date_column {params.date_col} --work_dir {params.wd} \
         --parameters {input.param_col1} {input.param_col2} {input.param_col3} {input.param_col4} \
         --tip_size_threshold 25 \
-        --upload_to_itol --itol_id ZxuhG2okfKLQnsgd5xAEGQ --itol_project DENV --itol_tree_name {params.itol_name}
+        --upload_to_itol --itol_id ZxuhG2okfKLQnsgd5xAEGQ --itol_project ZIKV --itol_tree_name {params.itol_name}
         """
 
-rule pastml:
+rule pastml_F81:
     '''
     ACR with PastML.
     '''
     input:
         tree = os.path.join(data_dir, 'trees', '{tree}.nwk'),
-        data = os.path.join(data_dir, 'ALL', 'metadata.location.tab'),
+        data = os.path.join(data_dir, 'metadata.location.tab'),
     output:
-        map = os.path.join(data_dir, maps_dir, '{col}', 'acr_map_{col}_{tree}.html'),
-        tree = os.path.join(data_dir, maps_dir, '{col}', 'acr_tree_{col}_{tree}.html'),
-        param = os.path.join(data_dir, 'pastml', '{col,(country_code|location|continent|genotype)}', '{tree}', 'params.character_{col}.method_MPPA.model_F81.tab'),
+        map = os.path.join(data_dir, maps_dir, '{col,(country_code|location|continent|host_type)}', 'acr_map_{col}_{tree}.html'),
+        tree = os.path.join(data_dir, maps_dir, '{col,(country_code|location|continent|host_type)}', 'acr_tree_{col}_{tree}.html'),
+        param = os.path.join(data_dir, 'pastml', '{col,(country_code|location|continent|host_type)}', '{tree}', 'params.character_{col}.method_MPPA.model_F81.tab'),
     threads: 2
     singularity: "docker://evolbioinfo/pastml:v1.9.12"
     params:
@@ -182,7 +179,33 @@ rule pastml:
         wd = os.path.join(data_dir, 'pastml', '{col}', '{tree}')
     shell:
         """
-        pastml --tree "{input.tree}" --data {input.data} \
+        pastml --tree "{input.tree}" --data {input.data} --model F81 \
+        --html_compressed "{output.map}" --html "{output.tree}" --columns {params.col} \
+        --date_column {params.date_col} -v --work_dir "{params.wd}" --tip_size_threshold 20
+        """
+
+rule pastml_JC:
+    '''
+    ACR with PastML.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'trees', '{tree}.nwk'),
+        data = os.path.join(data_dir, 'metadata.location.tab'),
+    output:
+        map = os.path.join(data_dir, maps_dir, '{col,(country_code|location|continent|host_type)}', 'acr_map_{col}_{tree}.html'),
+        tree = os.path.join(data_dir, maps_dir, '{col,(country_code|location|continent|host_type)}', 'acr_tree_{col}_{tree}.html'),
+        param = os.path.join(data_dir, 'pastml', '{col,(country_code|location|continent|host_type)}', '{tree}', 'params.character_{col}.method_MPPA.model_JC.tab'),
+    threads: 2
+    singularity: "docker://evolbioinfo/pastml:v1.9.12"
+    params:
+        mem = 4000,
+        name = 'pastml_{col}_{tree}',
+        col = '{col}',
+        date_col = 'collection_date',
+        wd = os.path.join(data_dir, 'pastml', '{col}', '{tree}')
+    shell:
+        """
+        pastml --tree "{input.tree}" --data {input.data} --model JC \
         --html_compressed "{output.map}" --html "{output.tree}" --columns {params.col} \
         --date_column {params.date_col} -v --work_dir "{params.wd}" --tip_size_threshold 20
         """
@@ -192,7 +215,7 @@ rule geomap:
     Reconstructs the geographical map coloured according to PastML categories.
     '''
     input:
-        data = os.path.join(data_dir, 'ALL', 'metadata.location.tab'),
+        data = os.path.join(data_dir, 'metadata.location.tab'),
     output:
         geo_map = os.path.join(data_dir, maps_dir, '{loc}', 'geo_map_{loc}.html'),
     threads: 1
@@ -205,59 +228,4 @@ rule geomap:
     shell:
         """
         geomap --data {input.data} --html {output.geo_map} --location {params.loc} --country {params.country_col}
-        """
-
-rule itol_download:
-    '''
-    Extracts itol metadata
-    '''
-    input:
-        url = os.path.join(data_dir, 'pastml', all_locs + '_genotype', '{tree}', 'iTOL_tree_id.txt'),
-    output:
-        loc = os.path.join(data_dir, 'figs', 'location', '{tree}.{format}'),
-        country = os.path.join(data_dir, 'figs', 'country_code', '{tree}.{format}'),
-        continent = os.path.join(data_dir, 'figs', 'continent', '{tree}.{format}')
-    params:
-        mem = 2000,
-        name = 'itol_download_{tree}_{format}',
-        format = '{format}'
-    singularity:
-        "docker://evolbioinfo/gotree:v0.3.0b"
-    threads: 1
-    shell:
-        """
-        tree=`(cat "{input.url}")`
-
-        echo "display_mode\t1
-vertical_shift_factor\t0.06
-label_display\t0
-datasets_visible\t2,7
-tree_x\t400
-format\t{params.format}" > "{output.loc}.config.tab"
-
-        gotree download itol -i $tree -c "{output.loc}.config.tab" -o "{output.loc}"
-
-        rm {output.loc}.config.tab
-
-        echo "display_mode\t1
-vertical_shift_factor\t0.06
-label_display\t0
-datasets_visible\t2,5
-tree_x\t400
-format\t{params.format}" > "{output.country}.config.tab"
-
-        gotree download itol -i $tree -c "{output.country}.config.tab" -o "{output.country}"
-
-        rm {output.country}.config.tab
-
-        echo "display_mode\t1
-vertical_shift_factor\t0.06
-label_display\t0
-datasets_visible\t2,4
-tree_x\t400
-format\t{params.format}" > "{output.continent}.config.tab"
-
-        gotree download itol -i $tree -c "{output.continent}.config.tab" -o "{output.continent}"
-
-        rm "{output.continent}.config.tab"
         """
