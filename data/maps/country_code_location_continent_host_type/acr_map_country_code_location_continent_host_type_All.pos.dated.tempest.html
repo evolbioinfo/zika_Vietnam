@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: helvetica,serif;
+  font-size: 14px;
+}
+
+#cy {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+}
+
+h1 {
+  opacity: 0.5;
+  font-size: 1em;
+}
+
+.floating {
+    max-width: 30%;
+    width: 120px;
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.cy-button {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 6px 0px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
+a.cy-button:link, a.cy-button:visited, a.cy-button:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
+.slidertext {
+    width: 100%;
+    color: #555555;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    text-align: center;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin: 10px 0px;
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #555555;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #555555;
+    cursor: pointer;
+}
+
+@media all and (max-width: 600px) {
+    .buttontext {
+        display: none;
+    }
+}
+
+
+</style>
+<meta charset=utf-8 />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+<title>acr_map_country_code_location_continent_host_type_All.pos.dated.tempest</title>
+    <script  type='text/javascript' src="https://pastml.pasteur.fr/static/js/cytoscape.min.js"></script>
+    <script  type='text/javascript' src="https://pastml.pasteur.fr/static/js/dagre.min.js"></script>
+    <script  type='text/javascript' src="https://pastml.pasteur.fr/static/js/cytoscape-dagre.js"></script>
+
+    <script  type='text/javascript' src="https://pastml.pasteur.fr/static/js/jquery.min.js"></script>
+    <script  type='text/javascript' src="https://pastml.pasteur.fr/static/js/jquery.qtip.min.js"></script>
+    <script  type='text/javascript' src="https://pastml.pasteur.fr/static/js/cytoscape-qtip.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://pastml.pasteur.fr/static/css/jquery.qtip.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<meta http-Equiv="Cache-Control" Content="no-cache" />
+<meta http-Equiv="Pragma" Content="no-cache" />
+<meta http-Equiv="Expires" Content="0" />
+</head>
+<body>
+<div id="fullscreenDiv">
+<div id="cy"></div>
+<div class="floating">
+    <a class="cy-button" href="#" id="fit" onclick="fit()">
+        <span class="glyphicon glyphicon-resize-full"></span><span class="buttontext">  Fit screen</span>
+    </a>
+    <a class="cy-button" href="#" id="reset" onclick="resetLayout()">
+        <span class="glyphicon glyphicon-picture"></span><span class="buttontext">  Layout</span>
+    </a>
+    <a class="cy-button" href="#" id="downloader" onclick="toImage()" download="acr_map_country_code_location_continent_host_type_All.pos.dated.tempest.jpg">
+        <span class="glyphicon glyphicon-save"></span><span class="buttontext">  Save (jpg)</span>
+    </a>
+    <a class="cy-button" href="#" id="fullscreen" onclick="toggleFullScreen()">
+        <span id="fsspan" class="glyphicon glyphicon-fullscreen"></span><span id="fstext" class="buttontext">  Full screen</span>
+    </a>
+    
+<div class="slidecontainer">
+  <input type="range" min="0" max="5" value="5" class="slider" id="myRange" step="1">
+  <div class="slidertext">collection_date: <span id="demo"></span></div>
+</div>
+</div></div>
+<!-- Load appplication code at the end to ensure DOM is loaded -->
+<script type="text/javascript">
+var layoutOptions = {
+    name: 'dagre',
+    nodesep: 10, // the separation between adjacent nodes in the same rank
+    edgeSep: 10, // the separation between adjacent edges in the same rank
+    rankSep: 80, // the separation between adjacent ranks
+    rankDir: 'TB', // 'TB' for top to bottom flow, 'LR' for left to right,
+    ranker: 'longest-path', // Type of algorithm to assign a rank to each node in the input graph. Possible values: 'network-simplex', 'tight-tree' or 'longest-path'
+    minLen: 1, // number of ranks to keep between the source and target of the edge
+
+    // general layout options
+    fit: true, // whether to fit to viewport
+    padding: 1, // fit padding
+    spacingFactor: undefined, // Applies a multiplicative factor (>0) to expand or compress the overall area that the nodes take up
+    nodeDimensionsIncludeLabels: true, // whether labels should be included in determining the space used by a node
+    animate: false, // whether to transition the node positions
+    animateFilter: function( node, i ){ return true; }, // whether to animate specific nodes when animation is on; non-animated nodes immediately go to their final positions
+    animationDuration: 500, // duration of animation in ms if enabled
+    animationEasing: undefined, // easing of animation if enabled
+    boundingBox: undefined, // constrain layout bounds; { x1, y1, x2, y2 } or { x1, y1, w, h }
+    transform: function( node, pos ){ return pos; }, // a function that applies a transform to the final node position
+    ready: function(){}, // on layoutready
+    stop: function(){} // on layoutstop
+  };
+
+var cy = cytoscape({
+  container: document.getElementById('cy'),
+
+  style: cytoscape.stylesheet()
+    .selector('node')
+      .css({
+        'width': 300,
+        'height': 300,
+        'content': '',
+        'shape': 'ellipse',
+        'pie-size': '100%',
+        'background-color': '#909090',
+        'color': '#383838',
+        'text-opacity': 1,
+        'text-valign': 'center',
+        'text-halign': 'center',
+        'font-size': 80,
+        'text-halign' : 'center',
+        'text-valign' : 'center',
+        'min-zoomed-font-size': 12,
+        'text-background-color' : '#ffffff',
+        'text-background-shape' : 'roundrectangle',
+        'text-background-opacity': .3,
+        'text-background-padding' : 1,
+      })
+    .selector('node[node_name]')
+      .css({
+        'content': 'data(node_name)',
+      })
+    .selector('node[tip]')
+      .css({
+        'width': 400,
+        'height': 400,
+        'font-size': 100,
+      })
+    .selector('node[unresolved]')
+      .css({
+        'shape': 'octagon',
+        'pie-size': '92%',
+        'width': 500,
+        'height': 500,
+        'font-size': 125,
+      })
+    .selector('node[node_size]')
+      .css({
+        'width': 'data(node_size)',
+        'height': 'data(node_size)',
+      })
+    .selector('node[node_fontsize]')
+      .css({
+        'font-size': 'data(node_fontsize)',
+      })
+    
+    .selector(".continent-countrycode-hosttype-location")
+        .css({
+        
+                'pie-1-background-color': "#ffffff",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#ffffff",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#ffffff",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#ffffff",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continent-countrycodeCHN-hosttypehuman-locationEasternAsia")
+        .css({
+        
+                'pie-1-background-color': "#ffffff",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#cc3348",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#33a02c",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAfrica-countrycodeSEN-hosttypemosquito-locationAfrica")
+        .css({
+        
+                'pie-1-background-color': "#e41a1c",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#cc338a",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#b2df8a",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#a6cee3",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycode-hosttypehuman-locationCentralAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#ffffff",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#b2df8a",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeBRA-hosttypehuman-locationSouthAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#74cc33",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#ff7f00",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeBRA-hosttypemonkey-locationSouthAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#74cc33",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#1f78b4",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#ff7f00",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeCOL-hosttypehuman-locationSouthAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#cc5e33",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#ff7f00",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeCUB-hosttypehuman-locationCaribbean")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#a7cc99",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#1f78b4",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeDOM-hosttypehuman-locationCaribbean")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#66bdcc",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#1f78b4",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeGTM-hosttypehuman-locationCentralAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#74cc66",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#b2df8a",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeHND-hosttypehuman-locationCentralAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#bd99cc",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#b2df8a",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeHTI-hosttypehuman-locationCaribbean")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#cca066",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#1f78b4",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeJAM-hosttypehuman-locationCaribbean")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#cca033",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#1f78b4",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeMEX-hosttypehuman-locationCentralAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#ccc499",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#b2df8a",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeMEX-hosttypemosquito-locationCentralAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#ccc499",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#b2df8a",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#b2df8a",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeNIC-hosttypehuman-locationCentralAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#cccc66",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#b2df8a",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodePRI-hosttypehuman-locationCaribbean")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#b6cc33",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#1f78b4",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeUSA-hosttypehuman-locationNorthernAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#a799cc",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#e31a1c",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAmericas-countrycodeUSA-hosttypemosquito-locationNorthernAmerica")
+        .css({
+        
+                'pie-1-background-color': "#377eb8",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#a799cc",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#b2df8a",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#e31a1c",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAsia-countrycode-hosttypehuman-location")
+        .css({
+        
+                'pie-1-background-color': "#4daf4a",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#ffffff",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#ffffff",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAsia-countrycode-hosttypehuman-locationSouth-easternAsia")
+        .css({
+        
+                'pie-1-background-color': "#4daf4a",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#ffffff",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#cab2d6",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAsia-countrycodeCHN-hosttypehuman-locationEasternAsia")
+        .css({
+        
+                'pie-1-background-color': "#4daf4a",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#cc3348",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#33a02c",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAsia-countrycodeSGP-hosttypehuman-locationSouth-easternAsia")
+        .css({
+        
+                'pie-1-background-color': "#4daf4a",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#bdcc99",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#cab2d6",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAsia-countrycodeSGP-hosttypemosquito-locationSouth-easternAsia")
+        .css({
+        
+                'pie-1-background-color': "#4daf4a",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#bdcc99",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#b2df8a",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#cab2d6",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentAsia-countrycodeTHA-hosttypehuman-locationSouth-easternAsia")
+        .css({
+        
+                'pie-1-background-color': "#4daf4a",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#cc99ae",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#cab2d6",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentEurope-countrycodeRUS-hosttypehuman-locationEurope")
+        .css({
+        
+                'pie-1-background-color': "#984ea3",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#6666cc",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#fb9a99",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector(".continentOceania-countrycodePYF-hosttypehuman-locationOceania")
+        .css({
+        
+                'pie-1-background-color': "#ff7f00",
+                'pie-1-background-size': '25.0\%',
+            
+                'pie-2-background-color': "#99ccb6",
+                'pie-2-background-size': '25.0\%',
+            
+                'pie-3-background-color': "#a6cee3",
+                'pie-3-background-size': '25.0\%',
+            
+                'pie-4-background-color': "#fdbf6f",
+                'pie-4-background-size': '25.0\%',
+            
+        })
+    
+    .selector('edge')
+      .css({
+        'width': 50,
+        'font-size': 80,
+        'color': 'black',
+        'content': '',
+        'curve-style': 'bezier',
+        'target-arrow-shape': 'triangle',
+        'target-arrow-color': '#909090',
+        'opacity': 0.8,
+        'text-opacity': 1,
+        'line-color': '#909090',
+        'text-background-color' : '#ffffff',
+        'text-background-shape' : 'roundrectangle',
+        'text-background-opacity': 1,
+        'text-background-padding' : 4,
+        'min-zoomed-font-size': 10,
+      })
+    .selector('edge[edge_meta]')
+      .css({
+        'line-color': '#383838',
+        'target-arrow-color': '#383838',
+      })
+    .selector('edge[edge_name]')
+      .css({
+        'content': 'data(edge_name)',
+      })
+    .selector('edge[edge_size]')
+      .css({
+        'width': 'data(edge_size)',
+        'font-size': 'data(edge_size)',
+      })
+    .selector(':selected')
+      .css({
+        'background-color': 'black',
+        'line-color': 'black',
+        'target-arrow-color': 'black',
+        'source-arrow-color': 'black',
+        'pie-size': '60%',
+        'opacity': 1
+      })
+    .selector('.faded')
+      .css({
+        'opacity': 0.25,
+        'text-opacity': 0
+      }),
+
+  elements: {'nodes': [{'data': {'node_in_tips_0': ' 0', 'node_in_ns_2': ' 1', 'node_fontsize_1': 80, 'node_name_0': ' 0', 'node_size_4': 266, 'node_in_tips_1': ' 0', 'node_all_tips_1': ' 8', 'node_size': 266, 'node_names_0': 'root', 'node_name': ' 0', 'node_all_tips_0': ' 1', 'node_in_tips_2': ' 0', 'node_names': 'root', 'node_name_2': ' 0', 'node_in_tips_5': ' 0', 'node_in_ns_5': ' 1', 'node_in_ns_1': ' 1', 'node_names_3': 'root', 'node_in_tips_3': ' 0', 'unresolved': 1, 'node_names_5': 'root', 'node_fontsize_3': 80, 'node_in_ns_4': ' 1', 'node_name_5': ' 0', 'node_in_ns_0': ' 1', 'node_size_2': 266, 'node_all_tips_4': ' 12', 'node_size_5': 266, 'node_names_2': 'root', 'node_fontsize_5': 80, 'node_fontsize': 80, 'node_name_3': ' 0', 'node_all_tips_5': ' 680', 'node_name_4': ' 0', 'node_fontsize_0': 80, 'node_root_id': 'root', 'node_all_tips_3': ' 8', 'date': 0, 'node_in_ns_3': ' 1', 'node_name_1': ' 0', 'node_names_4': 'root', 'node_fontsize_2': 80, 'node_in_tips': ' 0', 'node_fontsize_4': 80, 'node_all_tips_2': ' 8', 'node_size_3': 266, 'node_all_tips': ' 681', 'node_in_ns': ' 1', 'node_size_0': 266, 'node_size_1': 266, 'node_names_1': 'root', 'node_in_tips_4': ' 0', 'id': 0, 'tooltip': 'continent: Americas or Asia or Europe or Oceania<br>country_code: BRA or CHN or COL or CUB or DOM or GTM or HND or HTI or ITA or JAM or JPN or MEX or NIC or PYF or RUS or SGP or USA<br>host_type: human or monkey or mosquito<br>location: Caribbean or Central America or Eastern Asia or Europe or Northern America or Oceania or South America or South-eastern Asia'}, 'classes': 'continent-countrycode-hosttype-location'}, {'data': {'node_size': 266, 'node_in_ns_4': ' 1', 'node_name': ' 0', 'node_name_5': ' 0', 'node_names_4': 'n0', 'node_names': 'n0', 'node_in_tips': ' 0', 'node_all_tips_4': ' 4', 'node_in_tips_5': ' 0', 'node_size_5': 266, 'node_fontsize_4': 80, 'node_fontsize_5': 80, 'node_fontsize': 80, 'node_in_ns_5': ' 1', 'node_all_tips_5': ' 672', 'node_name_4': ' 0', 'node_root_id': 'n0', 'node_all_tips': ' 673', 'node_in_ns': ' 1', 'unresolved': 1, 'node_names_5': 'n0', 'node_size_4': 266, 'date': 4, 'node_in_tips_4': ' 0', 'id': 1, 'tooltip': 'continent: Asia<br>country_code: BRA or COL or DOM or HND or JPN or KOR or MEX or NIC or PHL or PYF or RUS or THA or USA<br>host_type: human<br>location: South-eastern Asia'}, 'classes': 'continentAsia-countrycode-hosttypehuman-locationSouth-easternAsia'}, {'data': {'node_in_tips_0': ' 1', 'node_in_ns_2': ' 7', 'node_fontsize_1': 117, 'node_name_0': 'SEN 1', 'node_size_4': 530, 'node_in_tips_1': ' 8', 'node_all_tips_1': ' 8', 'node_size': 530, 'node_names_0': 'n672', 'node_name': 'SEN 8', 'node_all_tips_0': ' 1', 'node_in_tips_2': ' 8', 'node_names': 'n672', 'node_name_2': 'SEN 8', 'node_in_tips_5': ' 8', 'node_in_ns_5': ' 7', 'node_in_ns_1': ' 7', 'node_names_3': 'n672', 'node_in_tips_3': ' 8', 'node_names_5': 'n672', 'node_fontsize_3': 117, 'node_in_ns_4': ' 7', 'node_name_5': 'SEN 8', 'node_in_ns_0': ' 2', 'node_size_2': 530, 'node_all_tips_4': ' 8', 'node_size_5': 530, 'node_names_2': 'n672', 'node_fontsize_5': 117, 'node_fontsize': 117, 'node_name_3': 'SEN 8', 'node_all_tips_5': ' 8', 'node_name_4': 'SEN 8', 'node_fontsize_0': 80, 'node_root_id': 'n672', 'node_all_tips_3': ' 8', 'date': 0, 'node_in_ns_3': ' 7', 'node_name_1': 'SEN 8', 'node_names_4': 'n672', 'node_fontsize_2': 117, 'node_in_tips': ' 8', 'node_fontsize_4': 117, 'node_all_tips_2': ' 8', 'node_size_3': 530, 'node_all_tips': ' 8', 'node_in_ns': ' 7', 'node_size_0': 200, 'node_size_1': 530, 'node_names_1': 'n672', 'node_in_tips_4': ' 8', 'id': 2, 'tip': 1, 'tooltip': 'continent: Africa<br>country_code: SEN<br>host_type: mosquito<br>location: Africa'}, 'classes': 'continentAfrica-countrycodeSEN-hosttypemosquito-locationAfrica'}, {'data': {'node_size': 704, 'node_in_ns_4': ' 2', 'node_name': 'THA 14', 'node_name_5': 'THA 14', 'node_names_4': 'n1', 'node_names': 'n1', 'node_in_tips': ' 14', 'node_all_tips_4': ' 4', 'node_in_tips_5': ' 14', 'node_size_5': 704, 'node_fontsize_4': 80, 'node_fontsize_5': 137, 'node_fontsize': 137, 'node_in_ns_5': ' 23', 'node_all_tips_5': ' 668', 'node_name_4': 'THA 1', 'node_root_id': 'n1', 'node_all_tips': ' 669', 'node_in_ns': ' 23', 'node_names_5': 'n1', 'node_size_4': 200, 'date': 4, 'node_in_tips_4': ' 1', 'id': 3, 'tooltip': 'continent: Asia<br>country_code: THA<br>host_type: human<br>location: South-eastern Asia'}, 'classes': 'continentAsia-countrycodeTHA-hosttypehuman-locationSouth-easternAsia'}, {'data': {'node_size': 266, 'node_name': ' 0', 'node_name_5': ' 0', 'node_names': 'n8', 'node_in_tips': ' 0', 'node_in_tips_5': ' 0', 'node_size_5': 266, 'node_fontsize_5': 80, 'node_fontsize': 80, 'node_in_ns_5': ' 1', 'node_all_tips_5': ' 525', 'node_root_id': 'n8', 'node_all_tips': ' 525', 'node_in_ns': ' 1', 'unresolved': 1, 'node_names_5': 'n8', 'date': 5, 'id': 4, 'tooltip': 'continent: Asia<br>country_code: PYF or THA<br>host_type: human<br>location: Oceania or South-eastern Asia'}, 'classes': 'continentAsia-countrycode-hosttypehuman-location'}, {'data': {'node_size': 1496, 'node_name': 'SGP 101', 'node_name_5': 'SGP 101', 'node_names': 'n535', 'node_in_tips': ' 101', 'node_in_tips_5': ' 101', 'node_size_5': 1496, 'node_fontsize_5': 228, 'node_fontsize': 228, 'node_in_ns_5': ' 54', 'node_all_tips_5': ' 116', 'node_root_id': 'n535', 'node_all_tips': ' 116', 'node_in_ns': ' 54', 'node_names_5': 'n535', 'date': 5, 'id': 5, 'tooltip': 'continent: Asia<br>country_code: SGP<br>host_type: human<br>location: South-eastern Asia'}, 'classes': 'continentAsia-countrycodeSGP-hosttypehuman-locationSouth-easternAsia'}, {'data': {'node_size': 494, 'node_name': 'PYF 7', 'node_name_5': 'PYF 7', 'node_names': 'n9', 'node_in_tips': ' 7', 'node_in_tips_5': ' 7', 'node_size_5': 494, 'node_fontsize_5': 113, 'node_fontsize': 113, 'node_in_ns_5': ' 7', 'node_all_tips_5': ' 524', 'node_root_id': 'n9', 'node_all_tips': ' 524', 'node_in_ns': ' 7', 'node_names_5': 'n9', 'date': 5, 'id': 6, 'tooltip': 'continent: Oceania<br>country_code: PYF<br>host_type: human<br>location: Oceania'}, 'classes': 'continentOceania-countrycodePYF-hosttypehuman-locationOceania'}, {'data': {'node_size': 261, 'node_name': 'SGP 1-2', 'node_name_5': 'SGP 1-2', 'node_meta': 1, 'node_names': 'KY241775, KY241776, KY241777, KY241778, KY241780, KY241782, KY241783, KY241784, KY241785, KY241786, KY241787, n537', 'node_in_tips': ' 1-2', 'node_meta_5': 1, 'node_in_tips_5': ' 1-2', 'node_size_5': 261, 'node_fontsize_5': 87, 'node_fontsize': 87, 'node_in_ns_5': ' 0-1', 'node_all_tips_5': ' 1-2', 'node_root_id': 'n537', 'node_all_tips': ' 1-2', 'node_in_ns': ' 0-1', 'node_names_5': 'KY241775, KY241776, KY241777, KY241778, KY241780, KY241782, KY241783, KY241784, KY241785, KY241786, KY241787, n537', 'date': 5, 'id': 7, 'tip': 1, 'tooltip': 'continent: Asia<br>country_code: SGP<br>host_type: mosquito<br>location: South-eastern Asia'}, 'classes': 'continentAsia-countrycodeSGP-hosttypemosquito-locationSouth-easternAsia'}, {'data': {'node_size': 1600, 'node_name': 'BRA 129', 'node_name_5': 'BRA 129', 'node_names': 'n34', 'node_in_tips': ' 129', 'node_in_tips_5': ' 129', 'node_size_5': 1600, 'node_fontsize_5': 240, 'node_fontsize': 240, 'node_in_ns_5': ' 91', 'node_all_tips_5': ' 496', 'node_root_id': 'n34', 'node_all_tips': ' 496', 'node_in_ns': ' 91', 'node_names_5': 'n34', 'date': 5, 'id': 8, 'tooltip': 'continent: Americas<br>country_code: BRA<br>host_type: human<br>location: South America'}, 'classes': 'continentAmericas-countrycodeBRA-hosttypehuman-locationSouthAmerica'}, {'data': {'node_size': 773, 'node_name': 'CHN 17', 'node_name_5': 'CHN 17', 'node_names': 'n14', 'node_in_tips': ' 17', 'node_in_tips_5': ' 17', 'node_size_5': 773, 'node_fontsize_5': 145, 'node_fontsize': 145, 'node_in_ns_5': ' 10', 'node_all_tips_5': ' 19', 'node_root_id': 'n14', 'node_all_tips': ' 19', 'node_in_ns': ' 10', 'node_names_5': 'n14', 'date': 5, 'id': 9, 'tip': 1, 'tooltip': 'continent: Asia<br>country_code: CHN<br>host_type: human<br>location: Eastern Asia'}, 'classes': 'continentAsia-countrycodeCHN-hosttypehuman-locationEasternAsia'}, {'data': {'node_size': 367, 'node_name': 'BRA 1-4', 'node_name_5': 'BRA 1-4', 'node_meta': 1, 'node_names': 'KX986760, n238', 'node_in_tips': ' 1-4', 'node_meta_5': 1, 'node_in_tips_5': ' 1-4', 'node_size_5': 367, 'node_fontsize_5': 99, 'node_fontsize': 99, 'node_in_ns_5': ' 0-3', 'node_all_tips_5': ' 1-4', 'node_root_id': 'KX986760', 'node_all_tips': ' 1-4', 'node_in_ns': ' 0-3', 'node_names_5': 'KX986760, n238', 'date': 5, 'id': 10, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: BRA<br>host_type: monkey<br>location: South America'}, 'classes': 'continentAmericas-countrycodeBRA-hosttypemonkey-locationSouthAmerica'}, {'data': {'node_size': 266, 'node_name': 'CHN 0', 'node_name_5': 'CHN 0', 'node_names': 'n260', 'node_in_tips': ' 0', 'node_in_tips_5': ' 0', 'node_size_5': 266, 'node_fontsize_5': 80, 'node_fontsize': 80, 'node_in_ns_5': ' 1', 'node_all_tips_5': ' 8', 'node_root_id': 'n260', 'node_all_tips': ' 8', 'node_in_ns': ' 1', 'unresolved': 1, 'node_names_5': 'n260', 'date': 5, 'id': 11, 'tooltip': 'continent: Americas or Asia<br>country_code: CHN<br>host_type: human<br>location: Eastern Asia'}, 'classes': 'continent-countrycodeCHN-hosttypehuman-locationEasternAsia'}, {'data': {'node_size': 1216, 'node_name': 'COL 52', 'node_name_5': 'COL 52', 'node_names': 'n437', 'node_in_tips': ' 52', 'node_in_tips_5': ' 52', 'node_size_5': 1216, 'node_fontsize_5': 196, 'node_fontsize': 196, 'node_in_ns_5': ' 33', 'node_all_tips_5': ' 70', 'node_root_id': 'n437', 'node_all_tips': ' 70', 'node_in_ns': ' 33', 'node_names_5': 'n437', 'date': 5, 'id': 12, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: COL<br>host_type: human<br>location: South America'}, 'classes': 'continentAmericas-countrycodeCOL-hosttypehuman-locationSouthAmerica'}, {'data': {'node_size': 933, 'node_name': 'DOM 26', 'node_name_5': 'DOM 26', 'node_names': 'n312', 'node_in_tips': ' 26', 'node_in_tips_5': ' 26', 'node_size_5': 933, 'node_fontsize_5': 163, 'node_fontsize': 163, 'node_in_ns_5': ' 23', 'node_all_tips_5': ' 105', 'node_root_id': 'n312', 'node_all_tips': ' 105', 'node_in_ns': ' 23', 'node_names_5': 'n312', 'date': 5, 'id': 13, 'tooltip': 'continent: Americas<br>country_code: DOM<br>host_type: human<br>location: Caribbean'}, 'classes': 'continentAmericas-countrycodeDOM-hosttypehuman-locationCaribbean'}, {'data': {'node_size': 1165, 'node_name': 'MEX 46', 'node_name_5': 'MEX 46', 'node_names': 'n97', 'node_in_tips': ' 46', 'node_in_tips_5': ' 46', 'node_size_5': 1165, 'node_fontsize_5': 190, 'node_fontsize': 190, 'node_in_ns_5': ' 34', 'node_all_tips_5': ' 131', 'node_root_id': 'n97', 'node_all_tips': ' 131', 'node_in_ns': ' 34', 'node_names_5': 'n97', 'date': 5, 'id': 14, 'tooltip': 'continent: Americas<br>country_code: MEX<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeMEX-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 530, 'node_name': 'PRI 8', 'node_name_5': 'PRI 8', 'node_names': 'n244', 'node_in_tips': ' 8', 'node_in_tips_5': ' 8', 'node_size_5': 530, 'node_fontsize_5': 117, 'node_fontsize': 117, 'node_in_ns_5': ' 9', 'node_all_tips_5': ' 15', 'node_root_id': 'n244', 'node_all_tips': ' 15', 'node_in_ns': ' 9', 'node_names_5': 'n244', 'date': 5, 'id': 15, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: PRI<br>host_type: human<br>location: Caribbean'}, 'classes': 'continentAmericas-countrycodePRI-hosttypehuman-locationCaribbean'}, {'data': {'node_size': 413, 'node_name': 'PYF 1-5', 'node_name_5': 'PYF 1-5', 'node_meta': 1, 'node_names': 'KX447510, KX447518, n35, n37, n528', 'node_in_tips': ' 1-5', 'node_meta_5': 1, 'node_in_tips_5': ' 1-5', 'node_size_5': 413, 'node_fontsize_5': 104, 'node_fontsize': 104, 'node_in_ns_5': ' 0-4', 'node_all_tips_5': ' 1-5', 'node_root_id': 'n35', 'node_all_tips': ' 1-5', 'node_in_ns': ' 0-4', 'node_names_5': 'KX447510, KX447518, n35, n37, n528', 'date': 5, 'id': 16, 'tip': 1, 'tooltip': 'continent: Oceania<br>country_code: PYF<br>host_type: human<br>location: Oceania'}, 'classes': 'continentOceania-countrycodePYF-hosttypehuman-locationOceania'}, {'data': {'node_size': 367, 'node_name': 'CHN 3-4', 'node_name_5': 'CHN 3-4', 'node_meta': 1, 'node_names': 'n262, n264', 'node_in_tips': ' 3-4', 'node_meta_5': 1, 'node_in_tips_5': ' 3-4', 'node_size_5': 367, 'node_fontsize_5': 99, 'node_fontsize': 99, 'node_in_ns_5': ' 2-3', 'node_all_tips_5': ' 3-4', 'node_root_id': 'n264', 'node_all_tips': ' 3-4', 'node_in_ns': ' 2-3', 'node_names_5': 'n262, n264', 'date': 5, 'id': 17, 'tip': 1, 'tooltip': 'continent: Asia<br>country_code: CHN<br>host_type: human<br>location: Eastern Asia'}, 'classes': 'continentAsia-countrycodeCHN-hosttypehuman-locationEasternAsia'}, {'data': {'node_size': 261, 'node_name': 'CUB 1-2', 'node_name_5': 'CUB 1-2', 'node_meta': 1, 'node_names': 'MF438286, n327, n334', 'node_in_tips': ' 1-2', 'node_meta_5': 1, 'node_in_tips_5': ' 1-2', 'node_size_5': 261, 'node_fontsize_5': 87, 'node_fontsize': 87, 'node_in_ns_5': ' 0-1', 'node_all_tips_5': ' 1-2', 'node_root_id': 'MF438286', 'node_all_tips': ' 1-2', 'node_in_ns': ' 0-1', 'node_names_5': 'MF438286, n327, n334', 'date': 5, 'id': 18, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: CUB<br>host_type: human<br>location: Caribbean'}, 'classes': 'continentAmericas-countrycodeCUB-hosttypehuman-locationCaribbean'}, {'data': {'node_size': 455, 'node_name': 'HTI 6', 'node_name_5': 'HTI 6', 'node_names': 'n405', 'node_in_tips': ' 6', 'node_in_tips_5': ' 6', 'node_size_5': 455, 'node_fontsize_5': 109, 'node_fontsize': 109, 'node_in_ns_5': ' 3', 'node_all_tips_5': ' 9', 'node_root_id': 'n405', 'node_all_tips': ' 9', 'node_in_ns': ' 3', 'node_names_5': 'n405', 'date': 5, 'id': 19, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: HTI<br>host_type: human<br>location: Caribbean'}, 'classes': 'continentAmericas-countrycodeHTI-hosttypehuman-locationCaribbean'}, {'data': {'node_size': 261, 'node_name': 'JAM 1-2', 'node_name_5': 'JAM 1-2', 'node_meta': 1, 'node_names': 'KY785419, KY785424, KY785438, n353', 'node_in_tips': ' 1-2', 'node_meta_5': 1, 'node_in_tips_5': ' 1-2', 'node_size_5': 261, 'node_fontsize_5': 87, 'node_fontsize': 87, 'node_in_ns_5': ' 0-1', 'node_all_tips_5': ' 1-2', 'node_root_id': 'KY785438', 'node_all_tips': ' 1-2', 'node_in_ns': ' 0-1', 'node_names_5': 'KY785419, KY785424, KY785438, n353', 'date': 5, 'id': 20, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: JAM<br>host_type: human<br>location: Caribbean'}, 'classes': 'continentAmericas-countrycodeJAM-hosttypehuman-locationCaribbean'}, {'data': {'node_size': 317, 'node_name': 'RUS 1-3', 'node_name_5': 'RUS 1-3', 'node_meta': 1, 'node_names': 'MF098764, MF098765, MF098766, n322', 'node_in_tips': ' 1-3', 'node_meta_5': 1, 'node_in_tips_5': ' 1-3', 'node_size_5': 317, 'node_fontsize_5': 93, 'node_fontsize': 93, 'node_in_ns_5': ' 0-1', 'node_all_tips_5': ' 1-3', 'node_root_id': 'n322', 'node_all_tips': ' 1-3', 'node_in_ns': ' 0-1', 'node_names_5': 'MF098764, MF098765, MF098766, n322', 'date': 5, 'id': 21, 'tip': 1, 'tooltip': 'continent: Europe<br>country_code: RUS<br>host_type: human<br>location: Europe'}, 'classes': 'continentEurope-countrycodeRUS-hosttypehuman-locationEurope'}, {'data': {'node_size': 902, 'node_name': 'USA 24', 'node_name_5': 'USA 24', 'node_names': 'n372', 'node_in_tips': ' 24', 'node_in_tips_5': ' 24', 'node_size_5': 902, 'node_fontsize_5': 160, 'node_fontsize': 160, 'node_in_ns_5': ' 14', 'node_all_tips_5': ' 32', 'node_root_id': 'n372', 'node_all_tips': ' 32', 'node_in_ns': ' 14', 'node_names_5': 'n372', 'date': 5, 'id': 22, 'tooltip': 'continent: Americas<br>country_code: USA<br>host_type: human<br>location: Northern America'}, 'classes': 'continentAmericas-countrycodeUSA-hosttypehuman-locationNorthernAmerica'}, {'data': {'node_size': 530, 'node_name': 'USA 8', 'node_name_5': 'USA 8', 'node_names': 'n356', 'node_in_tips': ' 8', 'node_in_tips_5': ' 8', 'node_size_5': 530, 'node_fontsize_5': 117, 'node_fontsize': 117, 'node_in_ns_5': ' 10', 'node_all_tips_5': ' 15', 'node_root_id': 'n356', 'node_all_tips': ' 15', 'node_in_ns': ' 10', 'node_names_5': 'n356', 'date': 5, 'id': 23, 'tooltip': 'continent: Americas<br>country_code: USA<br>host_type: human<br>location: Northern America'}, 'classes': 'continentAmericas-countrycodeUSA-hosttypehuman-locationNorthernAmerica'}, {'data': {'node_size': 261, 'node_name': 'GTM 2', 'node_name_5': 'GTM 2', 'node_names': 'n195', 'node_in_tips': ' 2', 'node_in_tips_5': ' 2', 'node_size_5': 261, 'node_fontsize_5': 87, 'node_fontsize': 87, 'node_in_ns_5': ' 2', 'node_all_tips_5': ' 9', 'node_root_id': 'n195', 'node_all_tips': ' 9', 'node_in_ns': ' 2', 'node_names_5': 'n195', 'date': 5, 'id': 24, 'tooltip': 'continent: Americas<br>country_code: GTM<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeGTM-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 564, 'node_name': 'HND 9', 'node_name_5': 'HND 9', 'node_names': 'n176', 'node_in_tips': ' 9', 'node_in_tips_5': ' 9', 'node_size_5': 564, 'node_fontsize_5': 121, 'node_fontsize': 121, 'node_in_ns_5': ' 8', 'node_all_tips_5': ' 14', 'node_root_id': 'n176', 'node_all_tips': ' 14', 'node_in_ns': ' 8', 'node_names_5': 'n176', 'date': 5, 'id': 25, 'tooltip': 'continent: Americas<br>country_code: HND<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeHND-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 317, 'node_name': 'HND 1-3', 'node_name_5': 'HND 1-3', 'node_meta': 1, 'node_names': 'KY785444, MF801381, MF801382, MF801383, n169, n173', 'node_in_tips': ' 1-3', 'node_meta_5': 1, 'node_in_tips_5': ' 1-3', 'node_size_5': 317, 'node_fontsize_5': 93, 'node_fontsize': 93, 'node_in_ns_5': ' 0-2', 'node_all_tips_5': ' 1-3', 'node_root_id': 'KY785444', 'node_all_tips': ' 1-3', 'node_in_ns': ' 0-2', 'node_names_5': 'KY785444, MF801381, MF801382, MF801383, n169, n173', 'date': 5, 'id': 26, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: HND<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeHND-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 400, 'node_name': ' 1', 'node_name_5': ' 1', 'node_names': 'n99', 'node_in_tips': ' 1', 'node_in_tips_5': ' 1', 'node_size_5': 400, 'node_fontsize_5': 80, 'node_fontsize': 80, 'node_in_ns_5': ' 1', 'node_all_tips_5': ' 11', 'node_root_id': 'n99', 'node_all_tips': ' 11', 'node_in_ns': ' 1', 'unresolved': 1, 'node_names_5': 'n99', 'date': 5, 'id': 27, 'tooltip': 'continent: Americas<br>country_code: HND or MEX<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycode-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 266, 'node_name': ' 0', 'node_name_5': ' 0', 'node_names': 'n215', 'node_in_tips': ' 0', 'node_in_tips_5': ' 0', 'node_size_5': 266, 'node_fontsize_5': 80, 'node_fontsize': 80, 'node_in_ns_5': ' 1', 'node_all_tips_5': ' 11', 'node_root_id': 'n215', 'node_all_tips': ' 11', 'node_in_ns': ' 1', 'unresolved': 1, 'node_names_5': 'n215', 'date': 5, 'id': 28, 'tooltip': 'continent: Americas<br>country_code: HND or MEX or NIC<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycode-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 317, 'node_name': 'MEX 1-3', 'node_name_5': 'MEX 1-3', 'node_meta': 1, 'node_names': 'MH900227, n147, n150', 'node_in_tips': ' 1-3', 'node_meta_5': 1, 'node_in_tips_5': ' 1-3', 'node_size_5': 317, 'node_fontsize_5': 93, 'node_fontsize': 93, 'node_in_ns_5': ' 0-2', 'node_all_tips_5': ' 1-3', 'node_root_id': 'n150', 'node_all_tips': ' 1-3', 'node_in_ns': ' 0-2', 'node_names_5': 'MH900227, n147, n150', 'date': 5, 'id': 29, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: MEX<br>host_type: mosquito<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeMEX-hosttypemosquito-locationCentralAmerica'}, {'data': {'node_size': 317, 'node_name': 'NIC 1-3', 'node_name_5': 'NIC 1-3', 'node_meta': 1, 'node_names': 'MF434520, n175, n213, n226', 'node_in_tips': ' 1-3', 'node_meta_5': 1, 'node_in_tips_5': ' 1-3', 'node_size_5': 317, 'node_fontsize_5': 93, 'node_fontsize': 93, 'node_in_ns_5': ' 0-2', 'node_all_tips_5': ' 1-3', 'node_root_id': 'n226', 'node_all_tips': ' 1-3', 'node_in_ns': ' 0-2', 'node_names_5': 'MF434520, n175, n213, n226', 'date': 5, 'id': 30, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: NIC<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeNIC-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 261, 'node_name': 'USA 2', 'node_name_5': 'USA 2', 'node_meta': 1, 'node_names': 'n391, n393, n401, n402', 'node_in_tips': ' 2', 'node_meta_5': 1, 'node_in_tips_5': ' 2', 'node_size_5': 261, 'node_fontsize_5': 87, 'node_fontsize': 87, 'node_in_ns_5': ' 1', 'node_all_tips_5': ' 2', 'node_root_id': 'n393', 'node_all_tips': ' 2', 'node_in_ns': ' 1', 'node_names_5': 'n391, n393, n401, n402', 'date': 5, 'id': 31, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: USA<br>host_type: mosquito<br>location: Northern America'}, 'classes': 'continentAmericas-countrycodeUSA-hosttypemosquito-locationNorthernAmerica'}, {'data': {'node_size': 261, 'node_name': 'USA 1-2', 'node_name_5': 'USA 1-2', 'node_meta': 1, 'node_names': 'MF988743, n363, n368, n369', 'node_in_tips': ' 1-2', 'node_meta_5': 1, 'node_in_tips_5': ' 1-2', 'node_size_5': 261, 'node_fontsize_5': 87, 'node_fontsize': 87, 'node_in_ns_5': ' 0-1', 'node_all_tips_5': ' 1-2', 'node_root_id': 'n369', 'node_all_tips': ' 1-2', 'node_in_ns': ' 0-1', 'node_names_5': 'MF988743, n363, n368, n369', 'date': 5, 'id': 32, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: USA<br>host_type: mosquito<br>location: Northern America'}, 'classes': 'continentAmericas-countrycodeUSA-hosttypemosquito-locationNorthernAmerica'}, {'data': {'node_size': 413, 'node_name': 'CUB 5', 'node_name_5': 'CUB 5', 'node_names': 'n197', 'node_in_tips': ' 5', 'node_in_tips_5': ' 5', 'node_size_5': 413, 'node_fontsize_5': 104, 'node_fontsize': 104, 'node_in_ns_5': ' 6', 'node_all_tips_5': ' 7', 'node_root_id': 'n197', 'node_all_tips': ' 7', 'node_in_ns': ' 6', 'node_names_5': 'n197', 'date': 5, 'id': 33, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: CUB<br>host_type: human<br>location: Caribbean'}, 'classes': 'continentAmericas-countrycodeCUB-hosttypehuman-locationCaribbean'}, {'data': {'node_size': 413, 'node_name': 'NIC 5', 'node_name_5': 'NIC 5', 'node_names': 'n185', 'node_in_tips': ' 5', 'node_in_tips_5': ' 5', 'node_size_5': 413, 'node_fontsize_5': 104, 'node_fontsize': 104, 'node_in_ns_5': ' 4', 'node_all_tips_5': ' 5', 'node_root_id': 'n185', 'node_all_tips': ' 5', 'node_in_ns': ' 4', 'node_names_5': 'n185', 'date': 5, 'id': 34, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: NIC<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeNIC-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 494, 'node_name': 'HND 7', 'node_name_5': 'HND 7', 'node_names': 'n100', 'node_in_tips': ' 7', 'node_in_tips_5': ' 7', 'node_size_5': 494, 'node_fontsize_5': 113, 'node_fontsize': 113, 'node_in_ns_5': ' 7', 'node_all_tips_5': ' 10', 'node_root_id': 'n100', 'node_all_tips': ' 10', 'node_in_ns': ' 7', 'node_names_5': 'n100', 'date': 5, 'id': 35, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: HND<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeHND-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 413, 'node_name': 'NIC 5', 'node_name_5': 'NIC 5', 'node_names': 'n216', 'node_in_tips': ' 5', 'node_in_tips_5': ' 5', 'node_size_5': 413, 'node_fontsize_5': 104, 'node_fontsize': 104, 'node_in_ns_5': ' 5', 'node_all_tips_5': ' 10', 'node_root_id': 'n216', 'node_all_tips': ' 10', 'node_in_ns': ' 5', 'node_names_5': 'n216', 'date': 5, 'id': 36, 'tooltip': 'continent: Americas<br>country_code: NIC<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeNIC-hosttypehuman-locationCentralAmerica'}, {'data': {'node_size': 317, 'node_name': 'HND 1-3', 'node_name_5': 'HND 1-3', 'node_meta': 1, 'node_names': 'KY785448, KY785471, n223', 'node_in_tips': ' 1-3', 'node_meta_5': 1, 'node_in_tips_5': ' 1-3', 'node_size_5': 317, 'node_fontsize_5': 93, 'node_fontsize': 93, 'node_in_ns_5': ' 0-2', 'node_all_tips_5': ' 1-3', 'node_root_id': 'KY785471', 'node_all_tips': ' 1-3', 'node_in_ns': ' 0-2', 'node_names_5': 'KY785448, KY785471, n223', 'date': 5, 'id': 37, 'tip': 1, 'tooltip': 'continent: Americas<br>country_code: HND<br>host_type: human<br>location: Central America'}, 'classes': 'continentAmericas-countrycodeHND-hosttypehuman-locationCentralAmerica'}], 'edges': [{'data': {'source': 0, 'target': 1, 'edge_name': '', 'edge_size_5': 50, 'edge_size_4': 50, 'edge_name_5': '', 'edge_name_4': '', 'edge_size': 50, 'date': 4}}, {'data': {'source': 0, 'target': 2, 'edge_size_0': 50, 'edge_name_2': '', 'edge_name': '', 'edge_size_5': 50, 'edge_name_0': '', 'edge_name_5': '', 'edge_size_3': 50, 'edge_name_3': '', 'edge_size_4': 50, 'edge_size_2': 50, 'edge_size': 50, 'date': 0, 'edge_name_1': '', 'edge_name_4': '', 'edge_size_1': 50}}, {'data': {'source': 1, 'target': 3, 'edge_name': '', 'edge_size_5': 50, 'edge_size_4': 50, 'edge_name_5': '', 'edge_name_4': '', 'edge_size': 50, 'date': 4}}, {'data': {'source': 3, 'target': 4, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 3, 'target': 5, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 4, 'target': 6, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 5, 'target': 7, 'edge_name': '12', 'edge_size_5': 150, 'edge_name_5': '12', 'edge_color': '#bdcc99', 'edge_size': 150, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 6, 'target': 8, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 6, 'target': 9, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 8, 'target': 10, 'edge_name': '2', 'edge_size_5': 59, 'edge_name_5': '2', 'edge_color': '#74cc33', 'edge_size': 59, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 8, 'target': 11, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 8, 'target': 12, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 8, 'target': 13, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 8, 'target': 14, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 8, 'target': 15, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 8, 'target': 16, 'edge_name': '5', 'edge_size_5': 86, 'edge_name_5': '5', 'edge_size': 86, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 11, 'target': 17, 'edge_name': '2', 'edge_size_5': 59, 'edge_name_5': '2', 'edge_color': '#cc3348', 'edge_size': 59, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 13, 'target': 18, 'edge_name': '3', 'edge_size_5': 68, 'edge_name_5': '3', 'edge_size': 68, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 13, 'target': 19, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 13, 'target': 20, 'edge_name': '4', 'edge_size_5': 77, 'edge_name_5': '4', 'edge_size': 77, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 13, 'target': 21, 'edge_name': '4', 'edge_size_5': 77, 'edge_name_5': '4', 'edge_size': 77, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 13, 'target': 22, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 13, 'target': 23, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 14, 'target': 24, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 14, 'target': 25, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 14, 'target': 26, 'edge_name': '6', 'edge_size_5': 95, 'edge_name_5': '6', 'edge_size': 95, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 14, 'target': 27, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 14, 'target': 28, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 14, 'target': 29, 'edge_name': '3', 'edge_size_5': 68, 'edge_name_5': '3', 'edge_color': '#ccc499', 'edge_size': 68, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 14, 'target': 30, 'edge_name': '4', 'edge_size_5': 77, 'edge_name_5': '4', 'edge_size': 77, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 22, 'target': 31, 'edge_name': '4', 'edge_size_5': 77, 'edge_name_5': '4', 'edge_color': '#a799cc', 'edge_size': 77, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 23, 'target': 32, 'edge_name': '4', 'edge_size_5': 77, 'edge_name_5': '4', 'edge_color': '#a799cc', 'edge_size': 77, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}, {'data': {'source': 24, 'target': 33, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 25, 'target': 34, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 27, 'target': 35, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 28, 'target': 36, 'edge_name': '', 'edge_size_5': 50, 'edge_name_5': '', 'edge_size': 50, 'date': 5}}, {'data': {'source': 36, 'target': 37, 'edge_name': '3', 'edge_size_5': 68, 'edge_name_5': '3', 'edge_size': 68, 'edge_meta': 1, 'date': 5, 'edge_meta_5': 1}}]},
+
+  layout: layoutOptions,
+
+  ready: function(){
+    window.cy = this;
+  }
+});
+
+function addQtips() {
+    cy.filter(function(ele, i, eles) {
+        return ele.isNode() && ele.data('tooltip') !== undefined;
+    } ).qtip({
+        content: function(){
+                var tooltip = '<br><div style="overflow: auto;"><span style="white-space:nowrap;">' + this.data('tooltip') + '</span></div>';
+                if (this.data('node_meta') !== undefined) {
+                    tooltip += '<br><div style="overflow: auto;"><span style="white-space:nowrap;">ids: ' + this.data('node_names') + '</span></div>';
+                } else {
+                    tooltip += '<br>id: ' + this.data('node_names') + '<br>';
+                }
+                tooltip += '<br>tips inside: ' + this.data('node_in_tips');
+                tooltip += '<br>total tips in the subtree: ' + this.data('node_all_tips');
+                tooltip += '<br>internal nodes inside: ' + this.data('node_in_ns');
+                return tooltip;
+            },
+        show: {event: 'mouseover'},
+        hide: {event: 'mouseout'},
+        style: {classes: 'qtip-bootstrap'},
+        position: {at: 'center bottom'}
+    });
+}
+
+cy.minZoom(.001);
+cy.maxZoom(20);
+addQtips();
+
+
+function toImage(){
+    document.getElementById("downloader").href = cy.jpg({ full: false, quality: 1.0, scale: 2}).replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+}
+
+function fit() {
+    cy.fit();
+}
+
+function resetLayout() {
+    cy.layout(layoutOptions).run();
+}
+
+var years = ['1984', '1990.96', '1997.91', '2004.87', '2011.83', '2018.79'];
+var slider = document.getElementById("myRange");
+if (slider !== null) {
+    var output = document.getElementById("demo");
+    output.innerHTML = years[slider.value]; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    var removed = cy.collection();
+
+    slider.oninput = function() {
+        output.innerHTML = years[this.value];
+        removed.restore();
+        removed = cy.remove("[date>" + this.value + "]");
+        var list = cy.$("");
+        for (var i=0, ele; ele = list[i]; i++) {
+            if (ele.data('node_name_' + this.value) !== undefined) {
+                ele.data('node_name', ele.data('node_name_' + this.value));
+            }
+            if (ele.data('node_names_' + this.value) !== undefined) {
+                ele.data('node_names', ele.data('node_names_' + this.value));
+            }
+            if (ele.data('node_fontsize_' + this.value) !== undefined) {
+                ele.data('node_fontsize', ele.data('node_fontsize_' + this.value));
+            }
+            if (ele.data('node_in_tips_' + this.value) !== undefined) {
+                ele.data('node_in_tips', ele.data('node_in_tips_' + this.value));
+            }
+            if (ele.data('node_in_ns_' + this.value) !== undefined) {
+                ele.data('node_in_ns', ele.data('node_in_ns_' + this.value));
+            }
+            if (ele.data('node_all_tips_' + this.value) !== undefined) {
+                ele.data('node_all_tips', ele.data('node_all_tips_' + this.value));
+            }
+            if (ele.data('node_size_' + this.value) !== undefined) {
+                ele.data('node_size', ele.data('node_size_' + this.value));
+            }
+            if (ele.data('edge_name_' + this.value) !== undefined) {
+                ele.data('edge_name', ele.data('edge_name_' + this.value));
+            }
+            if (ele.data('edge_size_' + this.value) !== undefined) {
+                ele.data('edge_size', ele.data('edge_size_' + this.value));
+            }
+            if (ele.data('edge_meta_' + this.value) !== undefined) {
+                ele.data('edge_meta', ele.data('edge_meta_' + this.value))
+            } else if (ele.data('edge_meta') !== undefined) {
+                ele.removeData('edge_meta');
+                cy.remove(ele);
+                cy.add(ele);
+            }
+            if (ele.data('node_meta_' + this.value) !== undefined) {
+                ele.data('node_meta', ele.data('node_meta_' + this.value));
+            } else if (ele.data('node_meta') !== undefined) {
+                ele.removeData('node_meta');
+            }
+        }
+    }
+}
+
+function toggleFullScreen() {
+  var elem = document.getElementById("fullscreenDiv");
+  if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if (elem.requestFullScreen) {
+      elem.requestFullScreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullScreen) {
+      elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+    document.getElementById("fsspan").className = "glyphicon glyphicon-resize-small"
+    document.getElementById("fstext").innerHTML = "  Exit full screen"
+  } else {
+    if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }
+    document.getElementById("fsspan").className = "glyphicon glyphicon-fullscreen"
+    document.getElementById("fstext").innerHTML = "  Full screen"
+  }
+}</script>
+</body>
+</html>
