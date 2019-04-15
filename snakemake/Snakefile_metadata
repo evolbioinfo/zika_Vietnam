@@ -14,7 +14,7 @@ localrules: all, entrez
 
 folder = os.path.abspath(config["folder"])
 data_dir = os.path.join(folder, 'data')
-genbank_data = os.path.join(folder, 'data', 'genbank_20190325_org_Zika_virus_len_8000_14000.fa')
+genbank_data = os.path.join(folder, 'data', 'zika-good-final.fasta')
 
 
 
@@ -31,8 +31,8 @@ rule entrez:
     input:
         data = genbank_data
     output:
-        fa = os.path.join(data_dir, 'sequences.gb.fasta'),
-        data = os.path.join(data_dir, 'metadata.gb.tab'),
+        fa = temp(os.path.join(data_dir, 'sequences.gb.fasta')),
+        data = temp(os.path.join(data_dir, 'metadata.gb.tab')),
     params:
         mem = 2000,
         name = 'metadata'

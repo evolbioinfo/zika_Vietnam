@@ -18,7 +18,6 @@ data_dir = os.path.join(folder, 'data')
 
 rule all:
     input:
-        os.path.join(data_dir, 'iTOL', 'iTOL_colorstrip-host.txt'),
         os.path.join(data_dir, 'aln.fa')
 
 rule get_seq_ids:
@@ -48,7 +47,7 @@ rule aln_against_reference:
         fa = os.path.join(data_dir, 'sequences.fa'),
         ref = os.path.join(data_dir, 'ref', 'ZIKV.fa')
     output:
-        aln = os.path.join(data_dir, 'aln.ref.fa')
+        aln = temp(os.path.join(data_dir, 'aln.ref.fa'))
     params:
         mem = 1000,
         name = 'aln',
@@ -80,57 +79,3 @@ rule remove_ref:
         """
         goalign subset -i {input.aln} -f {input.ids} -o {output.aln}
         """
-
-rule nt_to_aa:
-    '''
-    Convert a nucleotide alignment to amino acid one.
-    '''
-    input:
-        aln = os.path.join(data_dir, 'aln.fa'),
-    output:
-        aln = os.path.join(data_dir, 'aln.aa.fa'),
-    params:
-        mem = 1000,
-        name = 'nt2aa',
-        qos = 'fast',
-    threads: 1
-    singularity: "docker://evolbioinfo/goalign:v0.3.0-alpha5"
-    shell:
-        """
-        goalign translate -i {input.aln} -o {output.aln}
-        """
-
-rule fa2phy:
-    '''
-    Convert a fasta alignment to phylip format.
-    '''
-    input:
-        aln = os.path.join(data_dir, '{aln}.fa')
-    output:
-        aln = os.path.join(data_dir, '{aln}.phylip')
-    params:
-        mem = 1000,
-        name = 'fa2phylip'
-    threads: 1
-    singularity: "docker://evolbioinfo/goalign:v0.3.0-alpha5"
-    shell:
-        """
-        goalign reformat phylip -o {output.aln} -i {input.aln}
-        """
-
-rule table2itol:
-    '''
-    Extracts itol metadata
-    '''
-    input:
-        data = os.path.join(data_dir, 'metadata.tab')
-    output:
-        os.path.join(data_dir, 'iTOL', 'iTOL_colorstrip-host.txt')
-    singularity:
-        "docker://evolbioinfo/table2itol:latest"
-    params:
-        mem = 2000,
-        name = 'itol',
-        wd = os.path.join(data_dir, 'iTOL')
-    threads: 1
-    shell: "table2itol.R -i accession {input.data} -D {params.wd}"

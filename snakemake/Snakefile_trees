@@ -11,49 +11,16 @@ import os
 # snakemake --snakefile Snakefile_trees --config folder=.. --dag | dot -Tsvg > pipeline_trees.svg
 
 localrules: all
-ruleorder: date > posttempest > nex2nwk > tempest > pretempest > root_tree
 
 folder = os.path.abspath(config["folder"])
 data_dir = os.path.join(folder, 'data')
 
 tree_types = ['raxml', 'iq']
-partitions = ['pos']
 
 rule all:
     input:
-        expand(os.path.join(data_dir, 'trees', 'Asian.{part}.dated.tempest.nwk'), part=partitions),
-        expand(os.path.join(data_dir, 'trees', 'All.{part}.dated.tempest.nwk'), part=partitions),
-        expand(os.path.join(data_dir, 'distances_all_trees.{part}.tab'), part=partitions),
-
-
-
-rule result_tree_Asian:
-    input:
-        tree = os.path.join(data_dir, 'best_tree.{part}.rooted_African.tempest.rooted.no_outliers.dated.nwk'),
-    output:
-        tree = os.path.join(data_dir, 'trees', 'Asian.{part}.dated.tempest.nwk'),
-    threads: 1
-    params:
-        mem = 1000,
-        name = 'result_tree',
-    shell:
-        """
-        cp {input.tree} {output.tree}
-        """
-
-rule result_tree_full:
-    input:
-        tree = os.path.join(data_dir, 'best_tree.{part}.tempest.rooted.no_outliers.dated.nwk'),
-    output:
-        tree = os.path.join(data_dir, 'trees', 'All.{part}.dated.tempest.nwk'),
-    threads: 1
-    params:
-        mem = 1000,
-        name = 'result_tree',
-    shell:
-        """
-        cp {input.tree} {output.tree}
-        """
+        os.path.join(data_dir, 'best_tree.pos.nwk'),
+        os.path.join(data_dir, 'distances.pos.tab'),
 
 
 rule partitioning_nt:
@@ -97,7 +64,7 @@ rule raxml_nt:
     shell:
         """
         cp {input.aln} {input.aln}.{params.part}
-        raxml-ng --model {input.part} --msa {input.aln}.{params.part} --msa-format FASTA --data-type DNA --tree rand{{10}} \
+        raxml-ng --model {input.part} --msa {input.aln}.{params.part} --msa-format FASTA --data-type DNA --tree pars{{5}} \
         --seed 239 --threads {threads} --force
         mv {input.aln}.{params.part}.raxml.bestTree {output.tree}
         mv {input.aln}.{params.part}.raxml.log {output.log}
@@ -122,8 +89,7 @@ rule iqtree_nt:
         name = 'iq.{type}',
     shell:
         """
-        # --runs 10
-        iqtree -s {input.aln} -st DNA -t RANDOM -nt {threads} -alrt 0 -m GTR+FO+I+G6+MERGE -spp {input.part} --runs 1
+        iqtree -s {input.aln} -st DNA -nt {threads} -alrt 0 -m GTR+FO+I+G6 -spp {input.part} --runs 1
         mv {input.part}.treefile {output.tree}
         sed -i -e 's/\\///g' {output.tree}
         mv {input.part}.iqtree {output.log}
@@ -139,7 +105,7 @@ rule log_lh_nt:
         trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types),
         part = os.path.join(data_dir, 'partition_raxml.{part}.txt'),
     output:
-        log = os.path.join(data_dir, 'likelihoods_all_trees.{part}.log'),
+        log = os.path.join(data_dir, 'loglikelihoods.{part}.log'),
     threads: 12
     singularity: "docker://evolbioinfo/raxml-ng:v0.8.0-beta"
     params:
@@ -158,7 +124,7 @@ rule best_tree:
     Gets the best tree in terms of likelihood.
     '''
     input:
-        log = os.path.join(data_dir, 'likelihoods_all_trees.{part}.log'),
+        log = os.path.join(data_dir, 'loglikelihoods.{part}.log'),
         trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types),
     output:
         tree = os.path.join(data_dir, 'best_tree.{part,(gene|type|pos|aa)}.nwk'),
@@ -172,170 +138,6 @@ rule best_tree:
         python3 {folder}/py/best_tree.py --log {input.log} --trees {input.trees} --best_tree {output.tree}
         """
 
-rule shuffled_tree:
-    '''
-    Shuffles the tip names in the given tree.
-    '''
-    input:
-        tree = os.path.join(data_dir, 'best_tree.{part}.nwk'),
-    output:
-        tree = os.path.join(data_dir, 'best_tree.{part,(gene|type|pos|aa)}.shuffled_{i}.nwk'),
-    threads: 1
-    singularity: "docker://evolbioinfo/gotree:v0.3.0b"
-    params:
-        mem = 1000,
-        name = 'shuffle_{i}.{part}',
-    shell:
-        """
-        gotree shuffletips -i {input.tree} -o {output.tree}
-        """
-
-rule extract_dates:
-    '''
-    Reformats metadata into date file readable by LSD.
-    '''
-    input:
-        tab = os.path.join(data_dir, 'metadata.tab')
-    output:
-        tab = os.path.join(data_dir, 'dates.tab')
-    params:
-        mem = 1000,
-        name = 'dates',
-        date_col = 'collection_date'
-    threads: 1
-    singularity: "docker://evolbioinfo/python-evol:v3.6"
-    shell:
-        """
-        python3 {folder}/py/extract_dates.py --data {input.tab} --dates {output.tab} \
-        --date_col {params.date_col}
-        """
-
-rule pretempest:
-    '''
-    Create a date-annotated tree file for TempEst.
-    '''
-    input:
-        tab = os.path.join(data_dir, 'metadata.tab'),
-        tree = os.path.join(data_dir, '{tree}.nwk')
-    output:
-        tree = os.path.join(data_dir, '{tree}.tempest.nwk')
-    params:
-        mem = 1000,
-        name = 'pretempest_{tree}',
-        date_col = 'collection_date'
-    threads: 1
-    singularity: "docker://evolbioinfo/python-evol:v3.6"
-    shell:
-        """
-        python3 {folder}/py/pretempest.py --data {input.tab} --input_tree {input.tree} --output_tree {output.tree} \
-        --date_col {params.date_col}
-        """
-
-rule posttempest:
-    '''
-    Create a date-annotated tree file for TempEst.
-    '''
-    input:
-        tree = os.path.join(data_dir, '{tree}.tempest.rooted.nwk'),
-        tab = os.path.join(data_dir, '{tree}.tempest.tab')
-    output:
-        tree = os.path.join(data_dir, '{tree}.tempest.rooted.no_outliers.nwk')
-    params:
-        mem = 1000,
-        name = 'posttempest_{tree}'
-    threads: 1
-    singularity: "docker://evolbioinfo/python-evol:v3.6"
-    shell:
-        """
-        python3 {folder}/py/posttempest.py --data {input.tab} --input_tree {input.tree} --output_tree {output.tree}
-        """
-
-rule tempest:
-    '''
-    Manual step of running root-to-tip regression with TempEst.
-    '''
-    input:
-        tree = os.path.join(data_dir, '{tree}.tempest.nwk')
-    output:
-        tree = os.path.join(data_dir, '{tree}.tempest.rooted.nexus'),
-        tab = os.path.join(data_dir, '{tree}.tempest.tab')
-    params:
-        mem = 1000,
-        name = 'tempest_{tree}',
-    threads: 1
-    shell:
-        """
-        echo "This step has to be done by hand with TempEst."
-        """
-
-rule nex2nwk:
-    '''
-    Converts a nexus tree to newick.
-    '''
-    input:
-        tree = os.path.join(data_dir, '{tree}.nexus'),
-    output:
-        tree = os.path.join(data_dir, '{tree}.nwk'),
-    singularity:
-        "docker://evolbioinfo/gotree:v0.3.0b"
-    params:
-        mem = 2000,
-        name = 'nex2nwk',
-    threads: 1
-    shell:
-        """
-        gotree reformat newick -i {input.tree} -f nexus -o "{output.tree}"
-        """
-
-rule date:
-    '''
-    Dates a tree.
-    '''
-    input:
-        tree = os.path.join(data_dir, '{tree}.nwk'),
-        dates = os.path.join(data_dir, 'dates.tab'),
-        ref = os.path.join(data_dir, 'ref', 'ZIKV.fa')
-    output:
-        tree = os.path.join(data_dir, '{tree}.dated.nwk'),
-        log = os.path.join(data_dir, '{tree}.lsd.log'),
-    threads: 1
-    singularity: "docker://evolbioinfo/lsd:v0.3beta-55183ca9d0"
-    params:
-        mem = 2000,
-        name = 'date',
-        wd = os.path.join(data_dir,  '{tree}.dated')
-    shell:
-        """
-        n=$(( `(tail {input.ref} -n 1 | wc -m)` - 1))
-        lsd -i "{input.tree}" -d {input.dates} -v 2 -c -s $n -f 1000 -r a -o "{params.wd}"
-        mv "{params.wd}.date.newick" "{output.tree}"
-        mv "{params.wd}" "{output.log}"
-        rm "{params.wd}.newick"
-        rm "{params.wd}.nexus"
-        """
-
-
-rule test_dates:
-    '''
-    Check the strength of temporal signal in the data.
-    '''
-    input:
-        log = os.path.join(data_dir, '{tree}.lsd.log'),
-        random_logs = expand(os.path.join(data_dir, '{{tree}}.shuffled_{i}.lsd.log'), i=range(50))
-    output:
-        pdf = os.path.join(data_dir, '{tree}_date_randomisation.pdf'),
-    threads:
-        1
-    params:
-        mem = 2000,
-        name = 'rand_date'
-    singularity: "docker://evolbioinfo/python-evol:v3.6"
-    shell:
-        """
-        python3 {folder}/py/date_randomisation.py --real_log {input.log} --logs {input.random_logs} \
-        --pdf {output.pdf}
-        """
-
 rule compare_trees:
     '''
     Calculates RF and quartet distances between the trees.
@@ -343,9 +145,9 @@ rule compare_trees:
     input:
         trees = os.path.join(data_dir, 'all_trees.{part}.nwk'),
         names = os.path.join(data_dir, 'all_trees.{part}.names'),
-        qt = os.path.join(data_dir, 'distances_all_trees.{part}.quartet.tab'),
+        qt = os.path.join(data_dir, 'distances.{part}.quartet.tab'),
     output:
-        log = os.path.join(data_dir, 'distances_all_trees.{part,(gene|type|pos|aa)}.tab')
+        log = os.path.join(data_dir, 'distances.{part,(gene|type|pos|aa)}.tab')
     threads: int(len(tree_types) * (len(tree_types) - 1) / 2)
     params:
         mem = 10000,
@@ -364,8 +166,8 @@ rule merge_nwk:
     input:
         trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types)
     output:
-        trees = os.path.join(data_dir, 'all_trees.{part,(gene|type|pos|aa)}.nwk'),
-        names = os.path.join(data_dir, 'all_trees.{part,(gene|type|pos|aa)}.names')
+        trees = temp(os.path.join(data_dir, 'all_trees.{part,(gene|type|pos|aa)}.nwk')),
+        names = temp(os.path.join(data_dir, 'all_trees.{part,(gene|type|pos|aa)}.names'))
     params:
         mem = 1000,
         name = 'merge_nwk',
@@ -384,74 +186,10 @@ rule quartet_dists:
     input:
         trees = os.path.join(data_dir, 'all_trees.{part}.nwk')
     output:
-        log = temp(os.path.join(data_dir, 'distances_all_trees.{part,(gene|type|pos|aa)}.quartet.tab')),
+        log = temp(os.path.join(data_dir, 'distances.{part,(gene|type|pos|aa)}.quartet.tab')),
     threads: 1
     singularity: "docker://evolbioinfo/tqdist:v1.0.1"
     params:
         mem = 8000,
         name = 'tqdist'
     shell: "all_pairs_quartet_dist {input} {output}"
-
-
-
-rule name_tree:
-    '''
-    Names internal tree nodes and collapses zero branches.
-    '''
-    input:
-        tree = os.path.join(data_dir, '{tree}.nwk'),
-    output:
-        tree = os.path.join(data_dir, '{tree}.named.nwk'),
-    singularity:
-        "docker://evolbioinfo/python-evol:v3.6"
-    params:
-        mem = 2000,
-        name = 'name',
-    threads: 1
-    shell:
-        """
-        python3 {folder}/py/name_tree.py --input_tree "{input.tree}" --output_tree "{output.tree}"
-        """
-
-rule get_seq_ids:
-    '''
-    Extract sequence ids of interest.
-    '''
-    input:
-        tab = os.path.join(data_dir, 'metadata.tab'),
-    output:
-        tab = os.path.join(data_dir, 'ids_{type}.txt')
-    params:
-        mem = 500,
-        name = 'ids_{type}',
-        col_value = '{type}',
-        col_name = 'type',
-        qos = 'fast'
-    threads: 1
-    singularity: "docker://evolbioinfo/python-evol:v3.6"
-    shell:
-        """
-        python3 {folder}/py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab} \
-        --col_name "{params.col_name}" --col_value {params.col_value}
-        """
-
-
-rule root_tree:
-    '''
-    Roots a tree with an outgroup.
-    '''
-    input:
-        tree = os.path.join(data_dir, '{tree}.nwk'),
-        outgroup = os.path.join(data_dir, 'ids_{outgroup}.txt'),
-    output:
-        tree = os.path.join(data_dir, '{tree}.rooted_{outgroup}.nwk'),
-    singularity:
-        "docker://evolbioinfo/gotree:v0.3.0b"
-    params:
-        mem = 2000,
-        name = 'root_{outgroup}',
-    threads: 1
-    shell:
-        """
-        gotree reroot outgroup -i {input.tree} -l "{input.outgroup}" -o "{output.tree}" -r
-        """

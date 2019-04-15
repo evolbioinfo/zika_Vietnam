@@ -52,6 +52,7 @@ if '__main__' == __name__:
         new_id = re.search(r'^lcl\|[\w]+', rec.id)
         if new_id:
             rec.id = new_id[0].replace('lcl|', '')
+        rec.id = rec.id.replace('_', '').replace('-', '')
         rec.description = ''
     df = fetch_metadata_from_entrez([_.id for _ in recs])
     df.to_csv(params.output_data, sep='\t', index_label='accession')
