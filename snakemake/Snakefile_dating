@@ -312,7 +312,7 @@ rule extract_date_predictions:
     '''
     input:
         os.path.join(data_dir, 'best_tree.pos.treedater.log'),
-        os.path.join(data_dir, 'best_tree.pos.treetime.log'),
+        os.path.join(data_dir, 'best_tree.pos.no_tt.treetime.log'),
         os.path.join(data_dir, 'best_tree.pos.no_td.prerooted_African.lsd.log'),
         os.path.join(data_dir, 'best_tree.pos.no_tt.prerooted_African.lsd.log'),
         os.path.join(data_dir, 'best_tree.pos.prerooted_African.lsd.log'),
