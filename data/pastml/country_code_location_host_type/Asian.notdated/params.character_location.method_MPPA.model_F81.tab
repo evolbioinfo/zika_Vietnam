@@ -1,0 +1,27 @@
+parameter	value
+pastml_version	1.9.15
+character	location
+log_likelihood	-277.68575902673507
+log_likelihood_restricted_JOINT	-282.5741294158942
+log_likelihood_restricted_MAP	-282.98315096202447
+log_likelihood_restricted_MPPA	-279.4178603475383
+method	MPPA
+model	F81
+num_nodes	941
+num_scenarios	240
+num_states_per_node_avg	1.010626992561105
+num_tips	471
+num_unresolved_nodes	6
+percentage_of_unresolved_nodes	0.6376195536663124
+scaling_factor	118.43867626298204
+state_changes_per_avg_branch	0.06607051155893706
+Africa	1.6386770329815786e-08
+Caribbean	0.14232917343437876
+Central America	0.10238219645837884
+Eastern Asia	0.19750016556081998
+Europe	0.17432079523679342
+Northern America	0.2029954864586017
+Oceania	0.016707143099760263
+South America	0.04125077621258421
+South-eastern Asia	0.10612747682209679
+Southern Asia	0.016386770329815788

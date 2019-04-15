@@ -1,0 +1,923 @@
+node	country_code	host_type	location
+NODE_0000445	BRA	human	Caribbean
+NODE_0000445	CHN	monkey	Central America
+NODE_0000445	CUB	mosquito	Eastern Asia
+NODE_0000445	DOM		Europe
+NODE_0000445	HND		Northern America
+NODE_0000445	HTI		South-eastern Asia
+NODE_0000445	ITA		
+NODE_0000445	JAM		
+NODE_0000445	JPN		
+NODE_0000445	MEX		
+NODE_0000445	NIC		
+NODE_0000445	PYF		
+NODE_0000445	RUS		
+NODE_0000445	SGP		
+NODE_0000445	THA		
+NODE_0000445	USA		
+NODE_0000445	VEN		
+node_1	MYS	mosquito	South-eastern Asia
+node_2	BRA	human	South-eastern Asia
+node_2	CHN		
+node_2	CUB		
+node_2	DOM		
+node_2	HND		
+node_2	HTI		
+node_2	ITA		
+node_2	JAM		
+node_2	JPN		
+node_2	MEX		
+node_2	NIC		
+node_2	PYF		
+node_2	RUS		
+node_2	SGP		
+node_2	THA		
+node_2	USA		
+node_2	VEN		
+HQ234499	MYS	mosquito	South-eastern Asia
+KX377336	MYS	mosquito	South-eastern Asia
+node_4	BRA	human	South-eastern Asia
+node_4	CHN		
+node_4	CUB		
+node_4	DOM		
+node_4	HND		
+node_4	HTI		
+node_4	ITA		
+node_4	JAM		
+node_4	JPN		
+node_4	MEX		
+node_4	NIC		
+node_4	PYF		
+node_4	RUS		
+node_4	SGP		
+node_4	THA		
+node_4	USA		
+node_4	VEN		
+node_3	BRA	human	South-eastern Asia
+node_3	CHN		
+node_3	CUB		
+node_3	DOM		
+node_3	HND		
+node_3	HTI		
+node_3	ITA		
+node_3	JAM		
+node_3	JPN		
+node_3	MEX		
+node_3	NIC		
+node_3	PYF		
+node_3	RUS		
+node_3	SGP		
+node_3	THA		
+node_3	USA		
+node_3	VEN		
+KU681082	PHL	human	South-eastern Asia
+node_7	KOR	human	Eastern Asia
+node_5	BRA	human	South-eastern Asia
+node_5	CHN		
+node_5	CUB		
+node_5	DOM		
+node_5	HND		
+node_5	HTI		
+node_5	ITA		
+node_5	JAM		
+node_5	JPN		
+node_5	KHM		
+node_5	MEX		
+node_5	NIC		
+node_5	PYF		
+node_5	RUS		
+node_5	SGP		
+node_5	THA		
+node_5	USA		
+node_5	VEN		
+node_6	BRA	human	South-eastern Asia
+node_6	CHN		
+node_6	CUB		
+node_6	DOM		
+node_6	HND		
+node_6	HTI		
+node_6	ITA		
+node_6	JAM		
+node_6	JPN		
+node_6	MEX		
+node_6	NIC		
+node_6	PYF		
+node_6	RUS		
+node_6	SGP		
+node_6	THA		
+node_6	USA		
+node_6	VEN		
+KY120353	KOR	human	Eastern Asia
+KY553111	KOR	human	Eastern Asia
+MG645981	THA	human	South-eastern Asia
+node_8	KHM	human	South-eastern Asia
+node_9	BRA	human	South-eastern Asia
+node_9	CAN		
+node_9	CHN		
+node_9	CUB		
+node_9	DOM		
+node_9	HND		
+node_9	HTI		
+node_9	ITA		
+node_9	JPN		
+node_9	MEX		
+node_9	NIC		
+node_9	PYF		
+node_9	RUS		
+node_9	SGP		
+node_9	THA		
+node_9	USA		
+node_10	BRA	human	South-eastern Asia
+node_10	CHN		
+node_10	CUB		
+node_10	DOM		
+node_10	HND		
+node_10	ITA		
+node_10	JPN		
+node_10	MEX		
+node_10	NIC		
+node_10	PYF		
+node_10	RUS		
+node_10	SGP		
+node_10	THA		
+node_10	USA		
+KU955593	KHM	human	South-eastern Asia
+J860885	KHM	human	South-eastern Asia
+node_11	BRA	human	South-eastern Asia
+node_11	CHN		
+node_11	CUB		
+node_11	DOM		
+node_11	HND		
+node_11	ITA		
+node_11	JPN		
+node_11	MEX		
+node_11	NIC		
+node_11	PYF		
+node_11	RUS		
+node_11	SGP		
+node_11	THA		
+node_11	USA		
+node_12	BRA	human	South-eastern Asia
+node_12	CAN		
+node_12	CHN		
+node_12	DOM		
+node_12	HND		
+node_12	ITA		
+node_12	JPN		
+node_12	MEX		
+node_12	NIC		
+node_12	PYF		
+node_12	RUS		
+node_12	SGP		
+node_12	THA		
+node_12	USA		
+KU179098	IDN	human	South-eastern Asia
+node_13	BRA	human	South-eastern Asia
+node_13	CHN		
+node_13	CUB		
+node_13	DOM		
+node_13	HND		
+node_13	ITA		
+node_13	JPN		
+node_13	MEX		
+node_13	NIC		
+node_13	PYF		
+node_13	RUS		
+node_13	SGP		
+node_13	THA		
+node_13	USA		
+KX051561	THA	human	South-eastern Asia
+node_14	BRA	human	South-eastern Asia
+node_14	CHN		
+node_14	CUB		
+node_14	DOM		
+node_14	HND		
+node_14	ITA		
+node_14	JPN		
+node_14	MEX		
+node_14	NIC		
+node_14	PYF		
+node_14	RUS		
+node_14	SGP		
+node_14	THA		
+node_14	USA		
+KY272987	THA	human	South-eastern Asia
+node_15	CAN	human	South-eastern Asia
+node_15	THA		
+KX051560	THA	human	South-eastern Asia
+node_16	BRA	human	South-eastern Asia
+node_16	CHN		
+node_16	DOM		
+node_16	HND		
+node_16	ITA		
+node_16	JPN		
+node_16	MEX		
+node_16	NIC		
+node_16	PYF		
+node_16	RUS		
+node_16	SGP		
+node_16	THA		
+node_16	USA		
+KY328290	CHN	human	Eastern Asia
+KX051562	THA	human	South-eastern Asia
+KF993678	CAN	human	Northern America
+KX694532	THA	human	South-eastern Asia
+KU681081	THA	human	South-eastern Asia
+node_17	BRA	human	South-eastern Asia
+node_17	JPN		
+node_17	MEX		
+node_17	NIC		
+node_17	PYF		
+node_17	RUS		
+node_17	SGP		
+node_17	THA		
+node_17	USA		
+node_19	BRA	human	South-eastern Asia
+node_19	JPN		
+node_19	MEX		
+node_19	NIC		
+node_19	PYF		
+node_19	RUS		
+node_19	SGP		
+node_19	THA		
+node_19	TWN		
+node_19	USA		
+node_18	BRA	human	Oceania
+node_18	JPN		South-eastern Asia
+node_18	MEX		
+node_18	NIC		
+node_18	PYF		
+node_18	RUS		
+node_18	SGP		
+node_18	THA		
+node_18	USA		
+node_22	BRA	human	South-eastern Asia
+node_22	CHN		
+node_22	JPN		
+node_22	MEX		
+node_22	NIC		
+node_22	PYF		
+node_22	RUS		
+node_22	SGP		
+node_22	THA		
+node_22	TWN		
+node_22	USA		
+node_21	SGP	human	South-eastern Asia
+node_21	THA		
+LC219720	JPN	human	Eastern Asia
+node_20	PYF	human	Oceania
+MG807647	THA	human	South-eastern Asia
+node_26	BRA	human	South-eastern Asia
+node_26	MEX		
+node_26	NIC		
+node_26	SGP		
+node_26	THA		
+node_26	TWN		
+node_26	USA		
+node_25	THA	human	South-eastern Asia
+node_24	SGP	human	South-eastern Asia
+node_24	THA		
+KX447517	PYF	human	Oceania
+node_23	PYF	human	Oceania
+KY126351	TWN	human	Eastern Asia
+KY241691	SGP	human	South-eastern Asia
+MH013290	THA	human	South-eastern Asia
+node_30	JPN	human	South-eastern Asia
+node_30	THA		
+MG807646	THA	human	South-eastern Asia
+node_29	SGP	human	South-eastern Asia
+KX447515	PYF	human	Oceania
+KX447516	PYF	human	Oceania
+node_36	PYF	human	Oceania
+node_37	AUS	human	Oceania
+node_37	CHN		
+node_37	JPN		
+node_37	PYF		
+node_28	PYF	human	Oceania
+MG548660	THA	human	South-eastern Asia
+LC369584	JPN	human	Eastern Asia
+KY241708	SGP	human	South-eastern Asia
+KY241758	SGP	human	South-eastern Asia
+KY241745	SGP	human	South-eastern Asia
+KY241701	SGP	human	South-eastern Asia
+KY241687	SGP	human	South-eastern Asia
+KY241695	SGP	human	South-eastern Asia
+KY241752	SGP	human	South-eastern Asia
+KY241772	SGP	human	South-eastern Asia
+KY241725	SGP	human	South-eastern Asia
+KY241737	SGP	human	South-eastern Asia
+KY241760	SGP	human	South-eastern Asia
+KY241785	SGP	mosquito	South-eastern Asia
+KY241702	SGP	human	South-eastern Asia
+KY241709	SGP	human	South-eastern Asia
+KY241763	SGP	human	South-eastern Asia
+KY241762	SGP	human	South-eastern Asia
+KY241742	SGP	human	South-eastern Asia
+KY241757	SGP	human	South-eastern Asia
+KY241703	SGP	human	South-eastern Asia
+KY241784	SGP	mosquito	South-eastern Asia
+KY241739	SGP	human	South-eastern Asia
+KY241705	SGP	human	South-eastern Asia
+KY241696	SGP	human	South-eastern Asia
+KY241764	SGP	human	South-eastern Asia
+KY241761	SGP	human	South-eastern Asia
+KY241746	SGP	human	South-eastern Asia
+KY241754	SGP	human	South-eastern Asia
+KY241753	SGP	human	South-eastern Asia
+KY241765	SGP	human	South-eastern Asia
+KY241733	SGP	human	South-eastern Asia
+KY241726	SGP	human	South-eastern Asia
+KY241720	SGP	human	South-eastern Asia
+KY241741	SGP	human	South-eastern Asia
+KY241735	SGP	human	South-eastern Asia
+KY241755	SGP	human	South-eastern Asia
+KY241771	SGP	human	South-eastern Asia
+KY241704	SGP	human	South-eastern Asia
+KY241719	SGP	human	South-eastern Asia
+KY241683	SGP	human	South-eastern Asia
+KY241786	SGP	mosquito	South-eastern Asia
+KY241748	SGP	human	South-eastern Asia
+KY241722	SGP	human	South-eastern Asia
+KY241770	SGP	human	South-eastern Asia
+KY241711	SGP	human	South-eastern Asia
+KY241743	SGP	human	South-eastern Asia
+KY241699	SGP	human	South-eastern Asia
+KY241679	SGP	human	South-eastern Asia
+KX827309	SGP	human	South-eastern Asia
+KY241732	SGP	human	South-eastern Asia
+KY241724	SGP	human	South-eastern Asia
+KY241674	SGP	human	South-eastern Asia
+KY241731	SGP	human	South-eastern Asia
+KY241750	SGP	human	South-eastern Asia
+KY241718	SGP	human	South-eastern Asia
+KY241710	SGP	human	South-eastern Asia
+KY241728	SGP	human	South-eastern Asia
+KY241747	SGP	human	South-eastern Asia
+KY241715	SGP	human	South-eastern Asia
+KY241768	SGP	human	South-eastern Asia
+KY241723	SGP	human	South-eastern Asia
+node_78	SGP	mosquito	South-eastern Asia
+node_428	SGP	human	South-eastern Asia
+node_435	SGP	human	South-eastern Asia
+node_34	SGP	human	South-eastern Asia
+node_68	SGP	human	South-eastern Asia
+node_434	SGP	human	South-eastern Asia
+node_399	SGP	human	South-eastern Asia
+node_41	SGP	human	South-eastern Asia
+KX447509	PYF	human	Oceania
+KX447514	PYF	human	Oceania
+KJ776791	PYF	human	Oceania
+node_45	AUS	human	Oceania
+node_45	CHN		
+node_45	JPN		
+node_45	PYF		
+node_44	CHN	human	Eastern Asia
+KX447513	PYF	human	Oceania
+KX447511	PYF	human	Oceania
+node_38	PYF	human	Oceania
+node_46	PYF	human	Oceania
+KY241781	SGP	mosquito	South-eastern Asia
+KY241779	SGP	mosquito	South-eastern Asia
+KY241713	SGP	human	South-eastern Asia
+KX813683	SGP	human	South-eastern Asia
+KY241689	SGP	human	South-eastern Asia
+KY241736	SGP	human	South-eastern Asia
+KY241730	SGP	human	South-eastern Asia
+KY241787	SGP	mosquito	South-eastern Asia
+node_47	SGP	human	South-eastern Asia
+KY241727	SGP	human	South-eastern Asia
+KY241780	SGP	mosquito	South-eastern Asia
+KY241682	SGP	human	South-eastern Asia
+node_105	SGP	mosquito	South-eastern Asia
+node_441	SGP	human	South-eastern Asia
+NODE_0000447	SGP	human	South-eastern Asia
+KY241685	SGP	human	South-eastern Asia
+KY241676	SGP	human	South-eastern Asia
+KY241678	SGP	human	South-eastern Asia
+KY241756	SGP	human	South-eastern Asia
+KY241680	SGP	human	South-eastern Asia
+KY241684	SGP	human	South-eastern Asia
+KY241767	SGP	human	South-eastern Asia
+KY241677	SGP	human	South-eastern Asia
+KY241675	SGP	human	South-eastern Asia
+KY241681	SGP	human	South-eastern Asia
+KY241777	SGP	mosquito	South-eastern Asia
+KY241751	SGP	human	South-eastern Asia
+KY241714	SGP	human	South-eastern Asia
+KY241688	SGP	human	South-eastern Asia
+NODE_0000451	SGP	human	South-eastern Asia
+node_89	SGP	human	South-eastern Asia
+LC191864	JPN	human	Eastern Asia
+KX806557	AUS	human	Oceania
+KU761561	CHN	human	Eastern Asia
+node_50	CHN	human	Eastern Asia
+KX369547	PYF	human	Oceania
+KX447512	PYF	human	Oceania
+KX447510	PYF	human	Oceania
+node_51	BRA	human	South America
+KY241673	SGP	human	South-eastern Asia
+KY241766	SGP	human	South-eastern Asia
+KY241778	SGP	mosquito	South-eastern Asia
+KY241776	SGP	mosquito	South-eastern Asia
+KY241690	SGP	human	South-eastern Asia
+NODE_0000446	SGP	human	South-eastern Asia
+KY241759	SGP	human	South-eastern Asia
+NODE_0000448	SGP	human	South-eastern Asia
+NODE_0000448		mosquito	
+KY241738	SGP	human	South-eastern Asia
+NODE_0000452	SGP	human	South-eastern Asia
+KY241749	SGP	human	South-eastern Asia
+KY241697	SGP	human	South-eastern Asia
+KY241706	SGP	human	South-eastern Asia
+KY241671	SGP	human	South-eastern Asia
+KY241721	SGP	human	South-eastern Asia
+KY241716	SGP	human	South-eastern Asia
+KY241783	SGP	mosquito	South-eastern Asia
+node_138	SGP	human	South-eastern Asia
+KU963796	CHN	human	Eastern Asia
+KU820899	CHN	human	Eastern Asia
+node_55	CHN	human	Eastern Asia
+node_69	CHN	human	Eastern Asia
+node_57	BRA	human	South America
+node_56	BRA	human	South America
+KY241686	SGP	human	South-eastern Asia
+KY241694	SGP	human	South-eastern Asia
+KY241774	SGP	mosquito	South-eastern Asia
+NODE_0000449	SGP	human	South-eastern Asia
+NODE_0000449		mosquito	
+KY241773	SGP	human	South-eastern Asia
+NODE_0000453	SGP	human	South-eastern Asia
+KY241698	SGP	human	South-eastern Asia
+KY241740	SGP	human	South-eastern Asia
+KU997667	CHN	human	Eastern Asia
+KX013000	CHN	human	Eastern Asia
+MF099651	CHN	monkey	Eastern Asia
+MF036115	CHN	human	Eastern Asia
+KX051563	USA	human	Northern America
+node_64	BRA	human	South America
+KU729218	BRA	human	South America
+KY241788	SGP	human	South-eastern Asia
+node_83	BRA	human	South America
+node_86	BRA	human	South America
+node_80	BRA	human	South America
+node_94	BRA	human	South America
+node_85	BRA	human	South America
+node_84	BRA	human	South America
+node_82	BRA	human	South America
+KY241775	SGP	mosquito	South-eastern Asia
+NODE_0000450	SGP	human	South-eastern Asia
+KY241782	SGP	mosquito	South-eastern Asia
+NODE_0000454	SGP	human	South-eastern Asia
+KU509998	HTI	human	Caribbean
+node_74	BRA	human	South America
+KX197205	BRA	human	South America
+KY559021	BRA	human	South America
+KY014313	BRA	human	South America
+node_100	BRA	human	South America
+node_92	ITA	human	Europe
+node_93	BRA	human	South America
+node_108	BRA	human	South America
+node_107	BRA	human	South America
+KY559003	BRA	human	South America
+KY785429	BRA	human	South America
+node_115	BRA	human	South America
+node_97	BRA	human	South America
+node_98	BRA	human	South America
+node_95	BRA	human	South America
+node_96	BRA	human	South America
+KY241693	SGP	human	South-eastern Asia
+KY241692	SGP	human	South-eastern Asia
+KY241744	SGP	human	South-eastern Asia
+NODE_0000455	SGP	human	South-eastern Asia
+MF352141	BRA	human	South America
+KR872956	BRA	human	South America
+NODE_0000462	BRA	human	South America
+KY014317	BRA	human	South America
+KY785427	BRA	human	South America
+KY014309	BRA	human	South America
+KY559031	BRA	human	South America
+node_155	BRA	human	South America
+node_174	BRA	human	South America
+KY003154	ITA	human	Europe
+KY003153	ITA	human	Europe
+KX101060	BRA	human	South America
+node_106	BRA	human	South America
+KY559007	BRA	human	South America
+KY559005	BRA	human	South America
+KY559017	BRA	human	South America
+KY559006	BRA	human	South America
+KY559011	BRA	human	South America
+KY559010	BRA	human	South America
+KY559009	BRA	human	South America
+node_146	BRA	human	South America
+KU497555	BRA	human	South America
+node_134	BRA	human	South America
+node_173	BRA	human	South America
+node_153	BRA	human	South America
+node_112	ECU	human	South America
+node_113	BRA	human	South America
+KU527068	BRA	human	South America
+node_114	BRA	human	South America
+MH513600	BRA	human	South America
+KY441401	BRA	human	South America
+node_127	BRA	human	South America
+node_147	BRA	human	South America
+KY785410	BRA	human	South America
+node_110	BRA	human	South America
+node_130	HND	human	Central America
+KY241734	SGP	human	South-eastern Asia
+KY241707	SGP	human	South-eastern Asia
+MF783073	HTI	mosquito	Caribbean
+KU321639	BRA	human	South America
+KY014296	BRA	human	South America
+KY014320	BRA	human	South America
+KY014301	BRA	human	South America
+KY785479	BRA	human	South America
+KU940228	BRA	human	South America
+node_143	BRA	human	South America
+node_123	BRA	human	South America
+KY559013	BRA	human	South America
+node_161	BRA	human	South America
+KY014307	BRA	human	South America
+KY785433	BRA	human	South America
+KU991811	ITA	human	Europe
+KY559001	BRA	human	South America
+KY558995	BRA	human	South America
+KY559015	BRA	human	South America
+KY558999	BRA	human	South America
+node_188	BRA	human	South America
+node_187	BRA	human	South America
+KX879604	ECU	human	South America
+MF794971	ECU	human	South America
+KX879603	ECU	human	South America
+KX811222	BRA	human	South America
+KX280026	BRA	human	South America
+MH513599	BRA	human	South America
+MF073359	BRA	human	South America
+node_152	BRA	human	South America
+node_151	BRA	human	South America
+KY693680	VEN	human	South America
+KY631492	BRA	human	South America
+node_163	BRA	human	South America
+node_162	BRA	human	South America
+KY559025	BRA	human	South America
+KY272991	BRA	human	South America
+KU926309	BRA	human	South America
+KY785437	BRA	human	South America
+KY014308	BRA	human	South America
+KY559032	BRA	human	South America
+MF801397	MEX	human	Central America
+MF593625	CHN	human	Eastern Asia
+MF801383	HND	human	Central America
+MF801378	GTM	human	Central America
+node_213	HND	human	Central America
+node_150	HND	human	Central America
+node_185	HND	human	Central America
+node_246	HND	human	Central America
+node_286	MEX	human	Central America
+node_214	CUB	human	Caribbean
+node_214	HND		Central America
+node_200	HND	human	Central America
+node_212	HND	human	Central America
+node_265	HND	human	Central America
+node_182	HND	human	Central America
+node_263	MEX	human	Central America
+KX520666	BRA	human	South America
+KU940224	BRA	human	South America
+KU940227	BRA	human	South America
+node_144	BRA	human	South America
+KY559019	BRA	human	South America
+node_178	BRA	human	South America
+KY785455	BRA	human	South America
+KY785480	BRA	human	South America
+KY558996	BRA	human	South America
+node_203	COL	human	South America
+KY785426	BRA	human	South America
+MF073358	BRA	human	South America
+node_169	BRA	human	South America
+KY558989	BRA	human	South America
+node_168	BRA	human	South America
+KU365779	BRA	human	South America
+KU707826	BRA	human	South America
+node_181	BRA	human	South America
+KU312312	SUR	human	South America
+node_195	BRA	human	South America
+node_194	BRA	human	South America
+KX906952	HND	human	Central America
+KX262887	HND	human	Central America
+MF801406	MEX	human	Central America
+node_167	HND	human	Central America
+node_167	NIC		
+node_167	SLV		
+MF801408	MEX	human	Central America
+node_201	HND	human	Central America
+MF801426	NIC	human	Central America
+node_266	USA	human	Northern America
+KY606271	MEX	human	Central America
+MF801402	MEX	human	Central America
+node_317	MEX	human	Central America
+MF988734	SGP	human	South-eastern Asia
+node_231	CUB	human	Caribbean
+node_215	HND	human	Central America
+node_216	HND	human	Central America
+MF801403	MEX	human	Central America
+MF801381	HND	human	Central America
+node_247	GTM	human	Central America
+node_248	MEX	human	Central America
+node_288	NIC	human	Central America
+node_287	HND	human	Central America
+MF801387	HND	human	Central America
+MF801389	HND	human	Central America
+node_225	HND	human	Central America
+node_197	NIC	human	Central America
+node_226	HND	human	Central America
+node_284	MEX	human	Central America
+node_285	MEX	human	Central America
+KX101066	BRA	human	South America
+KX101061	BRA	human	South America
+KY559018	BRA	human	South America
+NODE_0000456	BRA	human	South America
+node_218	COL	human	South America
+node_219	COL	human	South America
+KU729217	BRA	human	South America
+KY120352	KOR	human	Eastern Asia
+MF098767	RUS	human	Europe
+node_186	BRA	human	South America
+KU365777	BRA	human	South America
+KU365780	BRA	human	South America
+KY785450	BRA	human	South America
+KY014297	BRA	human	South America
+node_222	BRA	human	South America
+node_207	CHN	human	Eastern Asia
+node_223	BRA	human	South America
+MF801377	SLV	human	Central America
+KY765323	NIC	human	Central America
+MF801384	HND	human	Central America
+MF801386	HND	human	Central America
+KY325479	USA	human	Northern America
+KY325465	USA	human	Northern America
+MF801396	MEX	human	Central America
+MF801418	MEX	human	Central America
+MH063265	CUB	human	Caribbean
+MF159531	USA	human	Northern America
+node_249	CUB	human	Caribbean
+KY014306	HND	human	Central America
+node_232	HND	human	Central America
+MF801410	MEX	human	Central America
+node_233	HND	human	Central America
+KU501216	GTM	human	Central America
+KU501217	GTM	human	Central America
+MF801411	MEX	human	Central America
+node_267	MEX	human	Central America
+KY765324	NIC	human	Central America
+MF434518	NIC	human	Central America
+node_304	HND	human	Central America
+node_303	HND	human	Central America
+KY785431	HND	human	Central America
+KU870645	USA	human	Northern America
+KY765319	NIC	human	Central America
+KX421195	NIC	human	Central America
+KX421194	NIC	human	Central America
+MF434517	NIC	human	Central America
+node_243	HND	human	Central America
+MF801419	MEX	human	Central America
+node_299	MEX	human	Central America
+MF801395	MEX	human	Central America
+MF801393	MEX	human	Central America
+MF801398	MEX	human	Central America
+MF098771	RUS	human	Europe
+node_360	MEX	mosquito	Central America
+node_300	MEX	human	Central America
+node_349	MEX	human	Central America
+node_315	MEX	human	Central America
+KY559023	BRA	human	South America
+KY559024	BRA	human	South America
+KX548902	COL	human	South America
+node_235	COL	human	South America
+KY014303	DOM	human	Caribbean
+KX198135	PAN	human	Central America
+KY785469	COL	human	South America
+KY785466	COL	human	South America
+node_275	COL	human	South America
+node_294	COL	human	South America
+node_295	COL	human	South America
+KY559026	BRA	human	South America
+node_202	DOM	human	Caribbean
+MF073357	BRA	human	South America
+KY441403	BRA	human	South America
+KY441402	BRA	human	South America
+KU820898	CHN	human	Eastern Asia
+node_224	CHN	human	Eastern Asia
+KU365778	BRA	human	South America
+node_240	SUR	human	South America
+node_260	PRI	human	South America
+MH063262	CUB	human	Caribbean
+MH063263	CUB	human	Caribbean
+KY693677	HND	human	Central America
+KY765325	NIC	human	Central America
+KY785418	HND	human	Central America
+KY014315	HND	human	Central America
+MG494697	MEX	human	Central America
+KY606273	MEX	human	Central America
+MF801385	HND	human	Central America
+KY328289	HND	human	Central America
+node_335	HND	human	Central America
+KY014310	HND	human	Central America
+node_318	HND	human	Central America
+MF434516	NIC	human	Central America
+KY785448	HND	human	Central America
+MF434522	NIC	human	Central America
+node_283	HND	human	Central America
+MF801391	MEX	human	Central America
+MF801412	MEX	human	Central America
+KX856011	MEX	mosquito	Central America
+KY648934	MEX	mosquito	Central America
+MF801414	MEX	human	Central America
+node_314	MEX	human	Central America
+KY120349	MEX	human	Central America
+node_361	MEX	mosquito	Central America
+MF801413	MEX	human	Central America
+KY631493	MEX	human	Central America
+KX827268	USA	human	Northern America
+KY606272	MEX	human	Central America
+KY317937	COL	human	South America
+node_272	PER	human	South America
+node_254	MTQ	human	Caribbean
+KY317936	COL	human	South America
+KY317939	COL	human	South America
+KY317940	COL	human	South America
+KY317938	COL	human	South America
+node_309	PAN	human	Central America
+node_308	COL	human	South America
+KY014302	DOM	human	Caribbean
+KY785476	DOM	human	Caribbean
+node_234	DOM	human	Caribbean
+KX766028	DOM	human	Caribbean
+node_242	CHN	human	Eastern Asia
+KU758877	GUF	human	South America
+KY348640	SUR	human	South America
+KU937936	SUR	human	South America
+KY785456	BRA	human	South America
+KY785481	PRI	human	Caribbean
+node_298	PRI	human	Caribbean
+KY014312	HND	human	Central America
+KY785452	HND	human	Central America
+KY785442	HND	human	Central America
+KY014319	HND	human	Central America
+node_350	NIC	human	Central America
+KY785414	HND	human	Central America
+KY693676	HND	human	Central America
+MF801401	MEX	human	Central America
+MF801417	MEX	human	Central America
+KX446950	MEX	mosquito	Central America
+KX446951	MEX	mosquito	Central America
+KY693678	PER	human	South America
+KY693679	PER	human	South America
+node_274	MTQ	human	Caribbean
+node_273	MTQ	human	Caribbean
+KX156775	PAN	human	Central America
+KX156774	PAN	human	Central America
+KX156776	PAN	human	Central America
+KU820897	COL	human	South America
+node_324	COL	human	South America
+LC190723	JPN	human	Eastern Asia
+KY785423	DOM	human	Caribbean
+KY785419	JAM	human	Caribbean
+KY785465	DOM	human	Caribbean
+KY785441	DOM	human	Caribbean
+KX269878	ITA	human	Europe
+MH063264	CUB	human	Caribbean
+MF098766	RUS	human	Europe
+node_290	DOM	human	Caribbean
+node_292	DOM	human	Caribbean
+node_292	ITA		Europe
+node_292	USA		Northern America
+node_339	DOM	human	Caribbean
+node_342	DOM	human	Caribbean
+node_340	RUS	human	Europe
+node_341	DOM	human	Caribbean
+node_338	DOM	human	Caribbean
+node_320	DOM	human	Caribbean
+KX056898	CHN	human	Eastern Asia
+node_261	CHN	human	Eastern Asia
+node_312	PRI	human	Caribbean
+node_313	PRI	human	Caribbean
+MF434521	NIC	human	Central America
+node_362	NIC	human	Central America
+KY075932	USA	human	Northern America
+KY785451	MTQ	human	Caribbean
+KU647676	MTQ	human	Caribbean
+node_293	MEX	human	Central America
+KX247646	COL	human	South America
+node_343	VEN	human	South America
+MF098764	RUS	human	Europe
+KY785413	DOM	human	Caribbean
+KU853012	ITA	human	Europe
+KX922707	USA	human	Northern America
+KY785484	DOM	human	Caribbean
+KY785435	DOM	human	Caribbean
+KY785420	DOM	human	Caribbean
+KY014318	DOM	human	Caribbean
+MF664436	RUS	human	Europe
+NODE_0000457	RUS	human	Europe
+KY785415	DOM	human	Caribbean
+KY785470	DOM	human	Caribbean
+KY014314	DOM	human	Caribbean
+MH063261	CUB	human	Caribbean
+node_354	HTI	human	Caribbean
+KY785424	JAM	human	Caribbean
+node_352	DOM	human	Caribbean
+node_363	USA	human	Northern America
+node_337	DOM	human	Caribbean
+KY379148	CHN	human	Eastern Asia
+node_281	CHN	human	Eastern Asia
+KX377337	PRI	human	Caribbean
+KY075933	USA	human	Northern America
+KY075934	USA	human	Northern America
+KY785464	PRI	human	Caribbean
+KY785462	PRI	human	Caribbean
+KY765317	NIC	human	Central America
+KY765318	NIC	human	Central America
+KU922960	MEX	human	Central America
+KU922923	MEX	human	Central America
+KX702400	VEN	human	South America
+KX893855	VEN	human	South America
+MF098769	RUS	human	Europe
+MF098768	RUS	human	Europe
+MF384325	HTI	mosquito	Caribbean
+node_366	HTI	human	Caribbean
+KY785430	JAM	human	Caribbean
+node_364	DOM	human	Caribbean
+node_371	USA	human	Northern America
+node_370	USA	human	Northern America
+MF098765	RUS	human	Europe
+node_353	DOM	human	Caribbean
+KU955590	CHN	human	Eastern Asia
+MF167360	CHN	human	Eastern Asia
+MF783072	HTI	mosquito	Caribbean
+node_373	HTI	human	Caribbean
+KY785453	DOM	human	Caribbean
+KY014300	DOM	human	Caribbean
+KY325464	USA	human	Northern America
+KY325476	USA	human	Northern America
+node_377	USA	mosquito	Northern America
+node_376	USA	human	Northern America
+KY785425	DOM	human	Caribbean
+node_365	USA	human	Northern America
+node_380	HTI	human	Caribbean
+node_406	HTI	human	Caribbean
+NODE_0000458	HTI	human	Caribbean
+KY075937	USA	mosquito	Northern America
+KY785422	USA	mosquito	Northern America
+KX922705	USA	human	Northern America
+KY014298	USA	human	Northern America
+KY325473	USA	human	Northern America
+KX838906	USA	mosquito	Northern America
+node_402	USA	human	Northern America
+node_402		mosquito	
+KY785443	USA	human	Northern America
+node_372	USA	human	Northern America
+KY415988	HTI	human	Caribbean
+KX673530	GBR	human	Europe
+KY415991	HTI	human	Caribbean
+KY415989	HTI	human	Caribbean
+KY415987	HTI	human	Caribbean
+NODE_0000459	HTI	human	Caribbean
+node_410	USA	mosquito	Northern America
+NODE_0000460	USA	human	Northern America
+NODE_0000460		mosquito	
+KY014326	USA	human	Northern America
+KX838905	USA	mosquito	Northern America
+KY785474	USA	human	Northern America
+KY325469	USA	human	Northern America
+KX922703	USA	human	Northern America
+KY785445	USA	human	Northern America
+KY325468	USA	human	Northern America
+KY325467	USA	human	Northern America
+KX832731	USA	human	Northern America
+KX922704	USA	human	Northern America
+KX922706	USA	human	Northern America
+KY325472	USA	human	Northern America
+KX842449	USA	human	Northern America
+KY075936	USA	human	Northern America
+node_395	USA	human	Northern America
+node_419	USA	mosquito	Northern America
+node_420	USA	human	Northern America
+KY415986	HTI	human	Caribbean
+KY415990	HTI	human	Caribbean
+KY014299	USA	mosquito	Northern America
+KX922708	USA	mosquito	Northern America
+MF988743	USA	mosquito	Northern America
+KY785459	USA	human	Northern America
+KY785412	USA	human	Northern America
+KY075935	USA	human	Northern America
+KY785468	USA	mosquito	Northern America
+KY075939	USA	mosquito	Northern America
+node_424	USA	mosquito	Northern America
+node_425	USA	human	Northern America
+KX838904	USA	mosquito	Northern America
+KY014324	USA	mosquito	Northern America
+KY325477	USA	human	Northern America
+NODE_0000461	USA	mosquito	Northern America
+KY075938	USA	mosquito	Northern America
+KY785472	USA	mosquito	Northern America

@@ -18,55 +18,31 @@ data_dir = os.path.join(folder, 'data')
 
 rule all:
     input:
-        os.path.join(data_dir, 'date_predictions.tab'),
-        os.path.join(data_dir, 'rates.pdf')
+        os.path.join(data_dir, 'rates.pdf'),
+        expand(os.path.join(data_dir, 'trees', 'Asian.{type}.nwk'), type=['notdated', 'td', 'tt', 'lsd', 'lsd_tt', 'lsd_td'])
 
-
-rule result_tree_zikv:
+rule result_trees:
     input:
-        td = os.path.join(data_dir, 'best_tree.pos.treedated.nwk'),
-        tt = os.path.join(data_dir, 'best_tree.pos.no_tt.treetimed.nwk'),
-        lsd = os.path.join(data_dir, 'best_tree.pos.prerooted_African.lsdated.nwk'),
-        lsd_td = os.path.join(data_dir, 'best_tree.pos.no_td.prerooted_African.lsdated.nwk'),
-        lsd_tt = os.path.join(data_dir, 'best_tree.pos.no_tt.prerooted_African.lsdated.nwk'),
-    output:
-        td = os.path.join(data_dir, 'datedtrees', 'ZIKV.td.nwk'),
-        tt = os.path.join(data_dir, 'datedtrees', 'ZIKV.tt.nwk'),
-        lsd = os.path.join(data_dir, 'datedtrees', 'ZIKV.lsd.nwk'),
-        lsd_td = os.path.join(data_dir, 'datedtrees', 'ZIKV.lsd_td.nwk'),
-        lsd_tt = os.path.join(data_dir, 'datedtrees', 'ZIKV.lsd_tt.nwk'),
-    threads: 1
-    params:
-        mem = 1000,
-        name = 'result_tree_1',
-    shell:
-        """
-        cp {input.td} {output.td}
-        cp {input.tt} {output.tt}
-        cp {input.lsd} {output.lsd}
-        cp {input.lsd_tt} {output.lsd_tt}
-        cp {input.lsd_td} {output.lsd_td}
-        """
-
-rule result_tree_Asian:
-    input:
+        tree = os.path.join(data_dir, 'best_tree.pos.rooted_African.nwk'),
         td = os.path.join(data_dir, 'best_tree.pos.rooted_African.treedated.nwk'),
         tt = os.path.join(data_dir, 'best_tree.pos.rooted_African.no_tt.treetimed.nwk'),
         lsd = os.path.join(data_dir, 'best_tree.pos.rooted_African.lsdated.nwk'),
         lsd_td = os.path.join(data_dir, 'best_tree.pos.rooted_African.no_td.lsdated.nwk'),
         lsd_tt = os.path.join(data_dir, 'best_tree.pos.rooted_African.no_tt.lsdated.nwk'),
     output:
-        td = os.path.join(data_dir, 'datedtrees', 'Asian.td.nwk'),
-        tt = os.path.join(data_dir, 'datedtrees', 'Asian.tt.nwk'),
-        lsd = os.path.join(data_dir, 'datedtrees', 'Asian.lsd.nwk'),
-        lsd_td = os.path.join(data_dir, 'datedtrees', 'Asian.lsd_td.nwk'),
-        lsd_tt = os.path.join(data_dir, 'datedtrees', 'Asian.lsd_tt.nwk'),
+        tree = os.path.join(data_dir, 'trees', 'Asian.notdated.nwk'),
+        td = os.path.join(data_dir, 'trees', 'Asian.td.nwk'),
+        tt = os.path.join(data_dir, 'trees', 'Asian.tt.nwk'),
+        lsd = os.path.join(data_dir, 'trees', 'Asian.lsd.nwk'),
+        lsd_td = os.path.join(data_dir, 'trees', 'Asian.lsd_td.nwk'),
+        lsd_tt = os.path.join(data_dir, 'trees', 'Asian.lsd_tt.nwk'),
     threads: 1
     params:
         mem = 1000,
-        name = 'result_tree_2',
+        name = 'result_trees',
     shell:
         """
+        cp {input.tree} {output.tree}
         cp {input.td} {output.td}
         cp {input.tt} {output.tt}
         cp {input.lsd} {output.lsd}
@@ -323,6 +299,7 @@ rule extract_date_predictions:
         os.path.join(data_dir, 'best_tree.pos.rooted_African.no_tt.lsd.log'),
         os.path.join(data_dir, 'best_tree.pos.rooted_African.lsd.log'),
         #
+        os.path.join(data_dir, 'best_tree.pos.no_tt.treetime.dates'),
         os.path.join(data_dir, 'best_tree.pos.rooted_African.treetime.dates'),
     output:
         tab = os.path.join(data_dir, 'date_predictions.tab')

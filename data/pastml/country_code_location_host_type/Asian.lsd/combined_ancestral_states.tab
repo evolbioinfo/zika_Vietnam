@@ -1,0 +1,825 @@
+node	country_code	host_type	location
+root	BRA	human	Caribbean
+root	CHN	monkey	Eastern Asia
+root	CUB	mosquito	Europe
+root	DOM		Northern America
+root	GTM		South America
+root	HND		South-eastern Asia
+root	HTI		
+root	ITA		
+root	JAM		
+root	JPN		
+root	MEX		
+root	MYS		
+root	NIC		
+root	PYF		
+root	RUS		
+root	SGP		
+root	THA		
+root	USA		
+n0	MYS	mosquito	South-eastern Asia
+n1	BRA	human	South-eastern Asia
+n1	CHN		
+n1	DOM		
+n1	HND		
+n1	NIC		
+n1	PHL		
+n1	PYF		
+n1	RUS		
+n1	THA		
+n1	USA		
+HQ234499	MYS	mosquito	South-eastern Asia
+KX377336	MYS	mosquito	South-eastern Asia
+n2	THA	human	South-eastern Asia
+n467	BRA	human	South-eastern Asia
+n467	CHN		
+n467	CUB		
+n467	DOM		
+n467	HND		
+n467	JPN		
+n467	KOR		
+n467	MEX		
+n467	NIC		
+n467	PHL		
+n467	PYF		
+n467	RUS		
+n467	SGP		
+n467	THA		
+n467	USA		
+n3	THA	human	South-eastern Asia
+n5	THA	human	South-eastern Asia
+KU681082	PHL	human	South-eastern Asia
+n468	KOR	human	Eastern Asia
+n4	KHM	human	South-eastern Asia
+MG645981	THA	human	South-eastern Asia
+n6	THA	human	South-eastern Asia
+n11	THA	human	South-eastern Asia
+KY120353	KOR	human	Eastern Asia
+KY553111	KOR	human	Eastern Asia
+KU955593	KHM	human	South-eastern Asia
+J860885	KHM	human	South-eastern Asia
+n7	THA	human	South-eastern Asia
+n9	THA	human	South-eastern Asia
+KU179098	IDN	human	South-eastern Asia
+n12	THA	human	South-eastern Asia
+n8	THA	human	South-eastern Asia
+KX051561	THA	human	South-eastern Asia
+n10	THA	human	South-eastern Asia
+KY272987	THA	human	South-eastern Asia
+n13	THA	human	South-eastern Asia
+KX051560	THA	human	South-eastern Asia
+KY328290	CHN	human	Eastern Asia
+KX051562	THA	human	South-eastern Asia
+KF993678	CAN	human	Northern America
+KX694532	THA	human	South-eastern Asia
+n14	THA	human	South-eastern Asia
+n464	IND	human	Southern Asia
+KU681081	THA	human	South-eastern Asia
+n15	SGP	human	South-eastern Asia
+n15	THA		
+MK238035	IND	human	Southern Asia
+n465	IND	human	Southern Asia
+n16	PYF	human	Oceania
+n16	SGP		South-eastern Asia
+n16	THA		
+n345	SGP	human	South-eastern Asia
+n345	THA		
+n466	IND	human	Southern Asia
+MK238036	IND	human	Southern Asia
+LC219720	JPN	human	Eastern Asia
+n17	PYF	human	Oceania
+n346	SGP	human	South-eastern Asia
+n462	SGP	human	South-eastern Asia
+n462	THA		
+MK238038	IND	human	Southern Asia
+MK238037	IND	human	Southern Asia
+KX447517	PYF	human	Oceania
+n18	PYF	human	Oceania
+n460	SGP	human	South-eastern Asia
+n460	THA		
+MG807646	THA	human	South-eastern Asia
+n353	SGP	human	South-eastern Asia
+n350	SGP	human	South-eastern Asia
+KY241769	SGP	human	South-eastern Asia
+KY241730	SGP	human	South-eastern Asia
+MG807647	THA	human	South-eastern Asia
+n463	SGP	human	South-eastern Asia
+n463	TWN		
+n19	PYF	human	Oceania
+n32	MEX	human	Central America
+n461	JPN	human	South-eastern Asia
+n461	THA		
+MH013290	THA	human	South-eastern Asia
+n354	SGP	human	South-eastern Asia
+n372	SGP	human	South-eastern Asia
+n351	SGP	human	South-eastern Asia
+KY241787	SGP	mosquito	South-eastern Asia
+KY126351	TWN	human	Eastern Asia
+KY241691	SGP	human	South-eastern Asia
+n20	PYF	human	Oceania
+n23	PYF	human	Oceania
+KX447513	PYF	human	Oceania
+n34	PYF	human	Oceania
+KX447511	PYF	human	Oceania
+KX447510	PYF	human	Oceania
+n339	MEX	human	Central America
+n192	BRA	human	South America
+n40	BRA	human	Central America
+n40	MEX		South America
+n50	MEX	human	Central America
+n64	BRA	human	South America
+n95	BRA	human	South America
+KY785410	BRA	human	South America
+n190	MEX	human	Central America
+n181	MEX	human	Central America
+n104	MEX	human	Central America
+n173	MEX	human	Central America
+n164	MEX	human	Central America
+n160	MEX	human	Central America
+n143	MEX	human	Central America
+MF801378	GTM	human	Central America
+MF801419	MEX	human	Central America
+MF801391	MEX	human	Central America
+MF801412	MEX	human	Central America
+MF801415	MEX	human	Central America
+n127	MEX	human	Central America
+n142	MEX	human	Central America
+MG548660	THA	human	South-eastern Asia
+LC369584	JPN	human	Eastern Asia
+n355	SGP	human	South-eastern Asia
+KY241707	SGP	human	South-eastern Asia
+n373	SGP	human	South-eastern Asia
+KY241708	SGP	human	South-eastern Asia
+KY241673	SGP	human	South-eastern Asia
+KY241766	SGP	human	South-eastern Asia
+n21	PYF	human	Oceania
+KX447515	PYF	human	Oceania
+n24	AUS	human	Oceania
+n24	CHN		
+n24	JPN		
+n24	PYF		
+KX447516	PYF	human	Oceania
+KX369547	PYF	human	Oceania
+KX447512	PYF	human	Oceania
+KX051563	USA	human	Northern America
+KU744693	CHN	human	Eastern Asia
+n341	BRA	human	Caribbean
+n341	HTI		Central America
+n341	MEX		South America
+n193	BRA	human	South America
+n291	BRA	human	South America
+KU729218	BRA	human	South America
+n41	BRA	human	South America
+n51	BRA	human	South America
+KY241788	SGP	human	South-eastern Asia
+n65	BRA	human	South America
+MH513600	BRA	human	South America
+n96	BRA	human	South America
+n97	BRA	human	South America
+n191	MEX	human	Central America
+n191	NIC		
+n191	SLV		
+MF801406	MEX	human	Central America
+n182	MEX	human	Central America
+n188	MEX	human	Central America
+n105	HND	human	Central America
+n115	NIC	human	Central America
+KY606274	MEX	human	Central America
+n180	HND	human	Central America
+n175	CUB	human	Caribbean
+n175			Central America
+MF801380	GTM	human	Central America
+n165	MEX	human	Central America
+MF801381	HND	human	Central America
+n169	MEX	human	Central America
+MF801400	MEX	human	Central America
+MF801411	MEX	human	Central America
+MF801399	MEX	human	Central America
+n161	MEX	human	Central America
+n161	NIC		
+n161	USA		
+MF593625	CHN	human	Eastern Asia
+MF801382	HND	human	Central America
+n144	MEX	human	Central America
+n149	HND	human	Central America
+n149	MEX		
+n149	NIC		
+n128	MEX	human	Central America
+n130	MEX	human	Central America
+MF801407	MEX	human	Central America
+MF801422	MEX	human	Central America
+KY241782	SGP	mosquito	South-eastern Asia
+n370	SGP	human	South-eastern Asia
+KY241734	SGP	human	South-eastern Asia
+n359	SGP	human	South-eastern Asia
+KY241688	SGP	human	South-eastern Asia
+n362	SGP	human	South-eastern Asia
+n374	SGP	human	South-eastern Asia
+KY241758	SGP	human	South-eastern Asia
+KX447509	PYF	human	Oceania
+n22	PYF	human	Oceania
+n25	CHN	human	Eastern Asia
+n31	AUS	human	Oceania
+n31	CHN		
+n31	JPN		
+n31	PYF		
+n342	BRA	human	South America
+KU509998	HTI	human	Caribbean
+n194	BRA	human	South America
+n195	BRA	human	South America
+n292	BRA	human	South America
+n329	BRA	human	South America
+n42	ITA	human	Europe
+n43	BRA	human	South America
+n52	BRA	human	South America
+n62	BRA	human	South America
+n66	BRA	human	South America
+n93	BRA	human	South America
+KY559025	BRA	human	South America
+KY272991	BRA	human	South America
+n98	BRA	human	South America
+KU926309	BRA	human	South America
+MF801377	SLV	human	Central America
+KY765323	NIC	human	Central America
+MF801397	MEX	human	Central America
+n183	HND	human	Central America
+n183	MEX		
+n189	HND	human	Central America
+MF801408	MEX	human	Central America
+n106	HND	human	Central America
+n108	HND	human	Central America
+KY765319	NIC	human	Central America
+n116	NIC	human	Central America
+KX906952	HND	human	Central America
+KX262887	HND	human	Central America
+n176	CUB	human	Caribbean
+MF988734	SGP	human	South-eastern Asia
+n166	GTM	human	Central America
+MF801403	MEX	human	Central America
+n170	MEX	human	Central America
+MG494697	MEX	human	Central America
+n162	USA	human	Northern America
+MF801426	NIC	human	Central America
+MF801383	HND	human	Central America
+n147	MEX	human	Central America
+KY606271	MEX	human	Central America
+MF801404	MEX	human	Central America
+n150	HND	human	Central America
+n159	NIC	human	Central America
+MF801414	MEX	human	Central America
+n129	MEX	human	Central America
+n131	MEX	human	Central America
+n134	MEX	human	Central America
+KY241773	SGP	human	South-eastern Asia
+KY241777	SGP	mosquito	South-eastern Asia
+KY241751	SGP	human	South-eastern Asia
+KY241744	SGP	human	South-eastern Asia
+KY241714	SGP	human	South-eastern Asia
+KY241738	SGP	human	South-eastern Asia
+n363	SGP	human	South-eastern Asia
+KY241749	SGP	human	South-eastern Asia
+KY241697	SGP	human	South-eastern Asia
+KY241706	SGP	human	South-eastern Asia
+KY241671	SGP	human	South-eastern Asia
+KY241745	SGP	human	South-eastern Asia
+n376	SGP	human	South-eastern Asia
+n456	SGP	human	South-eastern Asia
+KX447514	PYF	human	Oceania
+KJ776791	PYF	human	Oceania
+n26	CHN	human	Eastern Asia
+KU761561	CHN	human	Eastern Asia
+LC191864	JPN	human	Eastern Asia
+KX806557	AUS	human	Oceania
+MF352141	BRA	human	South America
+n343	BRA	human	South America
+KX197205	BRA	human	South America
+KY559021	BRA	human	South America
+n196	BRA	human	South America
+n201	BRA	human	South America
+KY559003	BRA	human	South America
+KY785429	BRA	human	South America
+n295	BRA	human	South America
+n326	BRA	human	South America
+n298	BRA	human	South America
+n325	BRA	human	South America
+KY559014	BRA	human	South America
+KY559015	BRA	human	South America
+KY014313	BRA	human	South America
+n330	BRA	human	South America
+KY003154	ITA	human	Europe
+KY003153	ITA	human	Europe
+KX101060	BRA	human	South America
+n44	BRA	human	South America
+n57	BRA	human	South America
+KY559017	BRA	human	South America
+KY559006	BRA	human	South America
+KY559011	BRA	human	South America
+KY559010	BRA	human	South America
+KY559012	BRA	human	South America
+KY559007	BRA	human	South America
+KY559005	BRA	human	South America
+KY441401	BRA	human	South America
+n67	BRA	human	South America
+KY693680	VEN	human	South America
+KY631492	BRA	human	South America
+KY785437	BRA	human	South America
+KY014308	BRA	human	South America
+KY559032	BRA	human	South America
+n184	HND	human	Central America
+n186	HND	human	Central America
+n186	MEX		
+MF801384	HND	human	Central America
+MF801386	HND	human	Central America
+n107	HND	human	Central America
+MF801387	HND	human	Central America
+n109	HND	human	Central America
+MF801389	HND	human	Central America
+KX421195	NIC	human	Central America
+KX421194	NIC	human	Central America
+n177	CUB	human	Caribbean
+n179	CUB	human	Caribbean
+KU501216	GTM	human	Central America
+KU501217	GTM	human	Central America
+KY606273	MEX	human	Central America
+MF801423	MEX	human	Central America
+KY325479	USA	human	Northern America
+KY325465	USA	human	Northern America
+n148	MEX	human	Central America
+MF801402	MEX	human	Central America
+n151	HND	human	Central America
+n156	HND	human	Central America
+KY765324	NIC	human	Central America
+MF434518	NIC	human	Central America
+MF801401	MEX	human	Central America
+MF801417	MEX	human	Central America
+n132	MEX	human	Central America
+n133	MEX	human	Central America
+n139	MEX	human	Central America
+n137	MEX	human	Central America
+MF801393	MEX	human	Central America
+MF801398	MEX	human	Central America
+KY241721	SGP	human	South-eastern Asia
+n365	SGP	human	South-eastern Asia
+KY241716	SGP	human	South-eastern Asia
+KY241783	SGP	mosquito	South-eastern Asia
+n377	SGP	human	South-eastern Asia
+n455	SGP	mosquito	South-eastern Asia
+KY241727	SGP	human	South-eastern Asia
+KY241780	SGP	mosquito	South-eastern Asia
+KY241682	SGP	human	South-eastern Asia
+KY241778	SGP	mosquito	South-eastern Asia
+KY241776	SGP	mosquito	South-eastern Asia
+n30	CHN	human	Eastern Asia
+KU963796	CHN	human	Eastern Asia
+KU820899	CHN	human	Eastern Asia
+MF099651	CHN	monkey	Eastern Asia
+MF036115	CHN	human	Eastern Asia
+n344	BRA	human	South America
+KR872956	BRA	human	South America
+n197	ECU	human	South America
+n199	BRA	human	South America
+n202	BRA	human	South America
+KU527068	BRA	human	South America
+KY014307	BRA	human	South America
+KY785433	BRA	human	South America
+KU497555	BRA	human	South America
+n327	BRA	human	South America
+KY558999	BRA	human	South America
+n300	COL	human	South America
+KY558996	BRA	human	South America
+KY785455	BRA	human	South America
+KY785480	BRA	human	South America
+KY014317	BRA	human	South America
+n336	BRA	human	South America
+n333	BRA	human	South America
+n334	BRA	human	South America
+n45	BRA	human	South America
+KU940227	BRA	human	South America
+KX101066	BRA	human	South America
+KX101061	BRA	human	South America
+n58	BRA	human	South America
+KY559009	BRA	human	South America
+n68	BRA	human	South America
+n90	BRA	human	South America
+n185	HND	human	Central America
+KY014306	HND	human	Central America
+MF801410	MEX	human	Central America
+n187	HND	human	Central America
+KY785431	HND	human	Central America
+KU870645	USA	human	Northern America
+n110	HND	human	Central America
+MF434517	NIC	human	Central America
+n178	CUB	human	Caribbean
+MH063262	CUB	human	Caribbean
+MH063265	CUB	human	Caribbean
+MF159531	USA	human	Northern America
+MF801396	MEX	human	Central America
+MF801418	MEX	human	Central America
+n152	HND	human	Central America
+KY014310	HND	human	Central America
+n157	HND	human	Central America
+MF801385	HND	human	Central America
+MF801413	MEX	human	Central America
+KY631493	MEX	human	Central America
+KX827268	USA	human	Northern America
+KY606272	MEX	human	Central America
+n140	MEX	human	Central America
+MF801395	MEX	human	Central America
+MF098771	RUS	human	Europe
+n138	MEX	mosquito	Central America
+KY241698	SGP	human	South-eastern Asia
+KY241740	SGP	human	South-eastern Asia
+KY241701	SGP	human	South-eastern Asia
+KY241687	SGP	human	South-eastern Asia
+n380	SGP	human	South-eastern Asia
+KY241741	SGP	human	South-eastern Asia
+KY241735	SGP	human	South-eastern Asia
+KY241755	SGP	human	South-eastern Asia
+KY241771	SGP	human	South-eastern Asia
+KY241704	SGP	human	South-eastern Asia
+KY241719	SGP	human	South-eastern Asia
+KY241683	SGP	human	South-eastern Asia
+KY241786	SGP	mosquito	South-eastern Asia
+KY241748	SGP	human	South-eastern Asia
+KY241722	SGP	human	South-eastern Asia
+KY241770	SGP	human	South-eastern Asia
+KY241711	SGP	human	South-eastern Asia
+KY241743	SGP	human	South-eastern Asia
+KY241699	SGP	human	South-eastern Asia
+KY241732	SGP	human	South-eastern Asia
+KY241724	SGP	human	South-eastern Asia
+n434	SGP	human	South-eastern Asia
+KY241674	SGP	human	South-eastern Asia
+KY241685	SGP	human	South-eastern Asia
+KY241676	SGP	human	South-eastern Asia
+KY241678	SGP	human	South-eastern Asia
+n429	SGP	human	South-eastern Asia
+KY241756	SGP	human	South-eastern Asia
+KY241680	SGP	human	South-eastern Asia
+KY241679	SGP	human	South-eastern Asia
+KX827309	SGP	human	South-eastern Asia
+KY241781	SGP	mosquito	South-eastern Asia
+KY241779	SGP	mosquito	South-eastern Asia
+KU997667	CHN	human	Eastern Asia
+KX013000	CHN	human	Eastern Asia
+KU321639	BRA	human	South America
+MF783073	HTI	mosquito	Caribbean
+KX879604	ECU	human	South America
+MF794971	ECU	human	South America
+KX879603	ECU	human	South America
+KX811222	BRA	human	South America
+n200	BRA	human	South America
+MF073359	BRA	human	South America
+n203	BRA	human	South America
+KU991811	ITA	human	Europe
+n328	BRA	human	South America
+n309	COL	human	South America
+n302	COL	human	South America
+KX548902	COL	human	South America
+KY014309	BRA	human	South America
+KY559031	BRA	human	South America
+KY014301	BRA	human	South America
+KY785479	BRA	human	South America
+KY014296	BRA	human	South America
+KY014320	BRA	human	South America
+n335	BRA	human	South America
+KY785427	BRA	human	South America
+n46	BRA	human	South America
+KU940228	BRA	human	South America
+n59	BRA	human	South America
+KY559013	BRA	human	South America
+n69	BRA	human	South America
+KU312312	SUR	human	South America
+n91	BRA	human	South America
+n92	BRA	human	South America
+KY693677	HND	human	Central America
+KY765325	NIC	human	Central America
+KY785418	HND	human	Central America
+KY014315	HND	human	Central America
+n111	HND	human	Central America
+MF434516	NIC	human	Central America
+MH063263	CUB	human	Caribbean
+MH063259	CUB	human	Caribbean
+KY785442	HND	human	Central America
+KY014319	HND	human	Central America
+n154	NIC	human	Central America
+n158	HND	human	Central America
+KY328289	HND	human	Central America
+n141	MEX	mosquito	Central America
+KY120349	MEX	human	Central America
+KX856011	MEX	mosquito	Central America
+KY648934	MEX	mosquito	Central America
+n381	SGP	human	South-eastern Asia
+n385	SGP	human	South-eastern Asia
+n435	SGP	human	South-eastern Asia
+n440	SGP	human	South-eastern Asia
+n430	SGP	human	South-eastern Asia
+KY241684	SGP	human	South-eastern Asia
+KX280026	BRA	human	South America
+MH513599	BRA	human	South America
+n204	BRA	human	South America
+n288	BRA	human	South America
+KY559001	BRA	human	South America
+KY558995	BRA	human	South America
+n310	COL	human	South America
+KY014303	DOM	human	Caribbean
+n305	MTQ	human	Caribbean
+KY317937	COL	human	South America
+n304	PER	human	South America
+MH763833	BRA	human	South America
+MH763832	BRA	human	South America
+KX520666	BRA	human	South America
+KU940224	BRA	human	South America
+KY559019	BRA	human	South America
+n60	BRA	human	South America
+n89	BRA	human	South America
+n71	BRA	human	South America
+n84	CHN	human	Eastern Asia
+KU365779	BRA	human	South America
+KU707826	BRA	human	South America
+KU365777	BRA	human	South America
+KU365780	BRA	human	South America
+n113	HND	human	Central America
+KY785448	HND	human	Central America
+MF434522	NIC	human	Central America
+MF434521	NIC	human	Central America
+n155	NIC	human	Central America
+KY014312	HND	human	Central America
+KY785452	HND	human	Central America
+KX446950	MEX	mosquito	Central America
+KX446951	MEX	mosquito	Central America
+KY241695	SGP	human	South-eastern Asia
+KY241752	SGP	human	South-eastern Asia
+KY241772	SGP	human	South-eastern Asia
+KY241725	SGP	human	South-eastern Asia
+KY241737	SGP	human	South-eastern Asia
+KY241760	SGP	human	South-eastern Asia
+KY241785	SGP	mosquito	South-eastern Asia
+KY241702	SGP	human	South-eastern Asia
+KY241709	SGP	human	South-eastern Asia
+KY241763	SGP	human	South-eastern Asia
+KY241762	SGP	human	South-eastern Asia
+KY241742	SGP	human	South-eastern Asia
+KY241757	SGP	human	South-eastern Asia
+KY241703	SGP	human	South-eastern Asia
+KY241784	SGP	mosquito	South-eastern Asia
+KY241761	SGP	human	South-eastern Asia
+KY241746	SGP	human	South-eastern Asia
+KY241754	SGP	human	South-eastern Asia
+KY241753	SGP	human	South-eastern Asia
+KY241765	SGP	human	South-eastern Asia
+KY241733	SGP	human	South-eastern Asia
+KY241726	SGP	human	South-eastern Asia
+KY241720	SGP	human	South-eastern Asia
+KY241739	SGP	human	South-eastern Asia
+KY241705	SGP	human	South-eastern Asia
+KY241696	SGP	human	South-eastern Asia
+KY241764	SGP	human	South-eastern Asia
+KY241731	SGP	human	South-eastern Asia
+KY241750	SGP	human	South-eastern Asia
+KY241718	SGP	human	South-eastern Asia
+KY241710	SGP	human	South-eastern Asia
+n439	SGP	human	South-eastern Asia
+KY241728	SGP	human	South-eastern Asia
+KY241747	SGP	human	South-eastern Asia
+KY241715	SGP	human	South-eastern Asia
+KY241768	SGP	human	South-eastern Asia
+KY241723	SGP	human	South-eastern Asia
+n446	SGP	human	South-eastern Asia
+KY241689	SGP	human	South-eastern Asia
+KY241736	SGP	human	South-eastern Asia
+n431	SGP	human	South-eastern Asia
+KY241767	SGP	human	South-eastern Asia
+KY558989	BRA	human	South America
+n206	BRA	human	South America
+MF098767	RUS	human	Europe
+n289	BRA	human	South America
+n290	BRA	human	South America
+n311	COL	human	South America
+n313	COL	human	South America
+n306	MTQ	human	Caribbean
+n308	MTQ	human	Caribbean
+KY693678	PER	human	South America
+KY693679	PER	human	South America
+n61	BRA	human	South America
+KY559018	BRA	human	South America
+KY785450	BRA	human	South America
+KY014297	BRA	human	South America
+n72	BRA	human	South America
+n74	BRA	human	South America
+n85	CHN	human	Eastern Asia
+KU820898	CHN	human	Eastern Asia
+KY785414	HND	human	Central America
+KY693676	HND	human	Central America
+KY765317	NIC	human	Central America
+KY765318	NIC	human	Central America
+KY241713	SGP	human	South-eastern Asia
+KX813683	SGP	human	South-eastern Asia
+KY241759	SGP	human	South-eastern Asia
+KY241692	SGP	human	South-eastern Asia
+KY241693	SGP	human	South-eastern Asia
+KY241775	SGP	mosquito	South-eastern Asia
+n451	SGP	human	South-eastern Asia
+KY241774	SGP	mosquito	South-eastern Asia
+n432	SGP	human	South-eastern Asia
+KY241677	SGP	human	South-eastern Asia
+n207	HTI	human	Caribbean
+KY559026	BRA	human	South America
+KU729217	BRA	human	South America
+KY120352	KOR	human	Eastern Asia
+KY785426	BRA	human	South America
+MF073358	BRA	human	South America
+n312	COL	human	South America
+KX198135	PAN	human	Central America
+n316	COL	human	South America
+n315	COL	human	South America
+KY785469	COL	human	South America
+KU647676	MTQ	human	Caribbean
+n307	MEX	human	Central America
+KY075932	USA	human	Northern America
+KY785451	MTQ	human	Caribbean
+KY559024	BRA	human	South America
+KY559023	BRA	human	South America
+n73	BRA	human	South America
+MF073357	BRA	human	South America
+n75	SUR	human	South America
+KU365778	BRA	human	South America
+n78	PRI	human	Caribbean
+KX766028	DOM	human	Caribbean
+n86	CHN	human	Eastern Asia
+n452	SGP	human	South-eastern Asia
+KY241690	SGP	human	South-eastern Asia
+KY241675	SGP	human	South-eastern Asia
+KY241681	SGP	human	South-eastern Asia
+KY014302	DOM	human	Caribbean
+KY785476	DOM	human	Caribbean
+n210	DOM	human	Caribbean
+n286	ITA	human	Europe
+n219	CUB	human	Caribbean
+MF438286	CUB	human	Caribbean
+n277	DOM	human	Caribbean
+n222	USA	human	Caribbean
+MF098766	RUS	human	Europe
+MH063261	CUB	human	Caribbean
+MF384325	HTI	mosquito	Caribbean
+MF783072	HTI	mosquito	Caribbean
+n272	HTI	human	Caribbean
+KY415990	HTI	human	Caribbean
+KY415986	HTI	human	Caribbean
+KY415987	HTI	human	Caribbean
+n276	HTI	human	Caribbean
+KY317936	COL	human	South America
+KY317939	COL	human	South America
+KY785466	COL	human	South America
+n318	COL	human	South America
+n321	PAN	human	Central America
+KY317940	COL	human	South America
+KY317938	COL	human	South America
+KU922960	MEX	human	Central America
+KU922923	MEX	human	Central America
+KY441403	BRA	human	South America
+KY441402	BRA	human	South America
+KU758877	GUF	human	South America
+KY348640	SUR	human	South America
+KU937936	SUR	human	South America
+KY785456	BRA	human	South America
+n80	PRI	human	Caribbean
+KY785481	PRI	human	Caribbean
+KX056898	CHN	human	Eastern Asia
+n87	CHN	human	Eastern Asia
+KY241694	SGP	human	South-eastern Asia
+KY241686	SGP	human	South-eastern Asia
+n211	DOM	human	Caribbean
+n214	DOM	human	Caribbean
+KX269878	ITA	human	Europe
+n287	ITA	human	Europe
+MH063260	CUB	human	Caribbean
+MH063264	CUB	human	Caribbean
+n278	DOM	human	Caribbean
+n282	DOM	human	Caribbean
+n240	USA	human	Caribbean
+n238	DOM	human	Caribbean
+n238	JAM		
+n238	USA		
+n225	USA	human	Northern America
+KY785424	JAM	human	Caribbean
+KY415988	HTI	human	Caribbean
+KX673530	GBR	human	Europe
+KY415991	HTI	human	Caribbean
+KY415989	HTI	human	Caribbean
+KU820897	COL	human	South America
+KX247646	COL	human	South America
+n320	VEN	human	South America
+n322	PAN	human	Central America
+KX156775	PAN	human	Central America
+n82	PRI	human	Caribbean
+KX377337	PRI	human	Caribbean
+KY075933	USA	human	Northern America
+KY379148	CHN	human	Eastern Asia
+KU955590	CHN	human	Eastern Asia
+MF167360	CHN	human	Eastern Asia
+KY785423	DOM	human	Caribbean
+n212	DOM	human	Caribbean
+LC190723	JPN	human	Eastern Asia
+n215	DOM	human	Caribbean
+KU853012	ITA	human	Europe
+KX922707	USA	human	Northern America
+n279	DOM	human	Caribbean
+n280	RUS	human	Europe
+n283	DOM	human	Caribbean
+n285	DOM	human	Caribbean
+n241	USA	human	Caribbean
+MF098765	RUS	human	Europe
+KY785430	JAM	human	Caribbean
+n239	DOM	human	Caribbean
+KY325471	USA	human	Northern America
+n237	USA	human	Northern America
+n228	USA	human	Northern America
+n236	USA	mosquito	Northern America
+KY325482	USA	human	Northern America
+KX702400	VEN	human	South America
+KX893855	VEN	human	South America
+KX156774	PAN	human	Central America
+KX156776	PAN	human	Central America
+n83	PRI	human	Caribbean
+KY075934	USA	human	Northern America
+n213	DOM	human	Caribbean
+KY785419	JAM	human	Caribbean
+MF098764	RUS	human	Europe
+KY785413	DOM	human	Caribbean
+KY785484	DOM	human	Caribbean
+KY785435	DOM	human	Caribbean
+MF664436	RUS	human	Europe
+MF098768	RUS	human	Europe
+MF098769	RUS	human	Europe
+KY785415	DOM	human	Caribbean
+KY785470	DOM	human	Caribbean
+KY014314	DOM	human	Caribbean
+KY785420	DOM	human	Caribbean
+KY014318	DOM	human	Caribbean
+n242	USA	human	Northern America
+KY785425	DOM	human	Caribbean
+KY785453	DOM	human	Caribbean
+KY014300	DOM	human	Caribbean
+KY325464	USA	human	Northern America
+KY325476	USA	human	Northern America
+n229	USA	human	Northern America
+n230	USA	human	Northern America
+KY075937	USA	mosquito	Northern America
+KY785422	USA	mosquito	Northern America
+KY785464	PRI	human	Caribbean
+KY785462	PRI	human	Caribbean
+KY785465	DOM	human	Caribbean
+KY785441	DOM	human	Caribbean
+KY785443	USA	human	Northern America
+n244	USA	human	Northern America
+n255	USA	human	Northern America
+KY325472	USA	human	Northern America
+KX842449	USA	human	Northern America
+KY075936	USA	human	Northern America
+n264	USA	mosquito	Northern America
+KY325483	USA	human	Northern America
+n262	USA	human	Northern America
+KX922704	USA	human	Northern America
+KX922706	USA	human	Northern America
+KY325478	USA	human	Northern America
+KX922705	USA	human	Northern America
+KY014298	USA	human	Northern America
+n231	USA	mosquito	Northern America
+KY325473	USA	human	Northern America
+n245	USA	human	Northern America
+KY014326	USA	human	Northern America
+KY325467	USA	human	Northern America
+KX832731	USA	human	Northern America
+KX838904	USA	mosquito	Northern America
+KY014324	USA	mosquito	Northern America
+n263	USA	mosquito	Northern America
+KY325477	USA	human	Northern America
+n232	USA	mosquito	Northern America
+KX838906	USA	mosquito	Northern America
+n246	USA	human	Northern America
+n253	USA	human	Northern America
+KY785472	USA	mosquito	Northern America
+KY075938	USA	mosquito	Northern America
+n233	USA	mosquito	Northern America
+n234	USA	mosquito	Northern America
+n247	USA	human	Northern America
+n251	USA	human	Northern America
+KY785412	USA	human	Northern America
+KY075935	USA	human	Northern America
+KY014299	USA	mosquito	Northern America
+KX922708	USA	mosquito	Northern America
+KY785459	USA	human	Northern America
+MF988743	USA	mosquito	Northern America
+n248	USA	human	Northern America
+n250	USA	human	Northern America
+KX838905	USA	mosquito	Northern America
+n252	USA	human	Northern America
+n249	USA	mosquito	Northern America
+KY325468	USA	human	Northern America
+KX922703	USA	human	Northern America
+KY785445	USA	human	Northern America
+KY785474	USA	human	Northern America
+KY325469	USA	human	Northern America
+KY785468	USA	mosquito	Northern America
+KY075939	USA	mosquito	Northern America
