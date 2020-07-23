@@ -1,0 +1,634 @@
+node	country
+root	China
+root	Cuba
+root	Dominican Republic
+root	Guatemala
+root	Haiti
+root	Italy
+root	Jamaica
+root	Japan
+root	Malaysia
+root	Mexico
+root	Nicaragua
+root	Russia
+root	Singapore
+root	USA
+HQ234499	Malaysia
+n0	Philippines
+n0	Thailand
+n00	Philippines
+n00	South Korea
+n00	Thailand
+n00	USA
+n11	Thailand
+n1	South Korea
+KU681082	Philippines
+n2	Thailand
+n3	Thailand
+KY120353	South Korea
+KY553111	South Korea
+MG645981	Thailand
+n22	Cambodia
+n33	Thailand
+n6	Thailand
+J860885	Cambodia
+KU955593	Cambodia
+n4	Thailand
+n5	Thailand
+KU179098	Indonesia
+n66	Thailand
+KY272987	Thailand
+n44	Thailand
+n55	Thailand
+KX051561	Thailand
+KX051560	Thailand
+n7	Thailand
+KF993678	Canada
+KX694532	Thailand
+KY328290	China
+KX051562	Thailand
+n77	India
+n9	Thailand
+n8	India
+MK238035	India
+KU681081	Thailand
+n99	Thailand
+MK238036	India
+n88	India
+n10	Thailand
+n1313	French Polynesia
+n1313	Thailand
+n1313	Vietnam
+MK238037	India
+MK238038	India
+n1010	Thailand
+n12	Thailand
+n14	Vietnam
+n1717	French Polynesia
+MG807647	Thailand
+n1111	Singapore
+n1111	Taiwan
+n1111	Thailand
+MG807646	Thailand
+n1212	Thailand
+n1414	Vietnam
+n15	Vietnam
+KX447517	French Polynesia
+n18	French Polynesia
+KY241691	Singapore
+KY126351	Taiwan
+MH013290	Thailand
+n13	Thailand
+IonXpress_040_rawlib.basecaller	Vietnam
+8711_IonXpress_002_rawlib.basecaller	Vietnam
+IonXpress_041_rawlib.basecaller	Vietnam
+IonXpress_004_rawlib.basecaller	Vietnam
+IonXpress_039_rawlib.basecaller	Vietnam
+8628_IonXpress_066_rawlib.basecaller	Vietnam
+n1515	Vietnam
+8607_IonXpress_035_rawlib.basecaller	Vietnam
+n16	Vietnam
+n1818	Australia
+n1818	China
+n1818	French Polynesia
+n1818	Japan
+n2121	French Polynesia
+KX447516	French Polynesia
+KX447515	French Polynesia
+n114114	French Polynesia
+LC369584	Japan
+MG548660	Thailand
+3015u_IonXpress_001_rawlib.basecaller	Vietnam
+3015_IonXpress_030_rawlib.basecaller	Vietnam
+n1616	Vietnam
+7938_IonXpress_048_rawlib.basecaller	Vietnam
+n19	Australia
+n19	China
+n19	French Polynesia
+n19	Japan
+n1919	China
+KX447511	French Polynesia
+n2222	French Polynesia
+n114	French Polynesia
+KX447513	French Polynesia
+KJ776791	French Polynesia
+KX447514	French Polynesia
+KX447509	French Polynesia
+7040_IonXpress_033_rawlib.basecaller	Vietnam
+8546_IonXpress_034_rawlib.basecaller	Vietnam
+n17	Vietnam
+KX806557	Australia
+LC191864	Japan
+KU761561	China
+n20	China
+KX447510	French Polynesia
+n23	Brazil
+KX447512	French Polynesia
+KX369547	French Polynesia
+LC219720	Japan
+222_IonXpress_003_rawlib.basecaller	Vietnam
+KU820899	China
+n2020	China
+KU963796	China
+n21	China
+n2323	Brazil
+n25	Brazil
+MF099651	China
+MF036115	China
+KX013000	China
+KU997667	China
+KX051563	USA
+n24	Brazil
+KU729218	Brazil
+n2525	Brazil
+n29	Brazil
+KY241788	Singapore
+n32	Brazil
+n3535	Brazil
+n6161	Brazil
+n62	Brazil
+n74	Brazil
+KU509998	Haiti
+n2424	Brazil
+n26	Italy
+n2626	Brazil
+n2929	Brazil
+n3131	Brazil
+KY014313	Brazil
+n3232	Brazil
+n36	Brazil
+n3737	Brazil
+KY559021	Brazil
+KX197205	Brazil
+KY559003	Brazil
+n6262	Brazil
+n7474	Brazil
+n8585	Brazil
+MF783073	Haiti
+KR872956	Brazil
+KU321639	Brazil
+MF352141	Brazil
+KY003154	Italy
+KY003153	Italy
+KX101060	Brazil
+n27	Brazil
+KY559010	Brazil
+KY559011	Brazil
+KY559009	Brazil
+KY559006	Brazil
+KY559017	Brazil
+n30	Brazil
+KY559007	Brazil
+KY559005	Brazil
+n3333	Brazil
+KY014309	Brazil
+n3434	Brazil
+KY559031	Brazil
+n35	Brazil
+KY014317	Brazil
+n3636	Ecuador
+n37	Brazil
+KU527068	Brazil
+n38	Brazil
+n63	Brazil
+KU497555	Brazil
+n6363	Brazil
+n7373	Brazil
+KY785429	Brazil
+MH513600	Brazil
+n75	Brazil
+n85	Brazil
+KY441401	Brazil
+KY785410	Brazil
+n86	Honduras
+n113113	Brazil
+KU940228	Brazil
+n2727	Brazil
+n28	Brazil
+n3030	Brazil
+KY559013	Brazil
+n34	Brazil
+KY785427	Brazil
+KY785479	Brazil
+KY014301	Brazil
+KY014320	Brazil
+KY014296	Brazil
+MF794971	Ecuador
+KX879604	Ecuador
+KX879603	Ecuador
+MH513599	Brazil
+KX280026	Brazil
+KX811222	Brazil
+n3838	Brazil
+n3939	Brazil
+MF073359	Brazil
+KY559001	Brazil
+KY558995	Brazil
+KU991811	Italy
+KY559015	Brazil
+n64	Brazil
+KY558999	Brazil
+n6464	Brazil
+KY785433	Brazil
+KY014307	Brazil
+n7575	Brazil
+n7676	Brazil
+KY693680	Venezuela
+KY631492	Brazil
+MF801382	Honduras
+MF801383	Honduras
+MF593625	China
+MF801378	Guatemala
+n94	Honduras
+n95	Honduras
+n95	Nicaragua
+n95	USA
+n96	Honduras
+n9999	Honduras
+n100	El Salvador
+n100	Honduras
+n100	Mexico
+n100	Nicaragua
+n101	Honduras
+n103103	Honduras
+n106106	Honduras
+n111	Honduras
+n86.polytomy_23	Mexico
+KY559025	Brazil
+KY272991	Brazil
+KY014308	Brazil
+KY559032	Brazil
+KY785437	Brazil
+KU926309	Brazil
+KX520666	Brazil
+KU940224	Brazil
+n2828	Brazil
+KU940227	Brazil
+KY559019	Brazil
+n31	Brazil
+MH763833	Brazil
+MH763832	Brazil
+KY785426	Brazil
+MF073358	Brazil
+n39	Brazil
+KY558989	Brazil
+n40	Brazil
+KY785480	Brazil
+KY785455	Brazil
+KY558996	Brazil
+n65	Colombia
+KU707826	Brazil
+KU365779	Brazil
+n76	Brazil
+n7777	Brazil
+n78	Brazil
+KU312312	Suriname
+MF801408	Mexico
+n9494	Honduras
+MF801426	Nicaragua
+n9595	USA
+MF801381	Honduras
+n9898	Guatemala
+n96.polytomy_23	Mexico
+KX906952	Honduras
+KX262887	Honduras
+MF801406	Mexico
+n100100	El Salvador
+n100100	Honduras
+n100100	Nicaragua
+n101101	Honduras
+n102102	Honduras
+MF801389	Honduras
+n104	Honduras
+KY606274	Mexico
+n105105	Nicaragua
+MF801387	Honduras
+n106	Honduras
+n107	Nicaragua
+n107107	Honduras
+n111111	Cuba
+n111111	Honduras
+n111111	Singapore
+MF801380	Guatemala
+n8686	Mexico
+n8888	Mexico
+MF801397	Mexico
+KX101066	Brazil
+KX101061	Brazil
+KY559023	Brazil
+KY559018	Brazil
+KY559024	Brazil
+KY120352	South Korea
+KU729217	Brazil
+MF098767	Russia
+n4040	Brazil
+n6565	Colombia
+n6969	Colombia
+KU365780	Brazil
+KU365777	Brazil
+KY785450	Brazil
+KY014297	Brazil
+n7878	Brazil
+n79	Brazil
+n8282	China
+MF801386	Honduras
+MF801384	Honduras
+KY325479	USA
+KY325465	USA
+KU501216	Guatemala
+KU501217	Guatemala
+n9696	Mexico
+MF801403	Mexico
+MF801377	El Salvador
+KY765323	Nicaragua
+MF801410	Mexico
+n102	Honduras
+KY014306	Honduras
+n103	Honduras
+MF434517	Nicaragua
+n104104	Honduras
+KX421195	Nicaragua
+KX421194	Nicaragua
+KY765319	Nicaragua
+KY785431	Honduras
+KU870645	USA
+MF434518	Nicaragua
+KY765324	Nicaragua
+n108	Honduras
+n109	Honduras
+MF988734	Singapore
+n112	Cuba
+MF801402	Mexico
+n87	Mexico
+n8787	Mexico
+n89	Mexico
+n90	Mexico
+KY559026	Brazil
+n41	Brazil
+n41	Dominican Republic
+n41	Haiti
+KX548902	Colombia
+n6666	Colombia
+n70	Colombia
+KY785469	Colombia
+KX198135	Panama
+KY014303	Dominican Republic
+n7070	Colombia
+KY785466	Colombia
+n71	Colombia
+KY441403	Brazil
+KY441402	Brazil
+MF073357	Brazil
+KU365778	Brazil
+n7979	Brazil
+n82	Suriname
+n83	China
+KU820898	China
+MF801400	Mexico
+n97	Mexico
+n9797	Mexico
+KY785418	Honduras
+KY014315	Honduras
+KY693677	Honduras
+KY765325	Nicaragua
+n105	Honduras
+KY785448	Honduras
+n104104.polytomy_24	Nicaragua
+n108108	Honduras
+KY328289	Honduras
+MF801385	Honduras
+KY014310	Honduras
+n109109	Honduras
+MH063265	Cuba
+MF159531	USA
+n112112	Cuba
+MF801418	Mexico
+MF801396	Mexico
+MF801404	Mexico
+KY606271	Mexico
+MF801419	Mexico
+n8989	Mexico
+n9090	Mexico
+MF801422	Mexico
+MH063261	Cuba
+n4141	Brazil
+n4141	Dominican Republic
+n4141	Haiti
+n67	Peru
+KY317937	Colombia
+n6767	Martinique
+KY317939	Colombia
+KY317936	Colombia
+KY317940	Colombia
+KY317938	Colombia
+n7171	Panama
+n72	Colombia
+KY785456	Brazil
+n80	Puerto Rico
+KU937936	Suriname
+KY348640	Suriname
+KU758877	French Guiana
+KX766028	Dominican Republic
+n8383	China
+MF801411	Mexico
+MF801399	Mexico
+MG494697	Mexico
+n98	Mexico
+KY785414	Honduras
+KY693676	Honduras
+MF434516	Nicaragua
+MF434522	Nicaragua
+KY785452	Honduras
+KY014312	Honduras
+KY014319	Honduras
+n110	Nicaragua
+KY785442	Honduras
+MH063262	Cuba
+n113	Cuba
+MF801391	Mexico
+MF801412	Mexico
+MF801393	Mexico
+MF801395	Mexico
+MF098771	Russia
+n91	Mexico
+MF801398	Mexico
+n9191	Mexico
+n9292	Mexico
+n93	Mexico
+n42	Haiti
+n45	Dominican Republic
+KY693679	Peru
+KY693678	Peru
+n68	Martinique
+n6868	Martinique
+KX156776	Panama
+KX156775	Panama
+KX156774	Panama
+n7272	Colombia
+KU820897	Colombia
+KY785481	Puerto Rico
+n8080	Puerto Rico
+KX056898	China
+n84	China
+MF801423	Mexico
+KY606273	Mexico
+MF434521	Nicaragua
+n110110	Nicaragua
+MH063259	Cuba
+MH063263	Cuba
+KY648934	Mexico
+KX856011	Mexico
+KY120349	Mexico
+n92	Mexico
+MF801413	Mexico
+KY631493	Mexico
+KY606272	Mexico
+KX827268	USA
+n9393	Mexico
+MF801414	Mexico
+MF384325	Haiti
+n4242	Haiti
+KY785423	Dominican Republic
+KY785441	Dominican Republic
+KY785419	Jamaica
+KY785465	Dominican Republic
+n46	Dominican Republic
+n5757	Dominican Republic
+n58	Dominican Republic
+KX269878	Italy
+n5858	Dominican Republic
+n59	Cuba
+n60	Dominican Republic
+n60	Italy
+n60	USA
+n6060	Dominican Republic
+n61	Dominican Republic
+LC190723	Japan
+n45.polytomy_30	Russia
+KY785451	Martinique
+KY075932	USA
+n69	Mexico
+KU647676	Martinique
+KX247646	Colombia
+n73	Venezuela
+n81	Puerto Rico
+n8181	Puerto Rico
+KY379148	China
+n8484	China
+KY765318	Nicaragua
+KY765317	Nicaragua
+KX446951	Mexico
+KX446950	Mexico
+MF801401	Mexico
+MF801417	Mexico
+MF783072	Haiti
+n43	Haiti
+KY785424	Jamaica
+n4646	USA
+n51	Dominican Republic
+n5656	Dominican Republic
+KY785413	Dominican Republic
+MF098764	Russia
+KY785476	Dominican Republic
+KY014302	Dominican Republic
+KY785420	Dominican Republic
+KY014318	Dominican Republic
+n5959	Cuba
+MF438286	Cuba
+KU853012	Italy
+KX922707	USA
+KY785470	Dominican Republic
+KY014314	Dominican Republic
+KY785415	Dominican Republic
+KY785484	Dominican Republic
+KY785435	Dominican Republic
+n4545	Russia
+MF098766	Russia
+KU922960	Mexico
+KU922923	Mexico
+KX893855	Venezuela
+KX702400	Venezuela
+KY785462	Puerto Rico
+KY785464	Puerto Rico
+KY075934	USA
+KY075933	USA
+KX377337	Puerto Rico
+MF167360	China
+KU955590	China
+KY415990	Haiti
+KY415986	Haiti
+KY415987	Haiti
+n4343	Haiti
+n4444	Haiti
+KY325471	USA
+n47	USA
+MF098765	Russia
+n5151	Dominican Republic
+KY785430	Jamaica
+n57	Dominican Republic
+MH063260	Cuba
+MH063264	Cuba
+MF098769	Russia
+MF098768	Russia
+MF664436	Russia
+KY415988	Haiti
+KX673530	United Kingdom
+KY415991	Haiti
+KY415989	Haiti
+n4747	USA
+n48	USA
+KY785425	Dominican Republic
+n52	USA
+KY785453	Dominican Republic
+KY014300	Dominican Republic
+KY325476	USA
+KY325464	USA
+n4848	USA
+n4949	USA
+KY785443	USA
+n5252	USA
+KY325482	USA
+n49	USA
+KY014298	USA
+KX922705	USA
+KY325473	USA
+n50	USA
+KX838906	USA
+KY014326	USA
+n53	USA
+KY075936	USA
+KY325478	USA
+KX922704	USA
+KY325467	USA
+n5454	USA
+KX842449	USA
+KY325472	USA
+KX922706	USA
+KX832731	USA
+KY785422	USA
+KY075937	USA
+KY785459	USA
+MF988743	USA
+n5050	USA
+n5353	USA
+n54	USA
+KY785445	USA
+KX922703	USA
+KX838905	USA
+KY325468	USA
+KY325469	USA
+KY785474	USA
+n5555	USA
+n56	USA
+KY014299	USA
+KX922708	USA
+KY785468	USA
+KY075939	USA
+KY785412	USA
+KY075935	USA
+KY785472	USA
+KY075938	USA
+KY325477	USA
+KY325483	USA
+KY014324	USA
+KX838904	USA
