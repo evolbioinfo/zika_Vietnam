@@ -4,8 +4,8 @@ import os
 # snakemake --snakefile Snakefile_trees --keep-going --cores 4 --config folder=.. --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
 
 # To run on bioevo:
-# module load conda && source /local/gensoft2/exe/conda/3.19.0/conda/bin/activate snakemake && module load singularity
-# snakemake --snakefile Snakefile_trees --config folder='/pasteur/homes/azhukova/projects/zika_atlas' --keep-going --cores 1 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~" --cluster "sbatch -c {threads} -o logs/{params.name}.log -e logs/{params.name}.log --mem {params.mem} -p bioevo --qos=bioevo -A bioevo -J {params.name}" --jobs 300
+# source /local/gensoft2/exe/conda/3.19.0/conda/bin/activate snakemake && module load singularity/3.5.3
+# snakemake --snakefile Snakefile_trees --config folder='/pasteur/homes/azhukova/projects/zika_Vietnam' --keep-going --cores 1 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~" --cluster "sbatch -c {threads} -o logs/{params.name}.log -e logs/{params.name}.log --mem {params.mem} -p bioevo --qos=bioevo -A bioevo -J {params.name}" --jobs 300
 
 # To visualise the pipeline
 # snakemake --snakefile Snakefile_trees --config folder=.. --dag | dot -Tsvg > pipeline_trees.svg
