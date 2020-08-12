@@ -55,7 +55,9 @@ if '__main__' == __name__:
         rec.id = rec.id.replace('_', '').replace('-', '')
         rec.description = ''
     df = fetch_metadata_from_entrez([_.id for _ in recs])
+    df = df.loc[df['host'] == 'Homo sapiens', :]
     df.to_csv(params.output_data, sep='\t', index_label='accession')
     records = [seq for seq in recs if seq.id in df.index]
+    print('Filtered out {} human ZIKV sequences'.format(len(records)))
     SeqIO.write(records, params.output_fa, "fasta")
 

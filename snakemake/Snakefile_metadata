@@ -13,15 +13,16 @@ localrules: all, entrez
 
 
 folder = os.path.abspath(config["folder"])
-data_dir = os.path.join(folder, 'data')
-genbank_data = os.path.join(folder, 'data', 'zika-good-final.fasta')
+data_dir = os.path.join(folder, 'data20200811')
+#genbank_data = os.path.join(data_dir, 'zika-good-final.fasta')
+genbank_data = os.path.join(data_dir, 'genbank_20200811_org_Zika_virus_len_8000_14000.fa')
 
 
 
 rule all:
     input:
-        os.path.join(data_dir, 'sequences.fa'),
-        os.path.join(data_dir, 'metadata.tab'),
+        os.path.join(data_dir, 'sequences.combined.fa'),
+        os.path.join(data_dir, 'metadata.combined.tab'),
 
 
 rule entrez:
@@ -82,3 +83,24 @@ rule post_genome_detective:
         --input_data {input.data} --gd_data {input.gd_data}
         """
 
+rule add_Vietnam:
+    '''
+    Adds metadata and sequences from Vietnam
+    '''
+    input:
+        fa = os.path.join(data_dir, 'sequences.fa'),
+        v_fa = os.path.join(data_dir, 'Vietnam.fa'),
+        data = os.path.join(data_dir, 'metadata.tab')
+    output:
+        fa = os.path.join(data_dir, 'sequences.combined.fa'),
+        data = os.path.join(data_dir, 'metadata.combined.tab')
+    params:
+        mem = 2000,
+        name = 'gd_metadata'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/add_Vietnam.py --input_fa {input.fa} --output_fa {output.fa} --output_data {output.data} \
+        --input_data {input.data} --input_Vietnam {input.v_fa}
+        """

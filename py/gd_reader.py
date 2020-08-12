@@ -14,7 +14,7 @@ if '__main__' == __name__:
     params = parser.parse_args()
 
     df = pd.concat([pd.read_csv(data, index_col=0) for data in params.gd_data])
-    df = df[df['type support'] == 1000]
+    df = df[df['type support'] == 100]
     df.drop(labels=["assignment", "species", "species-score", "type support", "subtype", "subtype support"],
             axis=1, inplace=True)
 

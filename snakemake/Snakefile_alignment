@@ -13,7 +13,7 @@ localrules: all
 
 
 folder = os.path.abspath(config["folder"])
-data_dir = os.path.join(folder, 'data')
+data_dir = os.path.join(folder, 'data20200811')
 
 
 rule all:
@@ -25,7 +25,7 @@ rule get_seq_ids:
     Extract sequence ids of interest.
     '''
     input:
-        tab = os.path.join(data_dir, 'metadata.tab'),
+        tab = os.path.join(data_dir, 'metadata.combined.tab'),
     output:
         tab = os.path.join(data_dir, 'ids.txt')
     params:
@@ -44,7 +44,7 @@ rule aln_against_reference:
     Align sequences against a reference.
     '''
     input:
-        fa = os.path.join(data_dir, 'sequences.fa'),
+        fa = os.path.join(data_dir, 'sequences.combined.fa'),
         ref = os.path.join(data_dir, 'ref', 'ZIKV.fa')
     output:
         aln = temp(os.path.join(data_dir, 'aln.ref.fa'))

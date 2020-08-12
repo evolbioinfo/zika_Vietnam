@@ -13,7 +13,7 @@ import os
 localrules: all
 
 folder = os.path.abspath(config["folder"])
-data_dir = os.path.join(folder, 'data')
+data_dir = os.path.join(folder, 'data20200811')
 
 tree_types = ['raxml', 'iq']
 
@@ -56,7 +56,7 @@ rule raxml_nt:
         log = os.path.join(data_dir, 'raxml_tree.{type,(gene|type|pos)}.log'),
         model = os.path.join(data_dir, 'raxml_tree.{type,(gene|type|pos)}.model'),
     threads: 12
-    singularity: "docker://evolbioinfo/raxml-ng:v0.8.0-beta"
+    singularity: "docker://evolbioinfo/raxml-ng:v0.9.0"
     params:
         mem = 10000,
         name = 'raxml.{type}',
@@ -83,7 +83,7 @@ rule iqtree_nt:
         tree = os.path.join(data_dir, 'iq_tree.{type,(gene|type|pos)}.nwk'),
         log = os.path.join(data_dir, 'iq_tree.{type,(gene|type|pos)}.log'),
     threads: 12
-    singularity: "docker://evolbioinfo/iqtree:v1.6.9"
+    singularity: "docker://evolbioinfo/iqtree:v2.0-rc1"
     params:
         mem = 10000,
         name = 'iq.{type}',
@@ -107,7 +107,7 @@ rule log_lh_nt:
     output:
         log = os.path.join(data_dir, 'loglikelihoods.{part}.log'),
     threads: 12
-    singularity: "docker://evolbioinfo/raxml-ng:v0.8.0-beta"
+    singularity: "docker://evolbioinfo/raxml-ng:v0.9.0"
     params:
         mem = 10000,
         name = 'lh.{part}',

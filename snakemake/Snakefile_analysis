@@ -13,18 +13,17 @@ import os
 localrules: all
 ruleorder: pastml_col > nex2nwk
 folder = os.path.abspath(config["folder"])
-data_dir = os.path.join(folder, 'data')
+data_dir = os.path.join(folder, 'data20200811')
 
 ALN_LEN = 10807
-phylogeny = os.path.join(data_dir, 'trees', 'iqtree.nwk')
 
 rule all:
     input:
-        os.path.join(data_dir, 'timetrees', 'iqtree.lsd2.nexus'),
-        os.path.join(data_dir, 'acr', 'pastml', 'itol_country', 'iqtree.lsd2', 'iTOL_url.txt'),
-        os.path.join(data_dir, 'acr', 'compressed.country.iqtree.lsd2.html'),
-        os.path.join(data_dir, 'acr', 'compressed.country_Vietnam.iqtree.lsd2.html'),
-        os.path.join(data_dir, 'acr', 'full.country.iqtree.lsd2.html'),
+        os.path.join(data_dir, 'best_tree.pos.lsd2.nexus'),
+        os.path.join(data_dir, 'acr', 'pastml', 'itol_country', 'best_tree.pos.lsd2', 'iTOL_url.txt'),
+        os.path.join(data_dir, 'acr', 'compressed.country.best_tree.pos.lsd2.html'),
+        os.path.join(data_dir, 'acr', 'compressed.country_Vietnam.best_tree.pos.lsd2.html'),
+        os.path.join(data_dir, 'acr', 'full.country.best_tree.pos.lsd2.html'),
 
 rule rm_Singapore:
     '''
@@ -32,11 +31,11 @@ rule rm_Singapore:
     '''
     input:
         tree = os.path.join(data_dir, '{tree}.nwk'),
-        data = os.path.join(data_dir, 'metadata.tab'),
+        data = os.path.join(data_dir, 'metadata.combined.tab'),
     output:
         tree = os.path.join(data_dir, '{tree}.no_SG.nwk'),
     threads: 2
-    singularity: "docker://evolbioinfo/pastml:v1.9.29.4"
+    singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
     params:
         mem = 4000,
         name = 'rm_SG.{tree}',
@@ -52,7 +51,7 @@ rule collapse_non_informative_branches:
     If the tree is rooted and a root child branch is to be collapsed, set it to zero instead (to keep the tree rooted).
     '''
     input:
-        tree = os.path.join(folder, '{tree}.no_SG.nwk'),
+        tree = os.path.join(folder, '{tree}.nwk'),
     output:
         tree = os.path.join(folder, '{tree}.collapsed.nwk'),
     params:
@@ -158,20 +157,20 @@ rule date_lsd2:
     -m 33%
     '''
     input:
-        tree = os.path.join(data_dir, 'trees', 'iqtree.rooted_African.collapsed.nwk'),
-        ntips = os.path.join(data_dir, 'trees', 'iqtree.rooted_African.collapsed.ntips'),
+        tree = os.path.join(data_dir, 'best_tree.pos.rooted_African.collapsed.nwk'),
+        ntips = os.path.join(data_dir, 'best_tree.pos.rooted_African.collapsed.ntips'),
         dates = os.path.join(data_dir, 'dates_lsd.tab'),
     output:
-        tree = os.path.join(data_dir, 'timetrees', 'iqtree.lsd2.nexus'),
-        log = os.path.join(data_dir, 'timetrees', 'iqtree.lsd2.log'),
-        rd = os.path.join(data_dir, 'timetrees', 'iqtree.lsd2.rootdate'),
-        outliers = os.path.join(data_dir, 'timetrees', 'iqtree.outliers'),
+        tree = os.path.join(data_dir, 'best_tree.pos.lsd2.nexus'),
+        log = os.path.join(data_dir, 'best_tree.pos.lsd2.log'),
+        rd = os.path.join(data_dir, 'best_tree.pos.lsd2.rootdate'),
+        outliers = os.path.join(data_dir, 'best_tree.pos.outliers'),
     threads: 1
     singularity: "docker://evolbioinfo/lsd2:v1.6.5"
     params:
         mem = 4000,
         name = 'lsd2',
-        wd = os.path.join(data_dir, 'timetrees', 'iqtree.wd_lsd2'),
+        wd = os.path.join(data_dir, 'best_tree.pos.wd_lsd2'),
         l = ALN_LEN
     shell:
         """
@@ -204,14 +203,14 @@ rule pastml_col:
     ACR with PastML.
     '''
     input:
-        tree = os.path.join(data_dir, 'timetrees', '{tree}.{dating}.nexus'),
+        tree = os.path.join(data_dir, '{tree}.{dating}.nexus'),
         data = os.path.join(data_dir, 'metadata.tab'),
     output:
         data = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}.{dating,lsd2|tt-[a-z]+}', 'combined_ancestral_states.tab'),
         pars = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}.{dating}', 'params.character_{col}.method_MPPA.model_F81.tab'),
         tree = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}.{dating}', 'named.tree_{tree}.{dating}.nwk'),
     threads: 2
-    singularity: "docker://evolbioinfo/pastml:v1.9.29.4"
+    singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
     params:
         mem = 4000,
         name = 'pastml_{col}.{tree}.{dating}',
@@ -231,7 +230,7 @@ rule pastml_vis:
     output:
         map = os.path.join(data_dir, 'acr', 'compressed.{col,country|region|intregion}.{tree}.{dating,lsd2|tt-[a-z]+}.html'),
     threads: 2
-    singularity: "docker://evolbioinfo/pastml:v1.9.29.4"
+    singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
     params:
         mem = 4000,
         name = 'pastml_{col}.{tree}.{dating}_vis',
@@ -254,7 +253,7 @@ rule pastml_vis_tree:
     output:
         map = os.path.join(data_dir, 'acr', 'full.{col,country|region|intregion}.{tree}.{dating,lsd2|tt-[a-z]+}.html'),
     threads: 2
-    singularity: "docker://evolbioinfo/pastml:v1.9.29.4"
+    singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
     params:
         mem = 4000,
         name = 'pastml_{col}.{tree}.{dating}_vist',
@@ -278,7 +277,7 @@ rule pastml_itol:
         itol = os.path.join(data_dir, 'acr', 'pastml', 'itol_{col}', '{tree}', 'iTOL_url.txt'),
         treeid = os.path.join(data_dir, 'acr', 'pastml', 'itol_{col}', '{tree}', 'iTOL_tree_id.txt'),
     threads: 2
-    singularity: "docker://evolbioinfo/pastml:v1.9.29.4"
+    singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
     params:
         mem = 4000,
         name = 'pastml_{col}.{tree}_itol',
@@ -302,7 +301,7 @@ rule pastml_vis_focused:
     output:
         map = os.path.join(data_dir, 'acr', 'compressed.country_{country}.{tree}.{dating,lsd2|tt-[a-z]+}.html'),
     threads: 2
-    singularity: "docker://evolbioinfo/pastml:v1.9.29.4"
+    singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
     params:
         mem = 4000,
         name = 'vis_country_{country}.{tree}.{dating}',
