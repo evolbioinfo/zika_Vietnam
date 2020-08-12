@@ -112,7 +112,7 @@ rule get_seq_ids:
     Extract sequence ids of interest.
     '''
     input:
-        tab = os.path.join(data_dir, 'metadata.tab'),
+        tab = os.path.join(data_dir, 'metadata.combined.tab'),
     output:
         tab = os.path.join(data_dir, 'ids_{type,(African|Asian)}.txt')
     params:
@@ -204,7 +204,7 @@ rule pastml_col:
     '''
     input:
         tree = os.path.join(data_dir, '{tree}.{dating}.nexus'),
-        data = os.path.join(data_dir, 'metadata.tab'),
+        data = os.path.join(data_dir, 'metadata.combined.tab'),
     output:
         data = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}.{dating,lsd2|tt-[a-z]+}', 'combined_ancestral_states.tab'),
         pars = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}.{dating}', 'params.character_{col}.method_MPPA.model_F81.tab'),
