@@ -1,0 +1,747 @@
+accession	length	begin	end	type	collection_date	country	host	mol_type	strain	pubmed	organism	location_details	host_details
+MT636065	10272	108	10379	Asian	02-Jan-2016	Argentina	Homo sapiens	genomic RNA			Zika virus		
+MT483911	10272	108	10379	Asian	25-Jul-2016	Brazil	Homo sapiens	genomic RNA			Zika virus		
+MT507050	10272	108	10379	Asian	2017	Mexico	Homo sapiens	genomic RNA			Zika virus		
+MT507049	10272	108	10379	Asian	2017	Mexico	Homo sapiens	genomic RNA			Zika virus		
+MT507048	10272	108	10379	Asian	2017	Mexico	Homo sapiens	genomic RNA			Zika virus		
+MT507047	10272	108	10379	Asian	2017	Mexico	Homo sapiens	genomic RNA			Zika virus		
+MT078742	10269	108	10376	Asian	29-Jun-2017	Brazil	Homo sapiens	genomic RNA			Zika virus		
+MK269361	9997	108	10104	Asian	05-Aug-2016	USA	Homo sapiens	genomic RNA			Zika virus		
+MK269359	10272	108	10379	Asian	18-Aug-2016	USA	Homo sapiens	genomic RNA			Zika virus		
+MK269358	9807	573	10379	Asian	01-Sep-2016	USA	Homo sapiens	genomic RNA			Zika virus		
+MK269355	10045	108	10152	Asian	02-Sep-2016	USA	Homo sapiens	genomic RNA			Zika virus		
+MK269354	10272	108	10379	Asian	20-Aug-2016	USA	Homo sapiens	genomic RNA			Zika virus		
+MK216748	9366	108	9473	Asian	15-Dec-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	
+MK216747	9366	108	9473	Asian	15-Dec-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	
+MK216745	10272	108	10379	Asian	08-Dec-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	
+MK216744	9904	108	10011	Asian	07-Apr-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216743	10272	108	10379	Asian	28-Mar-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216742	10272	108	10379	Asian	29-Mar-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216741	10272	108	10379	Asian	28-Mar-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216740	8766	108	8873	Asian	27-Mar-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216738	9648	108	9755	Asian	24-Mar-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216737	8801	384	9184	Asian	22-Mar-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	
+MK216736	9077	108	9184	Asian	27-Mar-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216734	8766	108	8873	Asian	20-Mar-2017	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216733	9366	108	9473	Asian	01-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216732	9366	108	9473	Asian	02-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216731	8766	108	8873	Asian	29-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216730	9366	108	9473	Asian	05-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216729	9366	108	9473	Asian	16-Dec-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216728	9366	108	9473	Asian	23-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216727	10272	108	10379	Asian	30-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216726	10214	108	10321	Asian	25-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216725	8801	384	9184	Asian	26-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216724	8766	108	8873	Asian	14-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216723	9366	108	9473	Asian	14-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216722	9648	108	9755	Asian	20-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216721	9648	108	9755	Asian	25-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216720	9648	108	9755	Asian	25-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216719	9648	108	9755	Asian	10-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216718	9648	108	9755	Asian	10-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216717	9648	108	9755	Asian	02-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216716	9648	108	9755	Asian	02-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216715	9648	108	9755	Asian	10-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216714	9648	108	9755	Asian	29-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216713	10272	108	10379	Asian	08-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216712	9366	108	9473	Asian	10-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216711	9366	108	9473	Asian	10-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216710	10272	108	10379	Asian	03-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216709	9648	108	9755	Asian	01-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216708	9366	108	9473	Asian	02-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216707	9366	108	9473	Asian	29-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216706	9366	108	9473	Asian	01-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216705	9366	108	9473	Asian	05-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216704	8766	108	8873	Asian	19-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216703	9648	108	9755	Asian	15-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216699	10272	108	10379	Asian	16-May-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216698	10272	108	10379	Asian	25-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216697	10272	108	10379	Asian	26-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216696	10272	108	10379	Asian	08-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216695	10272	108	10379	Asian	05-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216694	8766	108	8873	Asian	05-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216693	9648	108	9755	Asian	06-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216692	10272	108	10379	Asian	01-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	male
+MK216691	9648	108	9755	Asian	15-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216690	10272	108	10379	Asian	18-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216688	10272	108	10379	Asian	10-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK216687	10272	108	10379	Asian	19-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas	female
+MK241417	10272	108	10379	Asian	04-Jun-2016	Cape Verde	Homo sapiens	genomic RNA			Zika virus	Fogo	
+MK241416	10272	108	10379	Asian	27-Nov-2015	Cape Verde	Homo sapiens	genomic RNA			Zika virus	Fogo	
+MK241415	10272	108	10379	Asian	03-Dec-2015	Cape Verde	Homo sapiens	genomic RNA			Zika virus	Santiago	
+MN611472	10272	108	10379	Asian	01-Jul-2019	China	Homo sapiens	genomic RNA		31678288	Zika virus		
+MN577544	10272	108	10379	Asian	01-Jun-2016	Haiti	Homo sapiens	genomic RNA			Zika virus		
+MN577543	10272	108	10379	Asian	11-Dec-2014	Haiti	Homo sapiens	genomic RNA			Zika virus		
+MN566108	10272	108	10379	Asian	31-May-2016	Haiti	Homo sapiens	genomic RNA			Zika virus		
+MN566107	10272	108	10379	Asian	31-May-2016	Haiti	Homo sapiens	genomic RNA			Zika virus		
+MN566106	10272	108	10379	Asian	31-May-2016	Haiti	Homo sapiens	genomic RNA			Zika virus		
+MN566105	10272	108	10379	Asian	31-May-2016	Haiti	Homo sapiens	genomic RNA			Zika virus		
+MN566104	10272	108	10379	Asian	31-May-2016	Haiti	Homo sapiens	genomic RNA			Zika virus		
+MN577550	10272	108	10379	Asian	19-Jan-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus	Managua	F;12 years
+MN473454	10272	108	10379	Asian	2016	Canada	Homo sapiens	genomic RNA			Zika virus		
+MN473453	10272	108	10379	Asian	2016	Canada	Homo sapiens	genomic RNA			Zika virus		
+MN473452	10272	108	10379	Asian	2016	Canada	Homo sapiens	genomic RNA			Zika virus		
+MN473451	10272	108	10379	Asian	2016	Canada	Homo sapiens	genomic RNA			Zika virus		
+MN473450	9746	360	10105	Asian	2016	Canada	Homo sapiens	genomic RNA			Zika virus		
+MK829154	10272	108	10379	Asian	26-Oct-2017	Portugal	Homo sapiens	genomic RNA		31559967	Zika virus		neonate with microcephaly
+MK829153	9996	384	10379	Asian	Jun-2017	Angola	Homo sapiens	genomic RNA		31559967	Zika virus	Luanda, Bairro Prenda	HIV+ female
+MK829152	10155	225	10379	Asian	25-May-2017	Angola	Homo sapiens	genomic RNA		31559967	Zika virus	Bengo, Caxito	conjunctivitis, rash, fever, headache, allergy and flu-like symptoms
+MN124091	10272	108	10379	Asian	11-Dec-2015	Panama	Homo sapiens	genomic RNA		31434319	Zika virus		
+MN124090	10272	108	10379	Asian	11-Dec-2015	Panama	Homo sapiens	genomic RNA		31434319	Zika virus		
+MN100039	10272	108	10379	Asian	11-Dec-2015	Panama	Homo sapiens	genomic RNA		31434319	Zika virus		
+MK560179	10269	108	10376	Asian	18-Jan-2018	Cuba	Homo sapiens	genomic RNA		31442400	Zika virus		
+MK560178	10269	108	10376	Asian	09-Oct-2017	Cuba	Homo sapiens	genomic RNA		31442400	Zika virus		
+MK269360	10272	108	10379	Asian	09-Aug-2016	USA	Homo sapiens	genomic RNA		31442400	Zika virus		
+MK269357	10272	108	10379	Asian	03-Sep-2016	USA	Homo sapiens	genomic RNA		31442400	Zika virus		
+MK269356	9648	108	9755	Asian	19-Aug-2016	USA	Homo sapiens	genomic RNA		31442400	Zika virus		
+MK269353	10269	108	10379	Asian	28-Aug-2016	USA	Homo sapiens	genomic RNA		31442400	Zika virus		
+MH063265	10272	108	10379	Asian	17-Jul-2017	Cuba	Homo sapiens	genomic RNA		31442400	Zika virus		
+MH063264	10272	108	10379	Asian	13-Aug-2017	Cuba	Homo sapiens	genomic RNA		31442400	Zika virus		
+MH063263	10019	108	10126	Asian	05-Aug-2017	Cuba	Homo sapiens	genomic RNA		31442400	Zika virus		
+MH063262	10272	108	10379	Asian	17-Jul-2017	Cuba	Homo sapiens	genomic RNA		31442400	Zika virus		
+MH063261	10272	108	10379	Asian	24-Sep-2017	Cuba	Homo sapiens	genomic RNA		31442400	Zika virus		
+MH063260	10272	108	10379	Asian	08-Aug-2017	Cuba	Homo sapiens	genomic RNA		31442400	Zika virus		
+MF159531	10272	108	10379	Asian	2017-04-19	USA	Homo sapiens	genomic RNA		31442400	Zika virus		
+MN190155	10272	108	10379	Asian	02-Jul-2019	China	Homo sapiens	genomic RNA			Zika virus		
+MN171421	10203	177	10379	Asian	21-Dec-2015	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MK028862	9809	108	10258	Asian	2010	Cambodia	Homo sapiens	genomic RNA			Zika virus		
+MK028861	10188	108	10379	Asian	2015	Panama	Homo sapiens	genomic RNA			Zika virus		
+MK028859	10272	108	10379	Asian	2015	Panama	Homo sapiens	genomic RNA			Zika virus		
+MK028858	10272	108	10379	Asian	2015	Panama	Homo sapiens	genomic RNA			Zika virus		
+MK028857	10272	108	10379	Asian	2015	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675630	10272	108	10379	Asian	Sep-2016	USA	Homo sapiens	genomic RNA			Zika virus		
+MH675629	10272	108	10379	Asian	Aug-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675628	10272	108	10379	Asian	Aug-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675627	10272	108	10379	Asian	Aug-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675626	10272	108	10379	Asian	Aug-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675625	10272	108	10379	Asian	Aug-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675624	10272	108	10379	Asian	Jun-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675623	10272	108	10379	Asian	Jun-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675622	10272	108	10379	Asian	Jun-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675621	10272	108	10379	Asian	May-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675620	10272	108	10379	Asian	May-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH675619	10272	108	10379	Asian	May-2016	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MN025403	10272	108	10379	African	Aug-2018	Guinea	Homo sapiens	genomic RNA			Zika virus	Faranah	
+KX051563	10272	108	10379	Asian	05-Feb-2016	USA	Homo sapiens	viral cRNA		27694479	Zika virus		
+MK713748	10272	108	10379	Asian	01-Dec-2015	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MG976700	10260	120	10379	Asian	06-Jan-2014	French Polynesia	Homo sapiens	genomic RNA			Zika virus		
+MK238039	9801	579	10379	Asian	11-Oct-2018	India	Homo sapiens	genomic RNA		30703541	Zika virus	Jaipur City, Rajasthan state	
+MK238038	10272	108	10379	Asian	15-Oct-2018	India	Homo sapiens	genomic RNA		30703541	Zika virus	Jaipur City, Rajasthan state	
+MK238037	10272	108	10379	Asian	10-Oct-2018	India	Homo sapiens	genomic RNA		30703541	Zika virus	Jaipur City, Rajasthan state	
+MK238036	10032	348	10379	Asian	10-Oct-2018	India	Homo sapiens	genomic RNA		30703541	Zika virus	Jaipur City, Rajasthan state	
+MK238035	10272	108	10379	Asian	18-Sep-2018	India	Homo sapiens	genomic RNA		30703541	Zika virus	Jaipur City, Rajasthan state	
+MH882548	10272	108	10379	Asian	2016-06-09	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882547	10272	108	10379	Asian	2016-06-02	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882546	10272	108	10379	Asian	2016-05-24	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882545	10272	108	10379	Asian	2016-05-19	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882544	10272	108	10379	Asian	2016-05-12	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882543	10272	108	10379	Asian	2016-05-05	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882542	10272	108	10379	Asian	2016-04-19	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882541	10272	108	10379	Asian	2016-04-19	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882540	10272	108	10379	Asian	2016-07-27	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882539	10272	108	10379	Asian	2016-07-19	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882538	10272	108	10379	Asian	2016-07-12	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882537	10230	108	10337	Asian	2016-07-05	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882536	10272	108	10379	Asian	2016-06-28	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882535	10272	108	10379	Asian	2016-06-16	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882534	10272	108	10379	Asian	2016-06-08	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882533	10272	108	10379	Asian	2016-06-03	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882532	10272	108	10379	Asian	2016-05-24	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882531	10272	108	10379	Asian	2016-05-17	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882530	10272	108	10379	Asian	2016-05-10	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882529	10272	108	10379	Asian	2016-05-03	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882528	10272	108	10379	Asian	2016-04-26	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MH882527	10272	108	10379	Asian	2016-04-26	Brazil	Homo sapiens	genomic RNA		30405055	Zika virus		
+MK049252	10272	108	10379	Asian	16-May-2016	Colombia	Homo sapiens	genomic RNA			Zika virus		
+MK049251	10020	360	10379	Asian	30-Aug-2016	Colombia	Homo sapiens	genomic RNA			Zika virus		
+MK049250	10020	360	10379	Asian	22-Jun-2016	Colombia	Homo sapiens	genomic RNA			Zika virus		
+MK049249	10272	108	10379	Asian	02-Nov-2016	Colombia	Homo sapiens	genomic RNA			Zika virus		
+MK049248	10272	108	10379	Asian	27-Jul-2016	Colombia	Homo sapiens	genomic RNA			Zika virus		
+MK049246	10272	108	10379	Asian	09-Mar-2016	Colombia	Homo sapiens	genomic RNA			Zika virus		
+MK049245	10272	108	10379	Asian	29-Feb-2016	Colombia	Homo sapiens	genomic RNA			Zika virus		
+MH513600	10272	108	10379	Asian	11-Dec-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Sinop, MT	
+MH513599	10272	108	10379	Asian	11-Dec-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Sinop, MT	
+MH513598	10272	108	10379	Asian	09-Dec-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Sinop, MT	
+MH763833	10272	108	10379	Asian		Brazil	Homo sapiens	genomic RNA			Zika virus		
+MH763832	10272	108	10379	Asian		Brazil	Homo sapiens	genomic RNA			Zika virus		
+MH013290	10272	108	10379	Asian	01-Oct-2017	Thailand	Homo sapiens	genomic RNA		29985788	Zika virus		
+MG807647	10272	108	10379	Asian	07-Sep-2017	Thailand	Homo sapiens	genomic RNA		29985788	Zika virus		
+MG807646	10272	108	10379	Asian	11-Nov-2016	Thailand	Homo sapiens	genomic RNA		29985788	Zika virus		
+MG548661	10272	108	10379	Asian	30-Nov-2016	Thailand	Homo sapiens	genomic RNA		29985788	Zika virus		
+MG548660	10272	108	10379	Asian	30-Nov-2016	Thailand	Homo sapiens	genomic RNA		29985788	Zika virus		
+MF996804	10272	108	10379	Asian	07-Aug-2017	Thailand	Homo sapiens	genomic RNA		29985788	Zika virus		
+KY379148	10272	108	10379	Asian	29-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		38 year old male
+MF073359	10272	108	10379	Asian	01-Mar-2015	Brazil	Homo sapiens	genomic RNA			Zika virus		
+MF073358	10272	108	10379	Asian	01-Jun-2015	Brazil	Homo sapiens	genomic RNA			Zika virus		
+MF073357	10272	108	10379	Asian	01-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus		
+MH255601	10272	108	10379	Asian	01-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+MH158237	10272	108	10379	Asian	2015	Puerto Rico	Homo sapiens	genomic RNA			Zika virus		
+MH158236	10272	108	10379	Asian	2010	Cambodia	Homo sapiens	genomic RNA			Zika virus		
+MH157213	10272	108	10379	Asian	23-Jun-2016	Mexico	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/MEX/41-001-F_V3_O/2016		Zika virus	Tapachula, Chiapas	
+MH157208	10272	108	10379	Asian	22-Aug-2016	Mexico	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/MEX/41-022-F_V0_O/2016		Zika virus	Tapachula, Chiapas	
+MH157202	10272	108	10379	Asian	10-Aug-2016	Mexico	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/MEX/41-017-F_V3_O/2016		Zika virus	Tapachula, Chiapas	
+KX893855	10272	108	10379	Asian	25-Mar-2016	Venezuela	Homo sapiens	genomic RNA	Zika virus/Homo sapiens/VEN/UF-2/2016	28450510,29300859	Zika virus		symptomatic breast-feeding infant
+KX702400	10272	108	10379	Asian	25-Mar-2016	Venezuela	Homo sapiens	genomic RNA	Zika virus/Homo sapiens/VEN/UF-1/2016	28450510,29300859	Zika virus	Barquisimeto	lactating female with acute symptoms
+MH119185	10272	108	10379	Asian	01-Dec-2016	Thailand	Homo sapiens	genomic RNA			Zika virus		
+MH063259	10272	108	10379	Asian	26-Jul-2017	Cuba	Homo sapiens	genomic RNA			Zika virus		
+LC369584	10272	108	10379	Asian	2017	Japan	Homo sapiens	genomic RNA	ZIKV/Hu/Thai/KngSG/17-D501		Zika virus	kanagawa, Sagamihara	
+MG827392	10272	108	10379	Asian	25-Oct-2013	French Polynesia	Homo sapiens	genomic RNA	PF13/251013-18		Zika virus		
+KY441403	10272	108	10379	Asian	11-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus		
+KY441402	10272	108	10379	Asian	05-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus		
+KY441401	10272	108	10379	Asian	29-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus		
+MF988734	10272	108	10379	Asian	Aug-2017	Singapore	Homo sapiens	genomic RNA		29346272	Zika virus		
+MG674719	10251	108	10379	Asian	16-Apr-2016	China	Homo sapiens	genomic RNA			Zika virus		
+MG674718	10272	108	10379	Asian	16-Apr-2016	China	Homo sapiens	genomic RNA			Zika virus		
+MG645981	10272	108	10379	Asian	28-Oct-2006	Thailand	Homo sapiens	genomic RNA			Zika virus		
+MG595216	10272	108	10379	Asian	23-Jun-2016	Mexico	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/MEX/R116265/2016		Zika virus		
+KY120353	10272	108	10379	Asian	28-Apr-2016	South Korea	Homo sapiens	genomic RNA	Zika/Boracay/16423		Zika virus		
+KY120352	10272	108	10379	Asian	22-Mar-2016	South Korea	Homo sapiens	genomic RNA	Zika/Brazil/16321		Zika virus		
+MG494697	10272	108	10379	Asian	24-Nov-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Veracruz	female newborn
+KY766069	10272	108	10379	Asian	25-Oct-2013	French Polynesia	Homo sapiens	genomic RNA			Zika virus		
+KU729218	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA			Zika virus		
+LC219720	10272	108	10379	Asian	2016-11-22	Japan	Homo sapiens	genomic RNA	ZIKV/Hu/NIID123/2016	28445122	Zika virus		
+KX447521	9274	108	9381	Asian	Feb-2014	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447520	9641	108	9748	Asian	Jan-2014	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447519	9058	108	9165	Asian	Nov-2013	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447518	9062	108	9169	Asian	Dec-2013	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447517	10272	108	10379	Asian	Jan-2014	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447516	10272	108	10379	Asian	Jan-2014	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447515	10272	108	10379	Asian	Nov-2013	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447514	10272	108	10379	Asian	Jan-2014	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447513	10272	108	10379	Asian	Dec-2013	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447512	10272	108	10379	Asian	Dec-2013	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447511	10272	108	10379	Asian	Jan-2014	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447510	10272	108	10379	Asian	Dec-2013	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+KX447509	10272	108	10379	Asian	Dec-2013	French Polynesia	Homo sapiens	genomic RNA		27729507	Zika virus		
+LC331561	10272	108	10379	Asian	2016	Japan	Homo sapiens	genomic RNA	3216DP137		Zika virus	Tokyo	
+KX280026	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA		27555311	Zika virus		
+MF801426	10272	108	10379	Asian	25-Jul-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus		
+MF801425	10048	234	10281	Asian	24-Jun-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus		
+MF801424	9592	591	10182	Asian	01-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Yucatan	
+MF801423	10272	108	10379	Asian	30-Jun-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801422	9898	474	10371	Asian	01-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801421	9751	492	10242	Asian	01-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801420	10272	108	10379	Asian	04-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801419	10020	348	10367	Asian	01-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801418	10272	108	10379	Asian	30-Jun-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801417	10272	108	10379	Asian	01-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801416	9837	543	10379	Asian	Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801415	10215	165	10379	Asian	05-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801414	10272	108	10379	Asian	05-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801413	10272	108	10379	Asian	07-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801412	10272	108	10379	Asian	07-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801411	9945	435	10379	Asian	05-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801410	10272	108	10379	Asian	05-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801409	10272	108	10379	Asian	Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801408	10272	108	10379	Asian	05-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801407	10272	108	10375	Asian	05-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Oaxaca	
+MF801406	10272	108	10379	Asian	07-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Oaxaca	
+MF801405	9755	621	10375	Asian	09-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801404	10272	108	10379	Asian	08-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+MF801403	10272	108	10379	Asian	25-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801402	10272	108	10379	Asian	26-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801401	10212	168	10379	Asian	23-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801400	10026	354	10379	Asian	20-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801399	10011	369	10379	Asian	20-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801398	10272	108	10379	Asian	20-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801397	10188	192	10379	Asian	20-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Campeche	
+MF801396	10272	108	10379	Asian	17-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801395	10272	108	10379	Asian	09-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801394	9882	498	10379	Asian	03-May-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801393	10044	336	10379	Asian	22-Apr-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+MF801392	9444	936	10379	Asian	13-Aug-2016	Mexico	Homo sapiens	genomic RNA			Zika virus		
+MF801391	10272	108	10379	Asian	06-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Oaxaca	
+MF801390	10045	186	10230	Asian	2016	Mexico	Homo sapiens	genomic RNA			Zika virus		
+MF801389	10272	108	10379	Asian	10-May-2016	Honduras	Homo sapiens	genomic RNA			Zika virus	Roatan	
+MF801388	9852	501	10352	Asian	25-Apr-2016	Honduras	Homo sapiens	genomic RNA			Zika virus	Roatan	
+MF801387	10272	108	10379	Asian	29-Mar-2016	Honduras	Homo sapiens	genomic RNA			Zika virus	Roatan	
+MF801386	10170	210	10379	Asian	24-Feb-2016	Honduras	Homo sapiens	genomic RNA			Zika virus	Roatan	
+MF801385	10098	282	10379	Asian	12-Feb-2016	Honduras	Homo sapiens	genomic RNA			Zika virus	Roatan	
+MF801384	10272	108	10379	Asian	03-Feb-2016	Honduras	Homo sapiens	genomic RNA			Zika virus	Roatan	
+MF801383	10242	138	10379	Asian	03-Jun-2016	Honduras	Homo sapiens	genomic RNA			Zika virus		
+MF801382	9978	402	10379	Asian	2016	Honduras	Homo sapiens	genomic RNA			Zika virus		
+MF801381	10272	108	10379	Asian	2016	Honduras	Homo sapiens	genomic RNA			Zika virus		
+MF801380	10218	162	10379	Asian	11-Apr-2016	Guatemala	Homo sapiens	genomic RNA			Zika virus		
+MF801379	9725	489	10213	Asian	18-Jun-2016	Guatemala	Homo sapiens	genomic RNA			Zika virus		
+MF801378	10272	108	10379	Asian	21-Jul-2016	Guatemala	Homo sapiens	genomic RNA			Zika virus		
+MF801377	10086	294	10379	Asian	22-Feb-2016	El Salvador	Homo sapiens	genomic RNA			Zika virus		
+KX906952	10272	108	10379	Asian	16-Apr-2016	Honduras	Homo sapiens	genomic RNA			Zika virus		
+LC191864	10272	108	10379	Asian	2016-04-21	Japan	Homo sapiens	genomic RNA	ZIKV/Hu/Chiba/S36/2016	28367888	Zika virus	Chiba	
+MF794971	10272	108	10379	Asian	01-May-2016	Ecuador	Homo sapiens	genomic RNA	ZIKV/EC/Esmeraldas/121/2016		Zika virus		
+MF692778	10272	108	10379	Asian	Oct-2016	Taiwan	Homo sapiens	genomic RNA			Zika virus		
+MF664436	10272	108	10379	Asian	25-Aug-2016	Russia	Homo sapiens	genomic RNA			Zika virus	Moscow	female
+KX879604	10272	108	10379	Asian	Apr-2016	Ecuador	Homo sapiens	genomic RNA	ZIKV/EC/Esmeraldas/089/2016	28232448	Zika virus	Esmeraldas	
+KX879603	10272	108	10379	Asian	Apr-2016	Ecuador	Homo sapiens	genomic RNA	ZIKV/EC/Esmeraldas/062/2016	28232448	Zika virus	Esmeraldas	
+MF593625	10272	108	10379	Asian	14-Sep-2016	China	Homo sapiens	genomic RNA			Zika virus		
+MF574588	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00035/2015		Zika virus	Barranquilla	
+MF574587	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/PAN_00030/2015		Zika virus	Barranquilla	
+MF574586	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00038/2015		Zika virus	Barranquilla	
+MF574585	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/PAN_00029/2015		Zika virus	Barranquilla	
+MF574584	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00040/2015		Zika virus	Barranquilla	
+MF574583	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00041/2015		Zika virus	Barranquilla	
+MF574582	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00036/2015		Zika virus	Barranquilla	
+MF574581	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00034/2015		Zika virus	Barranquilla	
+MF574580	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00042/2015		Zika virus	Barranquilla	
+MF574579	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/PRV_00027/2015		Zika virus	Barranquilla	
+MF574578	10272	108	10379	Asian	Dec-2016	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/PRV_00028/2015		Zika virus	Barranquilla	
+MF574577	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00020/2015		Zika virus	Barranquilla	
+MF574576	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00014/2015		Zika virus	Barranquilla	
+MF574575	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00016/2015		Zika virus	Barranquilla	
+MF574574	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00019/2015		Zika virus	Barranquilla	
+MF574573	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00018/2015		Zika virus	Barranquilla	
+MF574572	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00009/2015		Zika virus	Barranquilla	
+MF574571	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00005/2015		Zika virus	Barranquilla	
+MF574570	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00010/2015		Zika virus	Barranquilla	
+MF574569	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00024/2015		Zika virus	Barranquilla	
+MF574568	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00012/2015		Zika virus	Barranquilla	
+MF574567	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00015/2015		Zika virus	Barranquilla	
+MF574566	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00023/2015		Zika virus	Barranquilla	
+MF574565	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00011/2015		Zika virus	Barranquilla	
+MF574564	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00026/2015		Zika virus	Barranquilla	
+MF574563	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00025/2015		Zika virus	Barranquilla	
+MF574562	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00008/2015		Zika virus	Barranquilla	
+MF574561	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00004/2015		Zika virus	Barranquilla	
+MF574560	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00003/2015		Zika virus	Barranquilla	
+MF574559	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00002/2015		Zika virus	Barranquilla	
+MF574558	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00013/2015		Zika virus	Barranquilla	
+MF574557	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00007/2015		Zika virus	Barranquilla	
+MF574556	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00021/2015		Zika virus	Barranquilla	
+MF574555	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00006/2015		Zika virus	Barranquilla	
+MF574554	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00022/2015		Zika virus	Barranquilla	
+MF574553	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00017/2015		Zika virus	Barranquilla	
+MF574552	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR_00001/2015		Zika virus	Barranquilla	
+KU179098	10272	108	10379	Asian	30-Dec-2014	Indonesia	Homo sapiens	genomic RNA		27088970,28755588	Zika virus	Jambi	
+KY962729	9063	1302	10376	Asian	Apr-2016	South Korea	Homo sapiens	genomic RNA		28795266	Zika virus		
+KY553111	10260	108	10379	Asian	Apr-2016	South Korea	Homo sapiens	genomic RNA		28795266	Zika virus		
+MF434522	10272	108	10379	Asian	29-Aug-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus	Managua	
+MF434521	10272	108	10379	Asian	19-Jul-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus	Managua	
+MF434520	10272	108	10379	Asian	07-Feb-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus	Managua	
+MF434519	10047	237	10154	Asian	22-Jul-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus	Managua	
+MF434518	10272	108	10379	Asian	26-Aug-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus	Managua	
+MF434517	10272	108	10379	Asian	19-Aug-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus	Managua	
+MF434516	10272	108	10379	Asian	05-Aug-2016	Nicaragua	Homo sapiens	genomic RNA			Zika virus	Managua	
+MF438286	10272	108	10379	Asian	12-Feb-2017	Cuba	Homo sapiens	genomic RNA	Zika virus/Homo sapiens/Cuba 2017		Zika virus		microcephaly fetus
+KY126351	10272	108	10379	Asian	May-2016	Taiwan	Homo sapiens	genomic RNA			Zika virus		
+KY785484	10272	108	10379	Asian	06-Jun-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785483	8804	393	9196	Asian	07-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785481	9989	108	10096	Asian	12-Apr-2016	Puerto Rico	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785480	10008	372	10379	Asian	30-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785479	10272	108	10379	Asian	30-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785477	9394	375	9768	Asian	09-Jun-2016	Colombia	Homo sapiens	genomic RNA		28538734	Zika virus	Santander	
+KY785476	10272	108	10379	Asian	18-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785475	10272	108	10379	Asian	07-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785474	10272	108	10379	Asian	04-Aug-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY785473	10003	108	10110	Asian	15-Jun-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785471	10113	108	10220	Asian	03-May-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785470	10272	108	10379	Asian	18-Jun-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785469	10272	108	10379	Asian	05-Apr-2016	Colombia	Homo sapiens	genomic RNA		28538734	Zika virus	Santander	
+KY785466	10272	108	10379	Asian	28-Apr-2016	Colombia	Homo sapiens	genomic RNA		28538734	Zika virus	Santander	
+KY785465	10272	108	10379	Asian	07-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785464	10272	108	10379	Asian	13-Apr-2016	Puerto Rico	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785463	10272	108	10379	Asian	05-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785462	10272	108	10379	Asian	26-Jun-2016	Puerto Rico	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785461	10272	108	10379	Asian	31-May-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785460	9382	393	9774	Asian	30-Jun-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785459	10272	108	10379	Asian	15-Aug-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785458	9990	390	10379	Asian	10-Jun-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785457	10272	108	10379	Asian	01-Aug-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY785456	10272	108	10379	Asian	15-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785455	10272	108	10379	Asian	06-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785454	8514	372	8885	Asian	05-Aug-2016		Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785453	10272	108	10379	Asian	10-May-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785452	10272	108	10379	Asian	07-Jun-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785451	10272	108	10379	Asian	22-Mar-2016	Martinique	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785450	10272	108	10379	Asian	12-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785449	10272	108	10379	Asian	05-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785448	10272	108	10379	Asian	10-Jun-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785447	10272	108	10379	Asian	22-Sep-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785446	10008	372	10379	Asian	22-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785445	10272	108	10379	Asian	19-Jul-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY785444	10272	108	10379	Asian	31-May-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785443	10008	372	10379	Asian	01-Aug-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY785442	10272	108	10379	Asian	04-Jun-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785441	10272	108	10379	Asian	13-Jun-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785439	10272	108	10379	Asian	08-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785438	8475	1905	10379	Asian	26-Sep-2016	Jamaica	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785437	10272	108	10379	Asian	14-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785436	10008	372	10379	Asian	15-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785435	10272	108	10379	Asian	07-Jul-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785434	9377	108	9484	Asian	17-Aug-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785433	10272	108	10379	Asian	08-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785432	10272	108	10379	Asian	12-Oct-2016	Jamaica	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785431	10008	372	10379	Asian	13-Jun-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785430	10272	108	10379	Asian	28-Sep-2016	Jamaica	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785429	10272	108	10379	Asian	14-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785428	9708	672	10379	Asian	13-Jun-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785427	10272	108	10379	Asian	30-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785426	10272	108	10379	Asian	04-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785425	10008	372	10379	Asian	04-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785424	10272	108	10379	Asian	10-Jul-2016	Jamaica	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785423	10272	108	10379	Asian	05-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785420	10272	108	10379	Asian	18-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785419	10272	108	10379	Asian	13-Jun-2016	Jamaica	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785418	10272	108	10379	Asian	13-May-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785417	10272	108	10379	Asian	06-Apr-2016	Colombia	Homo sapiens	genomic RNA		28538734	Zika virus	Santander	
+KY785416	10008	372	10379	Asian	28-Apr-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785415	10272	108	10379	Asian	11-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY785414	10272	108	10379	Asian	28-May-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY785413	10272	108	10379	Asian	06-Oct-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus		
+KY785412	10272	108	10379	Asian	22-Jul-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY785410	10272	108	10379	Asian	27-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY785409	8778	108	8885	Asian	04-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014302	10272	108	10379	Asian	21-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY014318	10272	108	10379	Asian	27-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY014327	10272	108	10379	Asian	09-Jun-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY014325	10272	108	10379	Asian	02-Aug-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY014321	10272	108	10379	Asian	11-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY014320	10272	108	10379	Asian	23-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014319	10272	108	10379	Asian	30-Apr-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY014317	10272	108	10379	Asian	21-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014316	10272	108	10379	Asian	17-Aug-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY014315	10272	108	10379	Asian	06-Jun-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY014314	10272	108	10379	Asian	14-Jun-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY014313	10272	108	10379	Asian	05-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014312	10272	108	10379	Asian	13-May-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY014310	10272	108	10379	Asian	09-May-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY014308	10272	108	10379	Asian	23-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014307	10272	108	10379	Asian	28-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014306	10272	108	10379	Asian	10-Jun-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY014305	10272	108	10379	Asian	05-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY014304	10272	108	10379	Asian	18-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY014303	10272	108	10379	Asian	11-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY014301	10272	108	10379	Asian	13-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014300	10272	108	10379	Asian	20-Apr-2016	Dominican Republic	Homo sapiens	genomic RNA		28538734	Zika virus	Distrito Nacional	
+KY014297	10272	108	10379	Asian	12-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014296	10272	108	10379	Asian	18-Apr-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014295	10272	108	10379	Asian	22-Jun-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY014326	10272	108	10379	Asian	05-Aug-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+KY014311	9197	108	9304	Asian	12-May-2016	Honduras	Homo sapiens	genomic RNA		28538734	Zika virus	Francisco Morazan	
+KY014309	9989	108	10096	Asian	28-Mar-2016	Brazil	Homo sapiens	genomic RNA		28538734	Zika virus	Rio de Janeiro	
+KY014298	10272	108	10379	Asian	05-Aug-2016	USA	Homo sapiens	genomic RNA		28538734	Zika virus	Florida	
+MF352141	10272	108	10379	Asian	13-May-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Pernambuco	
+MF167360	10272	108	10379	Asian	26-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KY817930	10272	108	10379	Asian	Jan-2016	Brazil	Homo sapiens	genomic RNA		28538727	Zika virus	Rio de Janeiro	
+KY559032	10272	108	10379	Asian	Jan-2016	Brazil	Homo sapiens	genomic RNA		28538727	Zika virus	Rio de Janeiro	
+KY558989	9997	108	10104	Asian	23-Feb-2015	Brazil	Homo sapiens	genomic RNA		28538727	Zika virus	Joao Camara, Rio Grande do Norte	
+KY606271	10212	168	10379	Asian	05-Mar-2016	Mexico	Homo sapiens	genomic RNA		28538727	Zika virus	Chiapas	
+KY348640	10272	108	10379	Asian	22-Jan-2016	Suriname	Homo sapiens	genomic RNA	SL1602	28539654	Zika virus		
+KY317940	10272	108	10379	Asian	09-Jan-2016	Colombia	Homo sapiens	genomic RNA		28538739	Zika virus		
+KY317939	10272	108	10379	Asian	06-Jan-2016	Colombia	Homo sapiens	genomic RNA		28538739	Zika virus		
+KY317938	10272	108	10379	Asian	10-Jan-2016	Colombia	Homo sapiens	genomic RNA		28538739	Zika virus		
+KY317937	10272	108	10379	Asian	07-Jan-2016	Colombia	Homo sapiens	genomic RNA		28538739	Zika virus		
+KY317936	10272	108	10379	Asian	16-Jan-2016	Colombia	Homo sapiens	genomic RNA		28538739	Zika virus		
+KY325479	10272	108	10379	Asian	28-Sep-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325478	10194	186	10379	Asian	26-Sep-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325477	10272	108	10379	Asian	03-Oct-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325476	10272	108	10379	Asian	11-Oct-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325475	9981	327	10307	Asian	05-Oct-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325474	10155	138	10292	Asian	13-Sep-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325473	10272	108	10379	Asian	31-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325472	10272	108	10379	Asian	23-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325471	10272	108	10379	Asian	08-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325470	10064	258	10321	Asian	04-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325469	10272	108	10379	Asian	04-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325468	10272	108	10379	Asian	04-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325467	10272	108	10379	Asian	29-Jul-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325466	10272	108	10379	Asian	28-Jul-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325465	10272	108	10379	Asian	28-Sep-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY325464	10272	108	10379	Asian	19-Sep-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY075936	10272	108	10379	Asian	2016-08-04	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida, Miami-Dade County	
+KY075935	10272	108	10379	Asian	2016-07-16	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida, Miami-Dade County	
+KY075934	10272	108	10379	Asian	2016-07-03	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY075933	10272	108	10379	Asian	2016-06-21	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KY075932	10272	108	10379	Asian	2016-03-22	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KX842449	10272	108	10379	Asian	22-Jun-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Miami, Florida	
+KX922707	10272	108	10379	Asian	17-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Florida	
+KX922706	10272	108	10379	Asian	05-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Miami, Florida	
+KX922705	10272	108	10379	Asian	05-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Miami, Florida	
+KX922704	10272	108	10379	Asian	02-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Miami, Florida	
+KX922703	10272	108	10379	Asian	19-Jul-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Miami, Florida	
+KX832731	10272	108	10379	Asian	24-Aug-2016	USA	Homo sapiens	genomic RNA		28538723	Zika virus	Miami, Florida	
+KY415991	10272	108	10379	Asian	24-Jun-2014	Haiti	Homo sapiens	genomic RNA			Zika virus		
+KY415990	10272	108	10379	Asian	02-Jun-2014	Haiti	Homo sapiens	genomic RNA			Zika virus		
+KY415989	10272	108	10379	Asian	10-Jun-2014	Haiti	Homo sapiens	genomic RNA			Zika virus		
+KY415988	10272	108	10379	Asian	05-Jun-2014	Haiti	Homo sapiens	genomic RNA			Zika virus		
+KY415987	10272	108	10379	Asian	29-May-2014	Haiti	Homo sapiens	genomic RNA			Zika virus		
+KY415986	10272	108	10379	Asian	29-May-2014	Haiti	Homo sapiens	genomic RNA			Zika virus		
+MF098771	10272	108	10379	Asian	30-Jan-2017	Russia	Homo sapiens	genomic RNA			Zika virus		
+MF098770	9542	108	9649	Asian	09-Nov-2016	Russia	Homo sapiens	genomic RNA			Zika virus		
+MF098769	10272	108	10379	Asian	25-Aug-2016	Russia	Homo sapiens	genomic RNA			Zika virus		
+MF098768	10272	108	10379	Asian	25-Aug-2016	Russia	Homo sapiens	genomic RNA			Zika virus		
+MF098767	10036	108	10143	Asian	25-Jul-2016	Russia	Homo sapiens	genomic RNA			Zika virus		
+MF098766	10272	108	10379	Asian	31-May-2016	Russia	Homo sapiens	genomic RNA			Zika virus		
+MF098765	10010	108	10117	Asian	23-May-2016	Russia	Homo sapiens	genomic RNA			Zika virus		
+MF098764	10010	108	10117	Asian	11-May-2016	Russia	Homo sapiens	genomic RNA			Zika virus		
+KY559031	10272	108	10379	Asian	Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Rio de Janeiro	
+KY559030	10019	108	10126	Asian	Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Rio de Janeiro	
+KY559029	9418	360	9777	Asian	Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Rio de Janeiro	
+KY559027	10272	108	10379	Asian	16-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Rio de Janeiro	
+KY559026	9996	384	10379	Asian	15-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Rio de janeiro	
+KY559025	9996	384	10379	Asian	15-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Rio de janeiro	
+KY559024	10272	108	10379	Asian	03-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Palmas, Tocantins	
+KY559023	10272	108	10379	Asian	22-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Palmas, Tocantins	
+KY559022	9648	108	9755	Asian	13-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Palmas, Tocantins	
+KY559021	10272	108	10379	Asian	10-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Palmas, Tocantins	
+KY559020	9366	108	9473	Asian	07-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Palmas, Tocantins	
+KY559019	10272	108	10379	Asian	24-May-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Araguaina, Tocantins	
+KY559018	10272	108	10379	Asian	25-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Porto Nacional, Tocantins	
+KY559017	10272	108	10379	Asian	19-May-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559016	9648	108	9755	Asian	25-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559015	10272	108	10379	Asian	24-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559014	10272	108	10379	Asian	24-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559013	10272	108	10379	Asian	24-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559012	10272	108	10379	Asian	19-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559011	10272	108	10379	Asian	19-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559010	10272	108	10379	Asian	19-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559009	10272	108	10379	Asian	19-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559008	9648	108	9755	Asian	19-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559007	10272	108	10379	Asian	18-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559006	10272	108	10379	Asian	18-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559005	10272	108	10379	Asian	18-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Ribeirao Preto, Sao Paulo	
+KY559004	10272	108	10379	Asian	16-Apr-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Feira de Santana, Bahia	
+KY559003	10272	108	10379	Asian	28-Aug-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Arapiraca, Alagoas	
+KY559002	8766	108	8873	Asian	09-Sep-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Maceio, Alagoas	
+KY559001	10272	108	10379	Asian	20-Aug-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Murici, Alagoas	
+KY559000	9648	108	9755	Asian	09-Aug-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Paulista, Pernambuco	
+KY558999	10272	108	10379	Asian	10-Jul-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Olinda, Pernambuco	
+KY558998	9648	108	9755	Asian	15-Jun-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Paulista, Pernambuco	
+KY558997	9372	384	9755	Asian	14-May-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Olinda, Pernambuco	
+KY558996	9997	108	10104	Asian	13-May-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Paulista, Pernambuco	
+KY558995	9997	108	10104	Asian	13-May-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Paulista, Pernambuco	
+KY558994	9648	108	9755	Asian	18-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Limoeiro, Pernambuco	
+KY558993	8766	108	8873	Asian	18-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Sanharo, Pernambuco	
+KY558992	9366	108	9473	Asian	06-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Caetes, Pernambuco	
+KY558991	9090	384	9473	Asian	19-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Garanhuns, Pernambuco	
+KY558990	8766	108	8873	Asian	15-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Recife, Pernambuco	
+KY241788	10272	108	10379	Asian	13-May-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241773	10272	108	10379	Asian	07-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241772	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241771	10272	108	10379	Asian	02-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241770	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241769	10272	366	10379	Asian	10-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241768	10272	108	10379	Asian	31-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241767	10272	108	10379	Asian	07-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241766	10272	108	10379	Asian	15-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241765	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241764	10272	108	10379	Asian	31-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241763	10272	108	10379	Asian	02-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241762	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241761	10272	108	10379	Asian	03-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241760	10272	108	10379	Asian	13-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241759	10272	108	10379	Asian	02-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241758	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241757	10272	108	10379	Asian	12-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241756	10272	108	10379	Asian	05-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241755	10272	108	10379	Asian	31-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241754	10272	108	10379	Asian	07-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241753	10272	108	10379	Asian	26-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241752	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241751	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241750	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241749	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241748	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241747	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241746	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241745	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241744	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241743	10272	108	10379	Asian	26-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241742	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241741	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241740	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241739	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241738	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241737	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241736	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241735	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241734	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241733	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241732	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241731	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241730	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241729	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241728	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241727	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241726	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241725	10272	108	10379	Asian	26-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241724	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241723	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241722	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241721	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241720	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241719	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241718	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241717	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241716	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241715	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241714	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241713	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241712	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241711	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241710	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241709	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241708	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241707	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241706	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241705	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241704	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241703	10272	108	10379	Asian	29-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241702	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241701	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241700	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241699	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241698	10272	108	10379	Asian	26-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241697	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241696	10272	108	10379	Asian	30-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241695	10272	108	10379	Asian	20-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241694	10272	108	10379	Asian	19-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241693	10272	108	10379	Asian	15-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241692	10272	108	10379	Asian	14-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241691	10272	108	10379	Asian	13-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241690	10272	108	10379	Asian	13-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241689	10272	108	10379	Asian	13-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241688	10272	130	10379	Asian	13-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241687	10272	108	10379	Asian	13-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241686	10272	108	10379	Asian	12-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241685	10272	108	10379	Asian	12-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241684	10272	108	10379	Asian	08-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241683	10272	108	10379	Asian	08-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241682	10272	108	10379	Asian	08-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241681	10272	108	10379	Asian	08-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241680	10272	108	10379	Asian	07-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241679	10272	108	10379	Asian	07-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241678	10272	108	10379	Asian	07-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241677	10272	108	10379	Asian	07-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241676	10272	108	10379	Asian	06-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241675	10272	108	10379	Asian	06-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241674	10272	108	10379	Asian	05-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241673	10272	108	10379	Asian	04-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KY241671	10272	108	10379	Asian	04-Sep-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+MF036115	10272	108	10379	Asian	02-Nov-2016	China	Homo sapiens	genomic RNA	Zika virus/Homo sapiens/ZIKV-CCMU01/2016		Zika virus		
+KY989971	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA			Zika virus		
+KY967711	10272	108	10379	Asian	01-Nov-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KX051562	10272	108	10379	Asian	16-Jan-2015	Thailand	Homo sapiens	genomic RNA			Zika virus		
+KX051561	10272	108	10379	Asian	21-Sep-2013	Thailand	Homo sapiens	genomic RNA			Zika virus		
+KX051560	10272	108	10379	Asian	09-Jul-2013	Thailand	Homo sapiens	genomic RNA			Zika virus		
+KY927808	10272	108	10379	Asian	Sep-2016	China	Homo sapiens	genomic RNA	ZZ-1		Zika virus	Henan	
+KX013000	10272	108	10379	Asian	17-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU997667	10272	108	10379	Asian	16-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KX806557	10272	108	10379	Asian	Feb-2016	Australia	Homo sapiens	genomic RNA			Zika virus		
+KY765327	10272	108	10379	Asian	22-Apr-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/5005_13A1_SP/2016		Zika virus	Managua	M;11 years
+KY765326	10272	108	10379	Asian	30-Jun-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/6188_13A1_SP/2016		Zika virus	Managua	M;8 years
+KY765325	10272	108	10379	Asian	22-Apr-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/5005_13A1/2016		Zika virus	Managua	M;11 years
+KY765324	10272	108	10379	Asian	07-Jul-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/8610_13A1/2016		Zika virus	Managua	F;2 years
+KY765323	10272	108	10379	Asian	30-Jun-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/6188_13A1/2016		Zika virus	Managua	M;8 years
+KY765322	10272	108	10379	Asian	29-Jun-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/7252_12A1_SP/2016		Zika virus	Managua	M;6 years
+KY765321	10272	108	10379	Asian	10-Jul-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/4886_12A1_SP/2016		Zika virus	Managua	F;11 years
+KY765320	10272	108	10379	Asian	29-May-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/6406_13A1_SP/2016		Zika virus	Managua	M;8 years
+KY765318	10272	108	10379	Asian	10-Jul-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/4886_12A1/2016		Zika virus	Managua	F;11 years
+KY765317	10272	108	10379	Asian	29-Jun-2016	Nicaragua	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/NIC/7252_12A1/2016		Zika virus	Managua	M;6 years
+KU926309	10272	108	10379	Asian	14-Jan-2016	Brazil	Homo sapiens	genomic RNA		27341420	Zika virus		
+KU926310	10272	108	10379	Asian	29-Jan-2016	Brazil	Homo sapiens	genomic RNA		27341420	Zika virus		
+KY631494	10272	108	10379	Asian	15-Oct-2015	Mexico	Homo sapiens	genomic RNA	ENCB165P4		Zika virus	Tapachula, Chiapas	
+KY631493	10272	108	10379	Asian	15-Oct-2015	Mexico	Homo sapiens	genomic RNA			Zika virus	Tapachula, Chiapas	
+KY693680	10272	108	10379	Asian	19-Oct-2016	Venezuela	Homo sapiens	genomic RNA	FVM00318/VEN/Maracay/2016		Zika virus		
+KY693679	10272	108	10379	Asian	11-Jul-2016	Peru	Homo sapiens	genomic RNA	FPI15263/PERU/Loreto/2016		Zika virus		
+KY693678	10272	108	10379	Asian	28-Jun-2016	Peru	Homo sapiens	genomic RNA	FPI15198/PERU/Loreto/2016		Zika virus		
+KY693677	10272	108	10379	Asian	26-Aug-2016	Honduras	Homo sapiens	genomic RNA	FHT1175/HON/2016		Zika virus		
+KY693676	10272	108	10379	Asian	26-Aug-2016	Honduras	Homo sapiens	genomic RNA	FHT1166/HON/2016		Zika virus		
+KX830930	10272	108	10379	Asian	01-Mar-2016	Brazil	Homo sapiens	genomic RNA			Zika virus		
+KY631492	10272	108	10379	Asian	08-Jan-2016	Brazil	Homo sapiens	genomic RNA			Zika virus	Manaus, Amazonas State	
+KX827268	10272	108	10379	Asian	01-Jan-2016	USA	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/USA/UT-1/2016	27681699	Zika virus		
+KY606274	10272	108	10379	Asian	07-Jul-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+KY606273	10272	108	10379	Asian	30-Jun-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Guerrero	
+KY606272	10272	108	10379	Asian	05-Aug-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Oaxaca	
+KY328289	10272	108	10379	Asian	May-2016	Honduras	Homo sapiens	genomic RNA		27748649	Zika virus		
+KX421195	10272	108	10379	Asian	19-Jan-2016	Nicaragua	Homo sapiens	genomic RNA		27443522	Zika virus		
+KX421194	10272	108	10379	Asian	13-Jan-2016	Nicaragua	Homo sapiens	genomic RNA		27443522	Zika virus		
+KY120349	10272	108	10379	Asian	03-Mar-2016	Mexico	Homo sapiens	genomic RNA	MEX_CIENI551		Zika virus	Oaxaca, Tehuantepec Isthmus	male, 80-years-old
+KY120348	10272	108	10379	Asian	03-Mar-2016	Mexico	Homo sapiens	genomic RNA	MEX_CIENI551P4		Zika virus	Oaxaca, Tehuantepec Isthmus	male 80-years-old
+KX197192	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA		27706161	Zika virus		
+KY272991	10272	108	10379	Asian	12-Feb-2016	Brazil	Homo sapiens	genomic RNA			Zika virus		
+KU761561	10272	108	10379	Asian	Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU761560	10272	108	10379	Asian	Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KY328290	10272	108	10379	Asian	03-Nov-2016	China	Homo sapiens	viral cRNA			Zika virus		
+KY272987	10272	108	10379	Asian	30-Aug-2016	Thailand	Homo sapiens	genomic RNA			Zika virus		
+KX694534	10272	108	10379	Asian	06-Jan-2015	Honduras	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/HND/R103451/2015		Zika virus		
+KX694532	10272	108	10379	Asian	12-Feb-2013	Thailand	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/THA/PLCal_ZV/2013		Zika virus		female
+KX198135	10272	108	10379	Asian	2016	Panama	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/PAN/BEI-259634_V4/2016		Zika virus		
+KX156776	10272	108	10379	Asian	18-Dec-2015	Panama	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/PAN/CDC-259364_V1-V2/2015		Zika virus		
+KX156775	10272	108	10379	Asian	11-Dec-2015	Panama	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/PAN/CDC-259249_V1-V3/2015		Zika virus		
+KX156774	10272	108	10379	Asian	18-Dec-2015	Panama	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/PAN/CDC-259359_V1-V3/2015		Zika virus		
+KX087102	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/COL/FLR/2015		Zika virus	Barranquilla	
+KX087101	10272	108	10379	Asian	Dec-2015	Puerto Rico	Homo sapiens	genomic RNA	ZIKV/Homo sapiens/PRI/PRVABC59/2015		Zika virus		
+KU963574	10254	108	10379	African	09-Sep-1968	Nigeria	Homo sapiens	genomic RNA			Zika virus	Ibadan	
+KX269878	10272	108	10379	Asian	01-Feb-2016	Italy	Homo sapiens	genomic RNA		27542178	Zika virus	Padova	
+KY003154	10272	108	10379	Asian	Apr-2016	Italy	Homo sapiens	viral cRNA	ZIKV/VR10599/Pavia/2016		Zika virus		
+KY003153	10272	108	10379	Asian	Apr-2016	Italy	Homo sapiens	viral cRNA	ZIKV/34997/Pavia/2016		Zika virus		
+KR872956	10278	102	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA	17829		Zika virus		
+LC190723	10272	108	10379	Asian	2016-05-20	Japan	Homo sapiens	genomic RNA	ZIKV/Hu/Yokohama/1/2016		Zika virus	Kanagawa, Yokohama	
+KU820897	10272	108	10379	Asian	Dec-2015	Colombia	Homo sapiens	genomic RNA		27654889	Zika virus	Barranquilla	
+KX101067	10209	171	10379	Asian	May-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KX101066	10272	108	10379	Asian	May-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KX101065	9872	381	10252	Asian	Jan-2016	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KX101064	9999	381	10379	Asian	Apr-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KX101063	10103	264	10366	Asian	Dec-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KX101062	9999	381	10379	Asian	Jun-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KX101061	10209	171	10379	Asian	May-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KX101060	10032	348	10379	Asian	May-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KU940228	10272	108	10379	Asian	01-Jul-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KU940227	10251	129	10379	Asian	15-Jul-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KU940224	10224	156	10379	Asian	01-Aug-2015	Brazil	Homo sapiens	genomic RNA		27448188	Zika virus		
+KU527068	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA	Natal RGN	26862926	Zika virus	Rio Grande do Norte, Natal	
+KX827309	10272	108	10379	Asian	28-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KX197205	10272	108	10379	Asian	01-Dec-2015	Brazil	Homo sapiens	genomic RNA			Zika virus		
+KX813683	10272	108	10379	Asian	27-Aug-2016	Singapore	Homo sapiens	genomic RNA			Zika virus		
+KJ776791	10272	108	10379	Asian	28-Nov-2013	French Polynesia	Homo sapiens	genomic RNA	H/PF/2013	24903869	Zika virus		
+KX766029	10272	108	10379	Asian	23-Jun-2016	Mexico	Homo sapiens	genomic RNA			Zika virus		
+KX766028	10272	108	10379	Asian	06-Jun-2016	Dominican Republic	Homo sapiens	genomic RNA			Zika virus		
+KX520666	10272	108	10379	Asian	Aug-2015	Brazil	Homo sapiens	genomic RNA			Zika virus	Salvadore, Bahia	female
+KX266255	10272	108	10379	Asian	14-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KX601168	10272	108	10379	Asian	01-Dec-2015	Puerto Rico	Homo sapiens	genomic RNA	ZIKV/Homo Sapiens/PRI/PRVABC59/2015		Zika virus		
+KX548902	10272	108	10379	Asian	07-Oct-2015	Colombia	Homo sapiens	genomic RNA			Zika virus		
+KU707826	10272	108	10379	Asian	01-Jul-2015	Brazil	Homo sapiens	genomic RNA		27071531	Zika virus		
+KX369547	10272	108	10379	Asian	25-Oct-2013	French Polynesia	Homo sapiens	genomic RNA	PF13/251013-18		Zika virus		
+KX377337	10272	108	10379	Asian	Dec-2015	Puerto Rico	Homo sapiens	genomic RNA	PRVABC-59		Zika virus		
+KU866423	10272	108	10379	Asian	2016	China	Homo sapiens	genomic RNA		26993654	Zika virus	Shenzhen	
+KU647676	10272	108	10379	Asian	Dec-2015	Martinique	Homo sapiens	genomic RNA	MRS_OPY_Martinique_PaRi_2015	27274849	Zika virus		
+KU758877	10272	108	10379	Asian	Dec-2015	French Guiana	Homo sapiens	genomic RNA			Zika virus		
+KU955593	10272	108	10379	Asian	2010	Cambodia	Homo sapiens	genomic RNA		27174284	Zika virus		
+KU681082	10272	108	10379	Asian	09-May-2012	Philippines	Homo sapiens	genomic RNA		27174274	Zika virus		
+KU681081	10272	108	10379	Asian	19-Jul-2014	Thailand	Homo sapiens	genomic RNA		27174274	Zika virus		
+KX262887	10272	108	10379	Asian	06-Jan-2016	Honduras	Homo sapiens	genomic RNA			Zika virus		
+KX253996	10272	108	10379	Asian	16-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KX247646	10272	108	10379	Asian	09-Feb-2016	Colombia	Homo sapiens	viral cRNA			Zika virus		
+KX185891	10272	108	10379	Asian	17-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus	Shenzhen	
+KU937936	10272	108	10379	Asian	11-Feb-2016	Suriname	Homo sapiens	genomic RNA			Zika virus		
+KU744693	10272	108	10379	Asian	06-Feb-2016	China	Homo sapiens	genomic RNA		27103718	Zika virus		
+KX117076	10272	108	10379	Asian	17-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU509998	10272	108	10379	Asian	12-Dec-2014	Haiti	Homo sapiens	genomic RNA	Haiti/1225/2014	27111294	Zika virus		
+KX056898	10272	108	10379	Asian	25-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU955590	10272	108	10379	Asian	26-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU955589	10272	108	10379	Asian	16-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU963796	10272	108	10379	Asian	2016	China	Homo sapiens	genomic RNA			Zika virus	Shenzhen	
+KU321639	10272	108	10379	Asian	Mar-2015	Brazil	Homo sapiens	genomic RNA	ZikaSPH2015	26941134	Zika virus		
+KU991811	10272	108	10379	Asian	06-Mar-2016	Italy	Homo sapiens	genomic RNA			Zika virus	Rome	
+KU870645	10272	108	10379	Asian	02-Feb-2016	USA	Homo sapiens	genomic RNA			Zika virus		
+KU922960	10272	108	10379	Asian	25-Feb-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	female, 22 years old
+KU922923	10272	108	10379	Asian	25-Feb-2016	Mexico	Homo sapiens	genomic RNA			Zika virus	Chiapas	
+KU820898	10272	108	10379	Asian	14-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU740184	10272	108	10379	Asian	Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU820899	10272	108	10379	Asian	17-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU853013	10272	108	10379	Asian	01-Feb-2016	Italy	Homo sapiens	genomic RNA		26987769	Zika virus	Padua	
+KU853012	10272	108	10379	Asian	01-Feb-2016	Italy	Homo sapiens	genomic RNA		26987769	Zika virus	Padua	
+KU729217	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA			Zika virus		
+KU761564	10272	108	10379	Asian	12-Feb-2016	China	Homo sapiens	genomic RNA			Zika virus		
+KU497555	10272	108	10379	Asian	30-Nov-2015	Brazil	Homo sapiens	genomic RNA		26897108	Zika virus		
+KU501217	10272	108	10379	Asian	01-Nov-2015	Guatemala	Homo sapiens	genomic RNA	8375	27088323	Zika virus		
+KU501216	10272	108	10379	Asian	01-Dec-2015	Guatemala	Homo sapiens	genomic RNA	103344	27088323	Zika virus		
+KU501215	10272	108	10379	Asian	01-Dec-2015	Puerto Rico	Homo sapiens	genomic RNA	PRVABC59	27088323	Zika virus		
+KU365780	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA	BeH815744		Zika virus		
+KU365779	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA	BeH819966		Zika virus		
+KU365778	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA	BeH819015		Zika virus		
+KU365777	10272	108	10379	Asian	2015	Brazil	Homo sapiens	genomic RNA	BeH818995		Zika virus		
+KU312312	10272	108	10379	Asian	02-Oct-2015	Suriname	Homo sapiens	genomic RNA		26775124	Zika virus		
+KF993678	10141	219	10359	Asian	19-Feb-2013	Canada	Homo sapiens	genomic RNA	PLCal_ZV	25294619	Zika virus		
+JN860885	10269	108	10376	Asian	2010	Cambodia	Homo sapiens	genomic RNA		22389730	Zika virus		
+HQ234500	10251	108	10376	African	1968	Nigeria	Homo sapiens	genomic RNA		22389730	Zika virus		
+EU545988	10272	108	10379	Asian	Jun-2007	Micronesia	Homo sapiens	genomic RNA		18680646	Zika virus		

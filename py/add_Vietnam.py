@@ -17,15 +17,14 @@ if '__main__' == __name__:
 
     df = pd.read_csv(params.input_data, index_col=0, sep='\t')
 
-    recs = []
-    for seq in SeqIO.parse(params.input_fa, "fasta"):
-        seq.id = seq.id.replace('_', '')
-        if seq.id in df.index:
-            recs.append(seq)
-    for seq in SeqIO.parse(params.input_Vietnam, "fasta"):
-        seq.id = seq.id.replace('.basecaller', '')
-        recs.append(seq)
-        df.loc[seq.id, ['type', 'collection_date', 'country', 'host', 'organism', 'host_details']] = \
-            ['Asian', id2date[seq.id], 'Vietnam', 'Homo sapiens', 'Zika virus', 'female']
+    with open(params.output_fa, 'w+') as f:
+        for seq in SeqIO.parse(params.input_fa, "fasta"):
+            seq.id = seq.id.replace('_', '')
+            if seq.id in df.index:
+                f.write('>{}\n{}\n'.format(seq.id, seq.seq))
+        for seq in SeqIO.parse(params.input_Vietnam, "fasta"):
+            seq.id = seq.id.replace('.basecaller', '')
+            f.write('>{}\n{}\n'.format(seq.id, seq.seq))
+            df.loc[seq.id, ['type', 'collection_date', 'country', 'host', 'organism', 'host_details']] = \
+                ['Asian', id2date[seq.id], 'Vietnam', 'Homo sapiens', 'Zika virus', 'female']
     df.to_csv(params.output_data, sep='\t', index_label='accession')
-    SeqIO.write(recs, params.output_fa, "fasta")
