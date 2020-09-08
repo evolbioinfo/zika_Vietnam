@@ -13,7 +13,7 @@ import os
 localrules: all
 ruleorder: pastml_col > nex2nwk
 folder = os.path.abspath(config["folder"])
-data_dir = os.path.join(folder, 'data20200811')
+data_dir = os.path.join(folder, 'data')
 
 os.makedirs('logs', exist_ok=True)
 
