@@ -17,6 +17,8 @@ data_dir = os.path.join(folder, 'data20200811')
 
 tree_types = ['raxmlng', 'iq']
 
+os.makedirs('logs', exist_ok=True)
+
 rule all:
     input:
         os.path.join(data_dir, 'best_tree.pos.rooted_African.collapsed.nwk'),
@@ -38,7 +40,7 @@ rule get_seq_ids:
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     shell:
         """
-        python3 {folder}/py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab}
+        python3 py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab}
         """
 
 
@@ -60,7 +62,7 @@ rule get_ids_of_type:
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     shell:
         """
-        python3 {folder}/py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab} \
+        python3 py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab} \
         --col_name "{params.col_name}" --col_value {params.col_value}
         """
 
@@ -122,7 +124,7 @@ rule partitioning_nt:
         type = '{type}'
     shell:
         """
-        python3 {folder}/py/dna_partitioner.py --input_xml {input.ref} --output_partitioning {output.part} \
+        python3 py/dna_partitioner.py --input_xml {input.ref} --output_partitioning {output.part} \
         --tool {params.tool} --level {params.type}
         """
 
@@ -221,7 +223,7 @@ rule best_tree:
         name = 'best_tree.{part}',
     shell:
         """
-        python3 {folder}/py/best_tree.py --log {input.log} --trees {input.trees} --best_tree {output.tree}
+        python3 py/best_tree.py --log {input.log} --trees {input.trees} --best_tree {output.tree}
         """
 
 rule root_tree:
@@ -285,5 +287,5 @@ rule collapse_non_informative_branches:
         n=`head {input.length}`
         l=`awk -v n="$n" 'BEGIN {{ m=1/n/2; print m}}'`
 
-        python3 {folder}/py/collapse.py --input_tree {input.tree} --output_tree {output.tree} --threshold $l --feature dist
+        python3 py/collapse.py --input_tree {input.tree} --output_tree {output.tree} --threshold $l --feature dist
         """

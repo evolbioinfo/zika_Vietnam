@@ -15,6 +15,7 @@ ruleorder: pastml_col > nex2nwk
 folder = os.path.abspath(config["folder"])
 data_dir = os.path.join(folder, 'data20200811')
 
+os.makedirs('logs', exist_ok=True)
 
 rule all:
     input:
@@ -39,7 +40,7 @@ rule extract_dates_lsd:
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     shell:
         """
-        python3 {folder}/py/extract_dates_lsd.py --data {input.tab} --dates {output.tab} \
+        python3 py/extract_dates_lsd.py --data {input.tab} --dates {output.tab} \
         --date_col {params.date_col}
         """
 

@@ -17,6 +17,7 @@ data_dir = os.path.join(folder, 'data20200811')
 genbank_data = os.path.join(data_dir, 'genbank_20200811_org_Zika_virus_len_8000_14000.fa')
 
 
+os.makedirs('logs', exist_ok=True)
 
 rule all:
     input:
@@ -40,7 +41,7 @@ rule entrez:
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     shell:
         """
-        python3 {folder}/py/gb_reader.py --input_fa {input.data} --output_fa {output.fa} --output_data {output.data}
+        python3 py/gb_reader.py --input_fa {input.data} --output_fa {output.fa} --output_data {output.data}
         """
 
 rule genome_detective:
@@ -78,7 +79,7 @@ rule post_genome_detective:
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     shell:
         """
-        python3 {folder}/py/gd_reader.py --input_fa {input.fa} --output_fa {output.fa} --output_data {output.data} \
+        python3 py/gd_reader.py --input_fa {input.fa} --output_fa {output.fa} --output_data {output.data} \
         --input_data {input.data} --gd_data {input.gd_data}
         """
 
@@ -100,6 +101,6 @@ rule add_Vietnam:
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     shell:
         """
-        python3 {folder}/py/add_Vietnam.py --input_fa {input.fa} --output_fa {output.fa} --output_data {output.data} \
+        python3 py/add_Vietnam.py --input_fa {input.fa} --output_fa {output.fa} --output_data {output.data} \
         --input_data {input.data} --input_Vietnam {input.v_fa}
         """
