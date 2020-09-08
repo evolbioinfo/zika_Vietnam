@@ -19,9 +19,9 @@ on 2020/08/11 with the keywords: organism “Zika virus”, and sequence length 
 The input GenBank sequences were annotated with the collection_date and country 
 using Entrez [[NCBI Resource Coordinators 2012](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3531099/)]. 
 
-#### Serotypes and genotypes
-The sequences were typed with Genome Detective [[Vilsker *et al.* 2019](https://academic.oup.com/bioinformatics/advance-article-abstract/doi/10.1093/bioinformatics/bty695/5075035)],
-and those with the type support < 1000 removed.
+#### Types
+The sequences were typed (African vs Asian) with Genome Detective [[Vilsker *et al.* 2019](https://academic.oup.com/bioinformatics/advance-article-abstract/doi/10.1093/bioinformatics/bty695/5075035)],
+and those with the type support < 100 removed.
 
 ### MSA
 
