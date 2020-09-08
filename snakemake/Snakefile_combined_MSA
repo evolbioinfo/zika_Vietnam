@@ -1,0 +1,105 @@
+import os
+
+# To run locally:
+# snakemake --snakefile Snakefile_combined_MSA --keep-going --cores 4 --config folder=.. --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
+
+# To run on bioevo:
+# snakemake --snakefile Snakefile_combined_MSA --config folder='/pasteur/homes/azhukova/projects/zika_atlas' --keep-going --cores 1 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~" --cluster "sbatch -c {threads} -o logs/{params.name}.log -e logs/{params.name}.log --mem {params.mem} -p bioevo --qos=bioevo -A bioevo -J {params.name}" --jobs 300
+
+# To visualise the pipeline
+# snakemake --snakefile Snakefile_combined_MSA --config folder=.. --dag | dot -Tsvg > pipeline_combined_MSA.svg
+
+localrules: all, entrez
+
+
+folder = os.path.abspath(config["folder"])
+data_dir = os.path.join(folder, 'data20200811')
+genbank_data = os.path.join(data_dir, 'genbank_20200811_org_Zika_virus_len_8000_14000.fa')
+
+
+
+rule all:
+    input:
+        os.path.join(data_dir, 'sequences.combined.fa'),
+        os.path.join(data_dir, 'metadata.combined.tab'),
+
+
+rule entrez:
+    '''
+    Transforms dengue input file into fasta and metadata
+    '''
+    input:
+        data = genbank_data
+    output:
+        fa = temp(os.path.join(data_dir, 'sequences.gb.fasta')),
+        data = temp(os.path.join(data_dir, 'metadata.gb.tab')),
+    params:
+        mem = 2000,
+        name = 'metadata'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/gb_reader.py --input_fa {input.data} --output_fa {output.fa} --output_data {output.data}
+        """
+
+rule genome_detective:
+    '''
+    Manual step: detect serotype and genotype with with Genome Detective.
+    '''
+    input:
+        fa = os.path.join(data_dir, 'sequences.gb.fasta'),
+    output:
+        gd_data = os.path.join(data_dir, 'gd.csv'),
+    params:
+        mem = 1000,
+        name = 'genome_detective'
+    threads: 1
+    shell:
+        """
+        echo "Manual step to be performed by Genome Detective."
+        """
+
+rule post_genome_detective:
+    '''
+    Puts together gb metadata and genotype data detected by Genome Detective
+    '''
+    input:
+        gd_data = os.path.join(data_dir, 'gd.csv'),
+        fa = os.path.join(data_dir, 'sequences.gb.fasta'),
+        data = os.path.join(data_dir, 'metadata.gb.tab')
+    output:
+        fa = os.path.join(data_dir, 'sequences.fa'),
+        data = os.path.join(data_dir, 'metadata.tab')
+    params:
+        mem = 2000,
+        name = 'gd_metadata'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/gd_reader.py --input_fa {input.fa} --output_fa {output.fa} --output_data {output.data} \
+        --input_data {input.data} --gd_data {input.gd_data}
+        """
+
+rule add_Vietnam:
+    '''
+    Adds metadata and sequences from Vietnam
+    '''
+    input:
+        fa = os.path.join(data_dir, 'sequences.fa'),
+        v_fa = os.path.join(data_dir, 'Vietnam.fa'),
+        data = os.path.join(data_dir, 'metadata.tab')
+    output:
+        fa = os.path.join(data_dir, 'sequences.combined.fa'),
+        data = os.path.join(data_dir, 'metadata.combined.tab')
+    params:
+        mem = 2000,
+        name = 'gd_metadata'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/add_Vietnam.py --input_fa {input.fa} --output_fa {output.fa} --output_data {output.data} \
+        --input_data {input.data} --input_Vietnam {input.v_fa}
+        """

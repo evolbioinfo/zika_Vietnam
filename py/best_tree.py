@@ -15,7 +15,7 @@ if '__main__' == __name__:
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s: %(message)s', datefmt="%Y-%m-%d %H:%M:%S")
 
-    df = pd.read_csv(params.log, sep='   ', header=None, index_col=0, names=['lh'])
+    df = pd.read_csv(params.log, sep='  ', header=None, index_col=0, names=['lh'])
     tree_type = df[df['lh'] == max(df['lh'])].index[0]
     logging.info(tree_type)
 

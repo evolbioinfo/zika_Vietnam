@@ -1,0 +1,289 @@
+import os
+
+# To run locally:
+# snakemake --snakefile Snakefile_phylogeny --keep-going --cores 4 --config folder=.. --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
+
+# To run on bioevo:
+# source /local/gensoft2/exe/conda/3.19.0/conda/bin/activate snakemake && module load singularity/3.5.3
+# snakemake --snakefile Snakefile_phylogeny --config folder='/pasteur/homes/azhukova/projects/zika_Vietnam' --keep-going --cores 1 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~" --cluster "sbatch -c {threads} -o logs/{params.name}.log -e logs/{params.name}.log --mem {params.mem} -p bioevo --qos=bioevo -A bioevo -J {params.name}" --jobs 300
+
+# To visualise the pipeline
+# snakemake --snakefile Snakefile_phylogeny --config folder=.. --dag | dot -Tsvg > pipeline_phylogeny.svg
+
+localrules: all
+
+folder = os.path.abspath(config["folder"])
+data_dir = os.path.join(folder, 'data20200811')
+
+tree_types = ['raxmlng', 'iq']
+
+rule all:
+    input:
+        os.path.join(data_dir, 'best_tree.pos.rooted_African.collapsed.nwk'),
+
+
+rule get_seq_ids:
+    '''
+    Extract sequence ids of interest.
+    '''
+    input:
+        tab = os.path.join(data_dir, 'metadata.combined.tab'),
+    output:
+        tab = os.path.join(data_dir, 'ids.txt')
+    params:
+        mem = 500,
+        name = 'ids',
+        qos = 'fast'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab}
+        """
+
+
+rule get_ids_of_type:
+    '''
+    Extract sequence ids of interest.
+    '''
+    input:
+        tab = os.path.join(data_dir, 'metadata.combined.tab'),
+    output:
+        tab = os.path.join(data_dir, 'ids_{type,(African|Asian)}.txt')
+    params:
+        mem = 500,
+        name = 'ids_{type}',
+        col_value = '{type}',
+        col_name = 'type',
+        qos = 'fast'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 {folder}/py/get_seq_ids.py --input_data {input.tab} --output_data {output.tab} \
+        --col_name "{params.col_name}" --col_value {params.col_value}
+        """
+
+rule aln_against_reference:
+    '''
+    Align sequences against a reference.
+    '''
+    input:
+        fa = os.path.join(data_dir, 'sequences.combined.fa'),
+        ref = os.path.join(data_dir, 'ref', 'ZIKV.fa')
+    output:
+        aln = temp(os.path.join(data_dir, 'aln.ref.fa'))
+    params:
+        mem = 1000,
+        name = 'aln',
+        qos = 'fast'
+    threads: 12
+    singularity: "docker://evolbioinfo/mafft:v7.313"
+    shell:
+        """
+        mafft --thread {threads} --memsave --retree 1 --maxiterate 0 --add {input.fa} \
+        --keeplength {input.ref} > {output.aln}
+        """
+
+rule remove_ref:
+    '''
+    Removes the reference from the alignment.
+    '''
+    input:
+        aln = os.path.join(data_dir, 'aln.ref.fa'),
+        ids = os.path.join(data_dir, 'ids.txt')
+    output:
+        aln = os.path.join(data_dir, 'aln.fa')
+    params:
+        mem = 1000,
+        name = 'rmref',
+        qos = 'fast',
+    threads: 1
+    singularity: "docker://evolbioinfo/goalign:v0.3.1"
+    shell:
+        """
+        goalign subset -i {input.aln} -f {input.ids} -o {output.aln}
+        """
+
+rule partitioning_nt:
+    '''
+    Prepare nucleotide partitioning files.
+    '''
+    input:
+        ref = os.path.join(data_dir, 'ref', 'ZIKV.xml'),
+    output:
+        part = os.path.join(data_dir, 'partition_{tool}.{type}.txt'),
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    params:
+        mem = 10000,
+        name = 'part',
+        tool = '{tool}',
+        type = '{type}'
+    shell:
+        """
+        python3 {folder}/py/dna_partitioner.py --input_xml {input.ref} --output_partitioning {output.part} \
+        --tool {params.tool} --level {params.type}
+        """
+
+rule raxml_nt:
+    '''
+    Reconstructs a tree with RAxML.
+    '''
+    input:
+        aln = os.path.join(data_dir, 'aln.fa'),
+        part = os.path.join(data_dir, 'partition_raxml.{type}.txt'),
+    output:
+        tree = os.path.join(data_dir, 'raxmlng_tree.{type,(gene|type|pos)}.nwk'),
+        log = os.path.join(data_dir, 'raxmlng_tree.{type,(gene|type|pos)}.log'),
+        model = os.path.join(data_dir, 'raxmlng_tree.{type,(gene|type|pos)}.model'),
+    threads: 12
+    singularity: "docker://evolbioinfo/raxml-ng:v0.9.0"
+    params:
+        mem = 10000,
+        name = 'raxml.{type}',
+        part = '{type}',
+    shell:
+        """
+        cp {input.aln} {input.aln}.{params.part}
+        raxml-ng --model {input.part} --msa {input.aln}.{params.part} --msa-format FASTA --data-type DNA --tree pars{{5}} \
+        --seed 239 --threads {threads} --force
+        mv {input.aln}.{params.part}.raxml.bestTree {output.tree}
+        mv {input.aln}.{params.part}.raxml.log {output.log}
+        mv {input.aln}.{params.part}.raxml.bestModel {output.model}
+        rm -rf {input.aln}.{params.part}*
+        """
+
+rule iqtree_nt:
+    '''
+    Reconstructs a tree with IQTREE.
+    '''
+    input:
+        aln = os.path.join(data_dir, 'aln.fa'),
+        part = os.path.join(data_dir, 'partition_iq.{type}.txt'),
+    output:
+        tree = os.path.join(data_dir, 'iq_tree.{type,(gene|type|pos)}.nwk'),
+        log = os.path.join(data_dir, 'iq_tree.{type,(gene|type|pos)}.log'),
+    threads: 12
+    singularity: "docker://evolbioinfo/iqtree:v2.0-rc1"
+    params:
+        mem = 10000,
+        name = 'iq.{type}',
+    shell:
+        """
+        iqtree -s {input.aln} -st DNA -nt {threads} -alrt 0 -m GTR+FO+I+G6 -spp {input.part} --runs 1
+        mv {input.part}.treefile {output.tree}
+        sed -i -e 's/\\///g' {output.tree}
+        mv {input.part}.iqtree {output.log}
+        rm -rf {input.part}.*
+        """
+
+rule log_lh_nt_iq:
+    '''
+    Compares tree likelihoods.
+    '''
+    input:
+        aln = os.path.join(data_dir, 'aln.fasta'),
+        trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types),
+        part = os.path.join(data_dir, 'partition_iq.{part}.txt'),
+    output:
+        log = os.path.join(data_dir, 'loglikelihoods.{part}.log'),
+    threads: 12
+    singularity: "docker://evolbioinfo/iqtree:v2.0-rc1"
+    params:
+        mem = 60000,
+        name = 'lh_iqtree',
+    shell:
+        """
+        for t in `(ls {input.trees})`; do
+            name=`(basename $t .nwk)`
+            cp {input.part} {input.part}.iq.$name
+            iqtree -s {input.aln} -st DNA -nt {threads} -m GTR+FO+I+G6 -spp {input.part}.iq.$name --show-lh -te $t
+            l=`(grep -e 'Log-likelihood of the tree: .* (s.e.' {input.part}.iq.${{name}}.iqtree | sed -e "s/Log-likelihood of the tree: //g" | sed -e "s/ (s.e. .*)//g")`
+            echo "$name  $l">> {output.log}
+            rm -rf {input.part}.iq.${{name}}*
+        done
+        """
+
+rule best_tree:
+    '''
+    Gets the best tree in terms of likelihood.
+    '''
+    input:
+        log = os.path.join(data_dir, 'loglikelihoods.{part}.log'),
+        trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types),
+    output:
+        tree = os.path.join(data_dir, 'best_tree.{part,(gene|type|pos|aa)}.nwk'),
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    params:
+        mem = 10000,
+        name = 'best_tree.{part}',
+    shell:
+        """
+        python3 {folder}/py/best_tree.py --log {input.log} --trees {input.trees} --best_tree {output.tree}
+        """
+
+rule root_tree:
+    '''
+    Roots a tree with an outgroup.
+    '''
+    input:
+        tree = os.path.join(data_dir, '{tree}.nwk'),
+        outgroup = os.path.join(data_dir, 'ids_{outgroup}.txt'),
+    output:
+        tree = os.path.join(data_dir, '{tree}.rooted_{outgroup}.nwk'),
+    singularity:
+        "docker://evolbioinfo/gotree:v0.3.0b"
+    params:
+        mem = 2000,
+        name = 'root',
+    threads: 1
+    shell:
+        """
+        gotree reroot outgroup -i {input.tree} -l "{input.outgroup}" -o "{output.tree}" -r
+        """
+
+rule aln_length:
+    '''
+    Calculates alignment length.
+    '''
+    input:
+        aln = os.path.join(data_dir, '{aln}.fa'),
+    output:
+        length = os.path.join(data_dir, '{aln}.length'),
+    singularity:
+        "docker://evolbioinfo/goalign:v0.3.1"
+    params:
+        mem = 2000,
+        name = 'aln_len',
+        qos = 'fast'
+    threads: 1
+    shell:
+        """
+        goalign stats length -i {input.aln} > {output.length}
+        """
+
+rule collapse_non_informative_branches:
+    '''
+    Collapse internal branches of length <= 1/2 mut/site, set external branches of length <= 1/2 mut/site to zero.
+    If the tree is rooted and a root child branch is to be collapsed, set it to zero instead (to keep the tree rooted).
+    '''
+    input:
+        tree = os.path.join(data_dir, '{tree}.nwk'),
+        length =  os.path.join(data_dir, 'aln.length'),
+    output:
+        tree = os.path.join(data_dir, '{tree}.collapsed.nwk'),
+    params:
+        mem = 2000,
+        name = 'collapse',
+        qos = 'fast',
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6richer"
+    shell:
+        """
+        n=`head {input.length}`
+        l=`awk -v n="$n" 'BEGIN {{ m=1/n/2; print m}}'`
+
+        python3 {folder}/py/collapse.py --input_tree {input.tree} --output_tree {output.tree} --threshold $l --feature dist
+        """
