@@ -3,15 +3,12 @@ import os
 # To run locally:
 # snakemake --snakefile Snakefile_phylogeography --keep-going --cores 4 --config folder=.. --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
 
-# To run on bioevo:
-# source /local/gensoft2/exe/conda/3.19.0/conda/bin/activate snakemake && module load singularity/3.5.3
-# snakemake --snakefile Snakefile_phylogeography --config folder='/pasteur/homes/azhukova/projects/zika_Vietnam' --keep-going --cores 1 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~" --cluster "sbatch -c {threads} -o logs/{params.name}.log -e logs/{params.name}.log --mem {params.mem} -p bioevo --qos=bioevo -A bioevo -J {params.name}" --jobs 300
-
 # To visualise the pipeline
 # snakemake --snakefile Snakefile_phylogeography --config folder=.. --dag | dot -Tsvg > pipeline_phylogeography.svg
 
-localrules: all
+localrules: all, pastml_itol, fig
 ruleorder: pastml_col > nex2nwk
+
 folder = os.path.abspath(config["folder"])
 data_dir = os.path.join(folder, 'data')
 
@@ -146,7 +143,7 @@ rule pastml_col:
         pars = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'params.character_{col}.method_MPPA.model_F81.tab'),
         tree = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'named.tree_{tree}.nwk'),
     threads: 2
-    singularity: "docker://evolbioinfo/pastml:v1.9.29.6"
+    singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
     params:
         mem = 4000,
         name = 'acr_{col}.{tree}',
@@ -154,7 +151,8 @@ rule pastml_col:
     shell:
         """
         echo "pastml --tree {input.tree} --data {input.data} --columns "{wildcards.col}" -v --work_dir "{params.wd}" --smoothing --resolve_polytomies "
-        pastml --tree {input.tree} --data {input.data} --columns "{wildcards.col}" -v --work_dir "{params.wd}" --smoothing --resolve_polytomies
+        pastml --tree {input.tree} --data {input.data} --columns "{wildcards.col}" -v --work_dir "{params.wd}" \
+        --smoothing --resolve_polytomies
         """
 
 rule pastml_vis_tree:
@@ -186,9 +184,10 @@ rule pastml_itol:
     '''
     input:
         tree = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'named.tree_{tree}.nwk'),
+        pars = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'params.character_{col}.method_MPPA.model_F81.tab'),
     output:
-        itol = os.path.join(data_dir, 'acr', 'pastml', 'itol_{col,country|region|intregion}', '{tree}', 'iTOL_url.txt'),
-        treeid = os.path.join(data_dir, 'acr', 'pastml', 'itol_{col}', '{tree}', 'iTOL_tree_id.txt'),
+        itol = os.path.join(data_dir, 'acr', '{tree}.acr_{col,country|region|intregion}.itol'),
+        treeid = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'iTOL_tree_id.txt'),
     threads: 2
     singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
     params:
@@ -199,9 +198,14 @@ rule pastml_itol:
     shell:
         """
         pastml --tree {input.tree} -v --work_dir "{params.wd}"  \
-        --columns "{wildcards.col}" --prediction_method COPY \
+        --columns "{wildcards.col}" --parameters {input.pars} \
         --upload_to_itol --itol_id ZxuhG2okfKLQnsgd5xAEGQ --itol_project ZIKV \
         --itol_tree_name "{wildcards.tree}"
+
+        mv {params.wd}/iTOL_url.txt {output.itol}
+        mv {params.wd}/iTOL_tree_id.txt  {output.treeid}
+
+        rm -rf "{params.wd}"
         """
 
 
@@ -234,7 +238,7 @@ rule fig:
     Extracts itol visualisations.
     '''
     input:
-        tree = os.path.join(data_dir, 'acr', 'pastml', 'itol_{col,country|region|intregion}', '{tree}', 'iTOL_tree_id.txt'),
+        tree = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'iTOL_tree_id.txt'),
         rd = os.path.join(data_dir, '{tree}.rootdate'),
     output:
         loc = os.path.join(data_dir, 'figures', '{tree}.{col}.{format}')
