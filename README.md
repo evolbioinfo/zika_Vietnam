@@ -8,8 +8,8 @@ The pipeline steps are detailed below.
 ## Pipeline
 
 ### 0. Input data
-The input data are located in the [data](data) folder and contain (1) Vietnamese sequences in the file [Vietnam.fa](data/Vietnam.fa) 
-and (2) [genbank_20200811_org_Zika_virus_len_8000_14000.fa](data/genbank_20200811_org_Zika_virus_len_8000_14000.fa) sequences, 
+The input data should be located in the [data](data) folder and contain (1) Vietnamese sequences in a file Vietnam.fa (not provided)
+and (2) [genbank_20200811_org_Zika_virus_len_8000_14000.fa](data/genbank_20200811_org_Zika_virus_len_8000_14000.fa) sequences (provided), 
 which were downloaded from GenBank [[Benson *et al.* 2013](https://www.ncbi.nlm.nih.gov/pubmed/23193287)] 
 on 2020/08/11 with the keywords: organism “Zika virus”, and sequence length between 8000-14000 (full genome).
 
