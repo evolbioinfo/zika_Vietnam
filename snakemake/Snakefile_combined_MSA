@@ -1,15 +1,15 @@
 import os
 
 # To run locally:
-# snakemake --snakefile Snakefile_combined_MSA --keep-going --cores 4 --config folder=.. --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
+# snakemake --snakefile Snakefile_combined_MSA --keep-going --cores 4 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
 
 # To visualise the pipeline
-# snakemake --snakefile Snakefile_combined_MSA --config folder=.. --dag | dot -Tsvg > pipeline_combined_MSA.svg
+# snakemake --snakefile Snakefile_combined_MSA --dag | dot -Tsvg > pipeline_combined_MSA.svg
 
 localrules: all, entrez
 
 
-folder = os.path.abspath(config["folder"])
+folder = os.path.abspath(config.get("folder", '..'))
 data_dir = os.path.join(folder, 'data')
 genbank_data = os.path.join(data_dir, 'genbank_20200811_org_Zika_virus_len_8000_14000.fa')
 

@@ -1,0 +1,164 @@
+import os
+
+# To run locally:
+# snakemake --snakefile Snakefile_stats --keep-going --cores 4 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
+
+# To visualise the pipeline
+# snakemake --snakefile Snakefile_stats --dag | dot -Tsvg > pipeline_stats.svg
+
+localrules: all, pastml_itol, fig
+
+folder = os.path.abspath(config.get("folder", '..'))
+data_dir = os.path.join(folder, 'data')
+
+os.makedirs('logs', exist_ok=True)
+
+rule all:
+    input:
+        os.path.join(data_dir, 'figures', 'best_tree.pos.lsd2.country.svg'),
+        expand(os.path.join(data_dir, 'figures', 'best_tree.pos.lsd2.subsampled_{i}.country.svg'), i=range(4)),
+        os.path.join(data_dir, 'bootstrap_supports.tab'),
+        os.path.join(data_dir, 'date_estimates.tab'),
+
+
+rule pastml_itol:
+    '''
+    Visualisation with iTOL.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'named.tree_{tree}.nwk'),
+    output:
+        itol = os.path.join(data_dir, 'acr', '{tree}.acr_{col,country|region|intregion}.itol'),
+        treeid = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'iTOL_tree_id.txt'),
+    threads: 2
+    singularity: "docker://evolbioinfo/pastml:v1.9.29.9"
+    params:
+        mem = 4000,
+        name = 'itol_{col}.{tree}',
+        wd = os.path.join(data_dir, 'acr', 'pastml', 'itol_{col}', '{tree}'),
+        qos = 'fast'
+    shell:
+        """
+        pastml --tree {input.tree} -v --work_dir "{params.wd}"  \
+        --columns "{wildcards.col}" --prediction_method COPY \
+        --upload_to_itol --itol_id ZxuhG2okfKLQnsgd5xAEGQ --itol_project ZIKA \
+        --itol_tree_name "{wildcards.tree}"
+
+        mv {params.wd}/iTOL_url.txt {output.itol}
+        mv {params.wd}/iTOL_tree_id.txt  {output.treeid}
+
+        rm -rf "{params.wd}"
+        """
+
+
+rule fig:
+    '''
+    Extracts itol visualisations.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'acr', 'pastml', '{col}', '{tree}', 'iTOL_tree_id.txt'),
+    output:
+        loc = os.path.join(data_dir, 'figures', '{tree}.{col}.{format}')
+    params:
+        mem = 2000,
+        name = 'itol_download_{tree}',
+        rd = os.path.join(data_dir, 'timetrees', '{tree}.rootdate'),
+    singularity:
+        "docker://evolbioinfo/gotree:v0.3.0b"
+    threads: 1
+    shell:
+        """
+        tree=`head {input.tree}`
+        rm -rf {output.loc}.config.tab
+        echo "tree\t${{tree}}" > {output.loc}.config.tab
+        echo '''format\t{wildcards.format}
+display_mode\t2
+horizontal_scale_factor\t0.6
+line_width\t2
+dashed_lines\t1
+default_branch_color\trgb(170,170,170)
+line_gradient\t1
+current_font_size\t0
+label_display\t0
+datasets_visible\t1
+arc\t350
+rotation\t90
+tree_x\t400
+tree_y\t200''' >> {output.loc}.config.tab
+
+        if [[ -f {params.rd} ]]
+        then
+            date=`head {params.rd}`
+            fixed_dates=`awk -v n="$date" -v m="2020" 'BEGIN {{ y=n + 1; while (y < m) {{printf("%.2f", int(y) - n); if (y + 1 < m) {{ printf(",") }}; y += 1;}}; }}'`
+            echo "internalScaleRootValue\t${{date}}" >> {output.loc}.config.tab
+            echo "internalScaleFixed\t\\\"${{fixed_dates}}\\\"" >> {output.loc}.config.tab
+            echo '''internal_scale\t1
+internalScaleAxis\t0
+internalScaleGrid\t1
+internalScaleFontSize\t18
+internalScale1\t100
+internalScale2\t100
+internalScale1Color\trgb(222,222,222)
+internalScale2Color\trgb(222,222,222)
+internalScaleFixedColor\trgb(222,222,222)
+internalScale1Label\t0
+internalScale2Label\t0
+internalScaleFixedLabel\t1
+internalScale1Wid\t1
+internalScale2Wid\t1
+internalScaleFixedWid\t1
+internalScaleTimeScaling\t1''' >> {output.loc}.config.tab
+        else
+            echo "internal_scale\t0" >> {output.loc}.config.tab
+        fi
+
+        gotree download itol -i $tree -c {output.loc}.config.tab -o {output.loc} --format {wildcards.format}
+
+        rm {output.loc}.config.tab
+        """
+
+rule compare_country_dates:
+    '''
+    Summarizes LSD2/TreeTime date predictions for different countries.
+    '''
+    input:
+        dates_tt = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.dates'),
+        timetree_tt = os.path.join(data_dir, 'timetrees', 'best_tree.pos.outliers.treetime.nexus'),
+        timetree_lsd2 = os.path.join(data_dir, 'timetrees', 'best_tree.pos.lsd2.nexus'),
+        tree_tt = os.path.join(data_dir, 'acr', 'pastml', 'country', 'best_tree.pos.treetime', 'named.tree_best_tree.pos.treetime.nwk'),
+        tree_lsd2 = os.path.join(data_dir, 'acr', 'pastml', 'country', 'best_tree.pos.lsd2', 'named.tree_best_tree.pos.lsd2.nwk'),
+    output:
+        tab = os.path.join(data_dir, 'date_estimates.tab'),
+    threads: 2
+    singularity: "docker://evolbioinfo/pastml:v1.9.30"
+    params:
+        mem = 4000,
+        name = 'dates',
+        qos = 'fast'
+    shell:
+        """
+        python3 py/format_dates.py  --tree_tt_nex {input.timetree_tt}  --tree_lsd2_nex {input.timetree_lsd2} \
+        --dates_tt{input.dates_tt} --tree_tt_acr {input.tree_tt} --tree_lsd2_acr {input.tree_lsd2} \
+        --tab {output.tab}
+        """
+
+rule extract_country_supports:
+    '''
+    Extract bootstrap support values for the countries of interest.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'trees', 'best_tree.pos.nwk'),
+        tree_acr = os.path.join(data_dir, 'acr', 'pastml', 'country', 'best_tree.pos.lsd2', 'named.tree_best_tree.pos.lsd2.nwk'),
+    output:
+        tab = os.path.join(data_dir, 'bootstrap_supports.tab'),
+        ntab = os.path.join(data_dir, 'acr', 'pastml', 'country', 'best_tree.pos.lsd2', 'named.tree_best_tree.pos.lsd2.supports.tab'),
+    threads: 2
+    singularity: "docker://evolbioinfo/pastml:v1.9.30"
+    params:
+        mem = 4000,
+        name = 'dates',
+        qos = 'fast'
+    shell:
+        """
+        python3 py/format_supports.py  --tree {input.tree}  --tree_acr {input.tree_acr} --tab {output.tab} --ntab {output.ntab}
+        """
