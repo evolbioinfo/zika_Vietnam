@@ -1,14 +1,14 @@
 import os
 
 # To run locally:
-# snakemake --snakefile Snakefile_phylogeny --keep-going --cores 4 --config folder=.. --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
+# snakemake --snakefile Snakefile_phylogeny --keep-going --cores 4 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
 
 # To visualise the pipeline
-# snakemake --snakefile Snakefile_phylogeny --config folder=.. --dag | dot -Tsvg > pipeline_phylogeny.svg
+# snakemake --snakefile Snakefile_phylogeny --dag | dot -Tsvg > pipeline_phylogeny.svg
 
 localrules: all
 
-folder = os.path.abspath(config["folder"])
+folder = os.path.abspath(config.get("folder", '..'))
 data_dir = os.path.join(folder, 'data')
 
 tree_types = ['raxmlng', 'iq']
@@ -17,7 +17,8 @@ os.makedirs('logs', exist_ok=True)
 
 rule all:
     input:
-        os.path.join(data_dir, 'best_tree.pos.rooted_African.collapsed.nwk'),
+        os.path.join(data_dir, 'trees', 'best_tree.pos.rooted_African.collapsed.nwk'),
+
 
 rule get_ids_of_type:
     '''
@@ -71,24 +72,27 @@ rule raxml_nt:
         aln = os.path.join(data_dir, 'aln.fa'),
         part = os.path.join(data_dir, 'partition_raxml.{type}.txt'),
     output:
-        tree = os.path.join(data_dir, 'raxmlng_tree.{type,(gene|type|pos)}.nwk'),
-        log = os.path.join(data_dir, 'raxmlng_tree.{type,(gene|type|pos)}.log'),
-        model = os.path.join(data_dir, 'raxmlng_tree.{type,(gene|type|pos)}.model'),
-    threads: 12
+        tree = os.path.join(data_dir, 'trees', 'raxmlng_tree.{type,(gene|type|pos)}.nwk'),
+        bs = os.path.join(data_dir, 'trees', 'raxmlng_tree.{type,(gene|type|pos)}.bootstrap_trees.nwk'),
+        log = os.path.join(data_dir, 'trees', 'raxmlng_tree.{type,(gene|type|pos)}.log'),
+        model = os.path.join(data_dir, 'trees', 'raxmlng_tree.{type,(gene|type|pos)}.model'),
+    threads: 24
     singularity: "docker://evolbioinfo/raxml-ng:v0.9.0"
     params:
-        mem = 10000,
+        mem = 100000,
         name = 'raxml.{type}',
         part = '{type}',
     shell:
         """
         cp {input.aln} {input.aln}.{params.part}
-        raxml-ng --model {input.part} --msa {input.aln}.{params.part} --msa-format FASTA --data-type DNA --tree pars{{5}} \
-        --seed 239 --threads {threads} --force
-        mv {input.aln}.{params.part}.raxml.bestTree {output.tree}
+        raxml-ng --all --model {input.part} --msa {input.aln}.{params.part} --msa-format FASTA --data-type DNA --tree pars{{5}} \
+        --seed 239 --threads {threads} --force --bs-trees 100 --bs-metric fbp
+#        mv {input.aln}.{params.part}.raxml.bestTree {output.tree}
         mv {input.aln}.{params.part}.raxml.log {output.log}
         mv {input.aln}.{params.part}.raxml.bestModel {output.model}
-        rm -rf {input.aln}.{params.part}*
+        mv {input.aln}.{params.part}.raxml.support {output.tree}
+        mv {input.aln}.{params.part}.raxml.bootstraps {output.bs}
+#        rm -rf {input.aln}.{params.part}*
         """
 
 rule iqtree_nt:
@@ -99,20 +103,24 @@ rule iqtree_nt:
         aln = os.path.join(data_dir, 'aln.fa'),
         part = os.path.join(data_dir, 'partition_iq.{type}.txt'),
     output:
-        tree = os.path.join(data_dir, 'iq_tree.{type,(gene|type|pos)}.nwk'),
-        log = os.path.join(data_dir, 'iq_tree.{type,(gene|type|pos)}.log'),
-    threads: 12
+        tree = os.path.join(data_dir, 'trees', 'iq_tree.{type,(gene|type|pos)}.nwk'),
+        bs = os.path.join(data_dir, 'trees', 'iq_tree.{type,(gene|type|pos)}.bootstrap_trees.nwk'),
+        log = os.path.join(data_dir, 'trees', 'iq_tree.{type,(gene|type|pos)}.log'),
+        model = os.path.join(data_dir, 'trees', 'iq_tree.{type,(gene|type|pos)}.model'),
+    threads: 36
     singularity: "docker://evolbioinfo/iqtree:v2.0-rc1"
     params:
-        mem = 10000,
+        mem = 100000,
         name = 'iq.{type}',
     shell:
         """
-        iqtree -s {input.aln} -st DNA -nt {threads} -alrt 0 -m GTR+FO+I+G6 -spp {input.part} --runs 1
+        iqtree -s {input.aln} -st DNA -nt {threads} -m GTR+FO+I+G6 -spp {input.part} --runs 1 -b 100
         mv {input.part}.treefile {output.tree}
         sed -i -e 's/\\///g' {output.tree}
         mv {input.part}.iqtree {output.log}
-        rm -rf {input.part}.*
+        mv {input.part}.boottrees {output.bs}
+        mv {input.part}.best_model.nex {output.model}
+#        rm -rf {input.part}.*
         """
 
 rule log_lh:
@@ -121,10 +129,10 @@ rule log_lh:
     '''
     input:
         aln = os.path.join(data_dir, 'aln.fa'),
-        trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types),
+        trees = expand(os.path.join(data_dir, 'trees', '{type}_tree.{{part}}.nwk'), type=tree_types),
         part = os.path.join(data_dir, 'partition_iq.{part}.txt'),
     output:
-        log = os.path.join(data_dir, 'loglikelihoods.{part}.log'),
+        log = os.path.join(data_dir, 'trees', 'loglikelihoods.{part}.log'),
     threads: 12
     singularity: "docker://evolbioinfo/iqtree:v2.0-rc1"
     params:
@@ -147,10 +155,10 @@ rule best_tree:
     Gets the best tree in terms of likelihood.
     '''
     input:
-        log = os.path.join(data_dir, 'loglikelihoods.{part}.log'),
-        trees = expand(os.path.join(data_dir, '{type}_tree.{{part}}.nwk'), type=tree_types),
+        log = os.path.join(data_dir, 'trees', 'loglikelihoods.{part}.log'),
+        trees = expand(os.path.join(data_dir, 'trees', '{type}_tree.{{part}}.nwk'), type=tree_types),
     output:
-        tree = os.path.join(data_dir, 'best_tree.{part,(gene|type|pos|aa)}.nwk'),
+        tree = os.path.join(data_dir, 'trees', 'best_tree.{part,(gene|type|pos|aa)}.nwk'),
     threads: 1
     singularity: "docker://evolbioinfo/python-evol:v3.6"
     params:
@@ -166,12 +174,12 @@ rule root_tree:
     Roots a tree with an outgroup.
     '''
     input:
-        tree = os.path.join(data_dir, '{tree}.nwk'),
+        tree = os.path.join(data_dir, 'trees', '{tree}.nwk'),
         outgroup = os.path.join(data_dir, 'ids_{outgroup}.txt'),
     output:
-        tree = os.path.join(data_dir, '{tree}.rooted_{outgroup}.nwk'),
+        tree = os.path.join(data_dir, 'trees', '{tree}.rooted_{outgroup}.nwk'),
     singularity:
-        "docker://evolbioinfo/gotree:v0.3.0b"
+        "docker://evolbioinfo/gotree:v0.4.1a"
     params:
         mem = 2000,
         name = 'root',
@@ -207,10 +215,10 @@ rule collapse_non_informative_branches:
     If the tree is rooted and a root child branch is to be collapsed, set it to zero instead (to keep the tree rooted).
     '''
     input:
-        tree = os.path.join(data_dir, '{tree}.nwk'),
+        tree = os.path.join(data_dir, 'trees', '{tree}.nwk'),
         length =  os.path.join(data_dir, 'aln.length'),
     output:
-        tree = os.path.join(data_dir, '{tree}.collapsed.nwk'),
+        tree = os.path.join(data_dir, 'trees', '{tree}.collapsed.nwk'),
     params:
         mem = 2000,
         name = 'collapse',

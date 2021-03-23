@@ -1,0 +1,539 @@
+node	country
+root	Canada
+root	Mexico
+root	Micronesia
+root	Nicaragua
+root	Philippines
+root	Russia
+root	South Korea
+root	Thailand
+root	USA
+n2	Micronesia
+n2	Nicaragua
+n2	Philippines
+n2	Russia
+n2	South Korea
+n2	Thailand
+EU545988	Micronesia
+n10	Thailand
+n3	Canada
+n3	Cuba
+n3	Dominican Republic
+n3	Italy
+n3	Jamaica
+n3	Japan
+n3	Mexico
+n3	Micronesia
+n3	Nicaragua
+n3	Philippines
+n3	Russia
+n3	South Korea
+n3	Thailand
+n3	USA
+n18	Thailand
+n11	Thailand
+n5	South Korea
+KU681082	Philippines
+n32	Thailand
+n19	Thailand
+n13	Cambodia
+MG645981	Thailand
+n7	South Korea
+KY120353	South Korea
+n34	Thailand
+KU179098	Indonesia
+n25	Thailand
+n20	Thailand
+MK028862	Cambodia
+JN860885	Cambodia
+MH158236	Cambodia
+KU955593	Cambodia
+KY962729	South Korea
+KY553111	South Korea
+n36	Thailand
+KX051560	Thailand
+KX051562	Thailand
+n26	Thailand
+KY272987	Thailand
+n21	Thailand
+n46	Thailand
+n37	India
+KX051561	Thailand
+MH119185	Thailand
+KF993678	Canada
+KX694532	Thailand
+n48	Thailand
+KU681081	Thailand
+n39	India
+MK238035	India
+n186	Thailand
+n186	Vietnam
+n49	Thailand
+n41	India
+MK238039	India
+n212	French Polynesia
+n187	Vietnam
+n55	Thailand
+n50	Thailand
+MK238036	India
+n42	India
+n214	French Polynesia
+KX447517	French Polynesia
+n202	Vietnam
+n188	Vietnam
+n67	Thailand
+n56	Thailand
+n52	Singapore
+n52	Taiwan
+n52	Thailand
+MG807647	Thailand
+MK238038	India
+MK238037	India
+n1110	French Polynesia
+n245	French Polynesia
+KX447515	French Polynesia
+n216	Australia
+n216	China
+n216	French Polynesia
+n216	Japan
+KX447516	French Polynesia
+IonXpress_004_rawlib	Vietnam
+IonXpress_041_rawlib	Vietnam
+8711_IonXpress_002_rawlib	Vietnam
+IonXpress_040_rawlib	Vietnam
+8628_IonXpress_066_rawlib	Vietnam
+IonXpress_039_rawlib	Vietnam
+n193	Vietnam
+8607_IonXpress_035_rawlib	Vietnam
+n189	Vietnam
+n71	Singapore
+MG807646	Thailand
+n58	Thailand
+MH013290	Thailand
+KY126351	Taiwan
+KY241691	Singapore
+KX447509	French Polynesia
+KX447514	French Polynesia
+KX447521	French Polynesia
+MG976700	French Polynesia
+n1107	French Polynesia
+n256	French Polynesia
+KX447511	French Polynesia
+n246	French Polynesia
+n220	China
+n217	Australia
+n217	China
+n217	French Polynesia
+n217	Japan
+n195	Vietnam
+7938_IonXpress_048_rawlib	Vietnam
+3015u_IonXpress_001_rawlib	Vietnam
+3015_IonXpress_030_rawlib	Vietnam
+KY241736	Singapore
+n166	Singapore
+KY241699	Singapore
+KY241746	Singapore
+KY241739	Singapore
+KY241732	Singapore
+MH255601	Singapore
+KY241723	Singapore
+n101	Singapore
+n88	Singapore
+n60	Thailand
+MF692778	Taiwan
+KX447519	French Polynesia
+KX447513	French Polynesia
+KX447510	French Polynesia
+n258	Brazil
+KX447518	French Polynesia
+KX369547	French Polynesia
+KY766069	French Polynesia
+KX447512	French Polynesia
+n224	China
+KU761561	China
+LC191864	Japan
+KX806557	Australia
+n198	Vietnam
+7040_IonXpress_033_rawlib	Vietnam
+8546_IonXpress_034_rawlib	Vietnam
+KY241693	Singapore
+n176	Singapore
+KY241714	Singapore
+KY241729	Singapore
+KY241678	Singapore
+KY241684	Singapore
+LC369584	Japan
+n61	Thailand
+n261	Brazil
+n273	Brazil
+n226	China
+KX117076	China
+222_IonXpress_003_rawlib	Vietnam
+LC219720	Japan
+KY241740	Singapore
+KY241749	Singapore
+MG548660	Thailand
+n62	Thailand
+KR872956	Brazil
+KU509998	Haiti
+KY785483	Dominican Republic
+n301	Brazil
+n897	Brazil
+n876	Brazil
+n464	Brazil
+n274	Brazil
+KU963796	China
+n239	China
+n227	China
+MF996804	Thailand
+MG548661	Thailand
+KY785433	Brazil
+n425	Brazil
+n304	Brazil
+KY785429	Brazil
+n922	Brazil
+n898	Angola
+n898	Brazil
+n898	Ecuador
+KY559005	Brazil
+MT636065	Argentina
+n642	Brazil
+n465	Brazil
+n278	Brazil
+n275	Italy
+KX013000	China
+KU997667	China
+KU866423	China
+MG674719	China
+KU955589	China
+n229	China
+KX253996	China
+KU991811	Italy
+KY559001	Brazil
+KY559014	Brazil
+n316	Brazil
+n316	Colombia
+KY120352	South Korea
+n926	Dominican Republic
+n1079	Brazil
+n909	Ecuador
+n901	Angola
+n654	Brazil
+n654	Honduras
+KY559004	Brazil
+n476	Suriname
+n558	Brazil
+MH513600	Brazil
+KX101061	Brazil
+KX101060	Brazil
+KY003154	Italy
+KY003153	Italy
+KY967711	China
+MF036115	China
+n318	Colombia
+MN473453	Canada
+n929	Dominican Republic
+MF098767	Russia
+KY785460	Dominican Republic
+MH882540	Brazil
+MH882542	Brazil
+KX879603	Ecuador
+KX879604	Ecuador
+MF794971	Ecuador
+MK829152	Angola
+n902	Angola
+KY765326	Nicaragua
+MN473450	Canada
+n658	Honduras
+KU312312	Suriname
+n480	Suriname
+KY693680	Venezuela
+n578	Brazil
+n321	Colombia
+n336	Colombia
+KY014304	Dominican Republic
+n931	Dominican Republic
+KY014302	Dominican Republic
+MK829153	Angola
+MK829154	Portugal
+KX906952	Honduras
+MF801384	Honduras
+KY927808	China
+n852	Honduras
+n852	Nicaragua
+n852	USA
+n756	Honduras
+n722	Honduras
+MF801383	Honduras
+n686	Honduras
+n659	Honduras
+n658.polytomy_27	Nicaragua
+n658.polytomy_25	Mexico
+n658.polytomy_15	Guatemala
+n487	China
+n551	Cape Verde
+n503	Suriname
+n620	Brazil
+MK216731	Brazil
+MK049246	Colombia
+n332	Peru
+n322	Martinique
+n350	Colombia
+KY317938	Colombia
+KY317936	Colombia
+n355	Colombia
+MK049250	Colombia
+KX198135	Panama
+KY014303	Dominican Republic
+KY014305	Dominican Republic
+KY785484	Dominican Republic
+KY785420	Dominican Republic
+n998	Dominican Republic
+n998	Jamaica
+n984	Haiti
+n974	Dominican Republic
+n974	Italy
+n974	USA
+KY785441	Dominican Republic
+KX269878	Italy
+n962	Dominican Republic
+n958	Russia
+n947	Dominican Republic
+n941	Dominican Republic
+n931.polytomy_23	Japan
+n931.polytomy_9	Cuba
+n931.polytomy_22	Jamaica
+KY325479	USA
+MF801426	Nicaragua
+KY606274	Mexico
+MF801389	Honduras
+n766	Honduras
+n757	Nicaragua
+MF434518	Nicaragua
+n726	Honduras
+KY014315	Honduras
+n687	Honduras
+KY785444	Honduras
+MF801377	El Salvador
+MF434520	Nicaragua
+MN577550	Nicaragua
+n835	Mexico
+n786	Mexico
+n704	Mexico
+MF801378	Guatemala
+n672	Guatemala
+KU820898	China
+n493	China
+n553	Cape Verde
+MK241416	Cape Verde
+MN473454	Canada
+n504	Suriname
+MK216703	Brazil
+MK216687	Brazil
+KY693678	Peru
+KY693679	Peru
+KY785451	Martinique
+n326	Martinique
+MK049245	Colombia
+KY785466	Colombia
+n375	Colombia
+n356	Colombia
+n356	Panama
+n1005	USA
+n1054	Dominican Republic
+n1054	Jamaica
+n1015	Canada
+n1015	Dominican Republic
+n1015	Jamaica
+n1015	Russia
+n1015	USA
+KY785424	Jamaica
+n995	Haiti
+KY415988	Haiti
+KY415986	Haiti
+KY415987	Haiti
+n986	Haiti
+KY415990	Haiti
+KY014316	USA
+n975	Italy
+KY785413	Dominican Republic
+MF098764	Russia
+MF664436	Russia
+MF098769	Russia
+MF098768	Russia
+KY785428	Dominican Republic
+n948	Dominican Republic
+MF098766	Russia
+KY785434	Dominican Republic
+LC331561	Japan
+LC190723	Japan
+n981	Cuba
+n932	Cuba
+KY785419	Jamaica
+KY785438	Jamaica
+MF801425	Nicaragua
+n771	Honduras
+KX421195	Nicaragua
+KX421194	Nicaragua
+n746	Honduras
+n727	Honduras
+KY014311	Honduras
+n690	Nicaragua
+KY785461	Honduras
+n846	Guatemala
+n838	Mexico
+MN473451	Canada
+MF801403	Mexico
+n790	Mexico
+n827	Mexico
+MF801407	Mexico
+MF801404	Mexico
+MF801396	Mexico
+MF801418	Mexico
+MF801380	Guatemala
+n674	Cuba
+MF801379	Guatemala
+MF167360	China
+KU955590	China
+MK241417	Cape Verde
+MK241415	Cape Verde
+n512	Puerto Rico
+n506	Suriname
+KU922923	Mexico
+KU647676	Martinique
+n418	Colombia
+n418	Haiti
+n376	Colombia
+n358	Panama
+MK269361	USA
+KY325474	USA
+n1009	USA
+MK269354	USA
+KY014300	Dominican Republic
+n1058	Jamaica
+n1024	USA
+MN473452	Canada
+MF098765	Russia
+KY415989	Haiti
+KY415991	Haiti
+MN566108	Haiti
+MN566104	Haiti
+MN566107	Haiti
+MN566105	Haiti
+MN566106	Haiti
+KU853012	Italy
+KU853013	Italy
+KY014321	Dominican Republic
+KY014314	Dominican Republic
+MK560179	Cuba
+MH063261	Cuba
+n934	Cuba
+MF438286	Cuba
+MF434522	Nicaragua
+n772	Honduras
+MF801385	Honduras
+n747	Honduras
+n729	Honduras
+KY014310	Honduras
+KY765325	Nicaragua
+KY765327	Nicaragua
+KU501217	Guatemala
+KU501216	Guatemala
+KY606273	Mexico
+MF801411	Mexico
+n820	Mexico
+MF801401	Mexico
+MF098771	Russia
+MF801391	Mexico
+n828	Mexico
+n677	Cuba
+MH063265	Cuba
+n542	Puerto Rico
+n516	Puerto Rico
+n513	Puerto Rico
+KU758877	French Guiana
+KY348640	Suriname
+KU937936	Suriname
+n420	Venezuela
+MN577543	Haiti
+MF574571	Colombia
+MF574575	Colombia
+MF574556	Colombia
+MF574574	Colombia
+MF574554	Colombia
+n390	Colombia
+KU820897	Colombia
+n367	Panama
+KX156776	Panama
+MK028859	Panama
+n359	Panama
+MK269357	USA
+KY785459	USA
+KY785432	Jamaica
+KY785430	Jamaica
+KX922704	USA
+KY785412	USA
+KY325472	USA
+n1041	USA
+KY075936	USA
+KY014326	USA
+MH063260	Cuba
+MH063264	Cuba
+KY785414	Honduras
+KY693676	Honduras
+KY785452	Honduras
+KY014312	Honduras
+MH675629	Puerto Rico
+KY014319	Honduras
+n730	Nicaragua
+MT507047	Mexico
+MT507048	Mexico
+MF801405	Mexico
+MF801415	Mexico
+n681	Cuba
+n678	Cuba
+MH675619	Puerto Rico
+n543	Puerto Rico
+n527	Puerto Rico
+MH675624	Puerto Rico
+n518	Puerto Rico
+MH675622	Puerto Rico
+MH675621	Puerto Rico
+KX702400	Venezuela
+KX893855	Venezuela
+MF574563	Colombia
+MF574569	Colombia
+MK028858	Panama
+n370	Panama
+KX156775	Panama
+MN124090	Panama
+n361	Panama
+MK028861	Panama
+MK269358	USA
+KY325470	USA
+MF434521	Nicaragua
+n731	Nicaragua
+MK560178	Cuba
+MH063262	Cuba
+MH063259	Cuba
+MH063263	Cuba
+MH675628	Puerto Rico
+KY785481	Puerto Rico
+KX087101	Puerto Rico
+KY075933	USA
+n537	Puerto Rico
+KU501215	Puerto Rico
+MH675627	Puerto Rico
+MH675626	Puerto Rico
+KY785462	Puerto Rico
+KY785464	Puerto Rico
+MN100039	Panama
+MN124091	Panama
+KX156774	Panama
+MF574587	Colombia
+KY765318	Nicaragua
+n735	Nicaragua
+KX377337	Puerto Rico
+MH158237	Puerto Rico
+KY765322	Nicaragua
+KY765317	Nicaragua

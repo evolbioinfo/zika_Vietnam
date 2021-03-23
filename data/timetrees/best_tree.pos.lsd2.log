@@ -1,0 +1,44 @@
+
+LEAST-SQUARE METHODS TO ESTIMATE RATES AND DATES - v1.6.5 
+
+
+Input files:
+  i                                               Input tree file : /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/trees/best_tree.pos.rooted_African.collapsed.nwk
+  d                                               Input date file : /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/dates_lsd.tab
+  p                                                Partition file : No
+Output file:
+  o                                                  Output file  : /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.wd_lsd2
+Parameters:
+  c                                              With constraints : Yes
+  t                                      Lower bound for the rate : 1e-10
+  v                                                With variances : No
+  r                                             Estimate the root : No
+  w                                       Given substitution rate : No
+  g                                               Given outgroups : No
+  n                                             Multiple data set : No
+  f                                  Compute confidence intervals : Yes, sampling 1000 times
+  q                  Standard deviation of lognormal relaxed clock: 0.2 (for computing confidence intervals)
+  s                                               Sequence length : 10269
+  e                                          Exclude outlier tips : Yes, detect and exclude outliers from the analysis
+  m                   Number of sampling nodes to detect outliers : 249
+  e                       The Zscore threshold to detect outliers : 3
+  u                Min internal branch length of time scaled tree : 0
+  U                Min external branch length of time scaled tree : 0
+  l                        Collapsed internal branch length limit : 0
+  D                                            Output date format : Based on input date format
+
+  h to print Help 
+  y to accept or type a letter to change an option (x = Exit) 
+Tree 1 
+*WARNINGS:
+- There are some nodes in the input date file that are not present in the input tree.
+*RESULTS:
+- The input dates associated with the following 9 nodes are considered as outliers, so the nodes were removed from the analysis:  KY241712 KY241700 KU744693 MN577544 MH157208 MF098770 MK269355 MK269356 KY325478
+- Dating results:
+ rate 0.000592183, tMRCA 1995.2, objective function 1.04058
+- Results with confidence intervals:
+ rate 0.000592183 [0.000470267; 0.000696419], tMRCA 1995.2 [1988.79; 1998.89], objective function 1.04058
+
+*********************************************************
+
+TOTAL ELAPSED TIME: 14.378 seconds

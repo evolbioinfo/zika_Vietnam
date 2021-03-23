@@ -1,0 +1,83 @@
+
+Attempting to parse dates...
+	Using column 'name' as name. This needs match the taxon names in the tree!!
+	Using column 'date' as date.
+
+0.00	-TreeAnc: set-up
+relaxed_clock {'slack': 1.0, 'coupling': 0.0}
+relaxed_clock {'slack': 1.0, 'coupling': 0.0}
+
+338.79	TreeTime: The following tips don't fit the clock model, please remove them from the tree. Their dates have been reset:
+
+338.79	MG645981, input date: 2006.8219178082193, apparent date: 2005.02
+
+338.79	MK238036, input date: 2018.772602739726, apparent date: 2020.88
+
+338.79	KY241712, input date: 2016.6612021857923, apparent date: 2021.92
+
+338.79	KY241700, input date: 2016.6530054644809, apparent date: 2024.26
+
+338.79	KU744693, input date: 2016.0983606557377, apparent date: 2024.61
+
+338.79	MH763832, input date: [1968.0, 2019.0], apparent date: 2017.72
+
+338.79	MH763833, input date: [1968.0, 2019.0], apparent date: 2017.31
+
+338.79	MK269355, input date: 2016.6693989071039, apparent date: 2022.26
+
+338.79	KY325478, input date: 2016.7349726775956, apparent date: 2042.37
+
+338.79	MK269356, input date: 2016.6311475409836, apparent date: 2022.42
+
+338.79	MF098770, input date: 2016.8551912568305, apparent date: 2029.80
+
+Inferred sequence evolution model (saved as /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.treetime/sequence_evolution_model.txt):
+Substitution rate (mu): 1.0
+
+Equilibrium frequencies (pi_i):
+  A: 0.2
+  C: 0.2
+  G: 0.2
+  T: 0.2
+  -: 0.2
+
+Symmetrized rates from j->i (W_ij):
+	A	C	G	T	-
+  A	0	1.25	1.25	1.25	1.25
+  C	1.25	0	1.25	1.25	1.25
+  G	1.25	1.25	0	1.25	1.25
+  T	1.25	1.25	1.25	0	1.25
+  -	1.25	1.25	1.25	1.25	0
+
+Actual rates from j->i (Q_ij):
+	A	C	G	T	-
+  A	0	0.25	0.25	0.25	0.25
+  C	0.25	0	0.25	0.25	0.25
+  G	0.25	0.25	0	0.25	0.25
+  T	0.25	0.25	0.25	0	0.25
+  -	0.25	0.25	0.25	0.25	0
+
+
+Inferred sequence evolution model (saved as /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.treetime/molecular_clock.txt):
+Root-Tip-Regression:
+ --rate:	5.792e-04 +/- 3.68e-05 (one std-dev)
+ --chi^2:	189003.00
+ --r^2:  	0.39
+
+--- saved tree as 
+	 /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.treetime/timetree.pdf
+
+--- root-to-tip plot saved to  
+	/pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.treetime/rtt.pdf
+--- wrote branch specific rates to
+	 /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.treetime/substitution_rates.tsv
+
+--- saved divergence times in 
+	 /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.treetime/dates.tsv
+
+--- tree saved in nexus format as  
+	 /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.treetime/timetree.nexus
+
+--- divergence tree saved in nexus format as  
+	 /pasteur/zeus/projets/p01/Evolbioinfo/users/azhukova/projects/zika_Vietnam/data/timetrees/best_tree.pos.treetime/divergence_tree.nexus
+

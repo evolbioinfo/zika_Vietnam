@@ -1,0 +1,211 @@
+import os
+
+# To run locally:
+# snakemake --snakefile Snakefile_dating --keep-going --cores 4 --use-singularity --singularity-prefix ~/.singularity --singularity-args "--home ~"
+
+# To visualise the pipeline
+# snakemake --snakefile Snakefile_dating --dag | dot -Tsvg > pipeline_dating.svg
+
+localrules: all
+
+folder = os.path.abspath(config.get("folder", '..'))
+data_dir = os.path.join(folder, 'data')
+
+os.makedirs('logs', exist_ok=True)
+
+rule all:
+    input:
+        expand(os.path.join(data_dir, 'timetrees', 'best_tree.pos.{dating}.nwk'), dating=['lsd2', 'treetime'])
+
+
+rule extract_dates_lsd:
+    '''
+    Reformats metadata into date file readable by LSD.
+    '''
+    input:
+        tab = os.path.join(data_dir, 'metadata.combined.tab')
+    output:
+        tab = os.path.join(data_dir, 'timetrees', 'dates_lsd.tab')
+    params:
+        mem = 1000,
+        name = 'dates',
+        date_col = 'collection_date'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 py/extract_dates_lsd.py --data {input.tab} --dates {output.tab} \
+        --date_col {params.date_col}
+        """
+
+rule extract_dates_treetime:
+    '''
+    Reformats metadata into date file readable by TreeTime.
+    '''
+    input:
+        tab = os.path.join(data_dir, 'metadata.combined.tab')
+    output:
+        tab = os.path.join(data_dir, 'timetrees', 'dates_treetime.csv')
+    params:
+        mem = 1000,
+        name = 'dates',
+        date_col = 'collection_date'
+    threads: 1
+    singularity: "docker://evolbioinfo/python-evol:v3.6"
+    shell:
+        """
+        python3 py/extract_dates_treetime.py --data {input.tab} --dates {output.tab} \
+        --date_col {params.date_col}
+        """
+
+rule nex2nwk:
+    '''
+    Converts a nexus tree to newick.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'timetrees', '{tree}.nexus'),
+    output:
+        tree = os.path.join(data_dir, 'timetrees', '{tree}.nwk'),
+    singularity:
+        "docker://evolbioinfo/gotree:v0.3.0b"
+    params:
+        mem = 2000,
+        name = 'nex2nwk',
+    threads: 1
+    shell:
+        """
+        gotree reformat newick -i {input.tree} -f nexus -o {output.tree}
+        sed -i -e 's/\\[[^]]*\\]//g' {output.tree}
+        """
+
+rule tree_size:
+    '''
+    Calculates tree size.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'trees', '{tree}.nwk'),
+    output:
+        length = os.path.join(data_dir, 'trees', '{tree}.ntips'),
+    singularity:
+        "docker://evolbioinfo/gotree:v0.3.0b"
+    params:
+        mem = 2000,
+        name = 'tree_size',
+        qos = 'fast'
+    threads: 1
+    shell:
+        """
+        gotree stats -i {input.tree} | tail -n 1 | awk '{{print $3}}' > {output.length}
+        """
+
+rule date_lsd2:
+    '''
+    Dates a tree.
+    -u 0
+    no -v
+    -m 33%
+    '''
+    input:
+        aln_length =  os.path.join(data_dir, 'aln.length'),
+        tree = os.path.join(data_dir, 'trees', 'best_tree.pos.rooted_African.collapsed.nwk'),
+        ntips = os.path.join(data_dir, 'trees', 'best_tree.pos.rooted_African.collapsed.ntips'),
+        dates = os.path.join(data_dir, 'timetrees', 'dates_lsd.tab'),
+    output:
+        tree = os.path.join(data_dir, 'timetrees', 'best_tree.pos.lsd2.nexus'),
+        log = os.path.join(data_dir, 'timetrees', 'best_tree.pos.lsd2.log'),
+        rd = os.path.join(data_dir, 'timetrees', 'best_tree.pos.lsd2.rootdate'),
+        outliers = os.path.join(data_dir, 'timetrees', 'best_tree.pos.outliers'),
+    threads: 1
+    singularity: "docker://evolbioinfo/lsd2:v1.6.5"
+    params:
+        mem = 4000,
+        name = 'lsd2',
+        wd = os.path.join(data_dir, 'timetrees', 'best_tree.pos.wd_lsd2'),
+    shell:
+        """
+        n=`head {input.aln_length}`
+        t=`head {input.ntips}`
+        m=`awk -v t="$t" 'BEGIN {{ m=int(t * 0.33); print m}}'`
+
+        echo "lsd2 -i {input.tree} -d {input.dates} -c -s $n -o {params.wd} -f 1000 -l 0 -e 3 -m $m -u 0 -U 0"
+
+        lsd2 -i {input.tree} -d {input.dates} -c -s $n -o {params.wd}  -f 1000 -l 0 -e 3 -m $m -u 0 -U 0
+
+        pattern_g='\\- The input dates associated with the following'
+        pattern_s='\\- The input dates associated with the following [0-9]* nodes are considered as outliers, so the nodes were removed from the analysis:  '
+
+        outliers=`grep -i "$pattern_g" {params.wd} | sed -e "s/$pattern_s//g"`
+        for o in $outliers
+        do
+            echo $o >> {output.outliers}
+        done
+
+        mv "{params.wd}.date.nexus" "{output.tree}"
+        mv "{params.wd}" "{output.log}"
+        rm -rf {params.wd}*
+
+        echo `grep "], tMRCA" {output.log} | sed -e 's/rate [0-9\\.e+-]\\+ \\[[0-9\\.e+-]\\+; [0-9\\.e+-]\\+\\], tMRCA //g' \
+        | sed -e 's/ \\[[0-9\\.e+-]\\+; [0-9\\.e+-]\\+\\], objective function [0-9\\.e+-]\\+//g'` > {output.rd}
+        """
+        
+rule date_treetime:
+    '''
+    Dates a tree.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'trees', 'best_tree.pos.rooted_African.collapsed.nwk'),
+        dates = os.path.join(data_dir, 'timetrees', 'dates_treetime.csv'),
+        aln_length =  os.path.join(data_dir, 'aln.length'),
+    output:
+        tree = os.path.join(data_dir, 'timetrees', 'best_tree.pos.outliers.treetime.nexus'),
+        dates = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.dates'),
+        rates = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.rates'),
+        log = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.log'),
+        rd = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.rootdate'),
+        pdf = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.rtt.pdf'),
+    threads: 12
+    singularity: "docker://evolbioinfo/treetime:v0.6.3"
+    params:
+        mem = 40000,
+        name = 'treetime',
+        wd = os.path.join(data_dir, 'timetrees',  'best_tree.pos.treetime')
+    shell:
+        """
+        n=`head {input.aln_length}`
+
+        treetime --tree {input.tree} --dates {input.dates} --sequence-length $n --keep-root \
+        --confidence --covariation --branch-length-mode input --relax 1 0\
+        --plot-rtt rtt.pdf --outdir {params.wd} --verbose 0 --clock-filter 3 > {output.log}
+
+        cp {params.wd}/dates.tsv {output.dates}
+        cp {params.wd}/substitution_rates.tsv {output.rates}
+        cp {params.wd}/timetree.nexus {output.tree}
+        cp {params.wd}/rtt.pdf {output.pdf}
+
+        rm -rf {params.wd}
+
+
+        echo `head -n 3 {output.dates} | tail -n 1 | awk '{{print $3}}'` > {output.rd}
+        """
+
+rule rm_outliers_treetime:
+    '''
+    Removes outliers.
+    '''
+    input:
+        tree = os.path.join(data_dir, 'timetrees', 'best_tree.pos.outliers.treetime.nexus'),
+        log = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.log'),
+    output:
+        tree_nex = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.nexus'),
+        tree = os.path.join(data_dir, 'timetrees', 'best_tree.pos.treetime.nwk'),
+    params:
+        mem = 1000,
+        name = 'no_tt'
+    threads: 1
+    singularity: "docker://evolbioinfo/pastml:v1.9.30"
+    shell:
+        """
+        python3 py/rm_outliers_tt.py --in_tree {input.tree} --ref {input.log} \
+        --out_tree_nwk {output.tree}  --out_tree_nex {output.tree_nex} \
+        --allowed_diff 0
+        """

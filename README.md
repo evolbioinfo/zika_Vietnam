@@ -33,7 +33,7 @@ with MAFFT [[Katoh and Standley 2013](https://academic.oup.com/mbe/article/30/4/
 The metadata extraction, sequence combining and alignment pipeline [Snakefile_combined_MSA](snakemake/Snakefile_combined_MSA)
 is avalable in the [snakemake](snakemake) folder and can be rerun as (from the snakemake folder):
 ```bash
-snakemake --snakefile Snakefile_combined_MSA --keep-going --config folder=.. --use-singularity -singularity-args "--home ~"
+snakemake --snakefile Snakefile_combined_MSA --keep-going --use-singularity -singularity-args "--home ~"
 ```
 ![MSA pipeline](snakemake/pipeline_combined_MSA.svg)
 
@@ -49,19 +49,26 @@ The non-informative branches (<= 1/2 mutation) were then collapsed and the tree 
 #### DIY
 The phylogeny reconstruction pipeline [Snakefile_phylogeny](snakemake/Snakefile_phylogeny) is avalable in the [snakemake](snakemake) folder and can be rerun as (from the snakemake folder):
 ```bash
-snakemake --snakefile Snakefile_phylogeny --keep-going --config folder=.. --use-singularity -singularity-args "--home ~"
+snakemake --snakefile Snakefile_phylogeny --keep-going --use-singularity -singularity-args "--home ~"
 ```
 ![phylogeny reconstruction pipeline](snakemake/pipeline_phylogeny.svg)
 
-### 3. Phylogeography
-The phylogeny was dated with LSD 2 [[To *et al.*, 2015](https://academic.oup.com/sysbio/article/65/1/82/2461506)] (with temporal outlier removal).
-We then reconstructed ancestral characters for country using PastML [[Ishikawa *et al.*, 2018](https://doi.org/10.1101/379529)].
+### 3. Dating and Phylogeography
+The phylogeny was dated with LSD 2 [[To *et al.*, 2015](https://academic.oup.com/sysbio/article/65/1/82/2461506)] 
+(with temporal outlier removal). 
+For comparison, the phylogeny was also dated with TreeTime [[Sagulenko *et al.*, 2018]](https://academic.oup.com/ve/article/4/1/vex042/4794731).
+We then reconstructed ancestral characters for country using PastML [[Ishikawa *et al.*, 2018](https://doi.org/10.1101/379529)], 
+on the full dated tree and subsampled trees (to assess the robustness of the phylogeographic predictions).
 
- 
 #### DIY
-To perform phylogeographic analysis, from the [snakemake](snakemake)folder, run the [Snakefile_phylogeography](snakemake/Snakefile_phylogeography) pipeline:
+To perform tree dating, from the [snakemake](snakemake) folder, run the [Snakefile_dating](snakemake/Snakefile_dating) pipeline:
 ```bash
-snakemake --snakefile Snakefile_phylogeography --keep-going --config folder=.. --use-singularity --singularity-args "--home ~"
+snakemake --snakefile Snakefile_dating --keep-going --use-singularity --singularity-args "--home ~"
+```
+![Dating pipeline](snakemake/pipeline_dating.svg)
+To perform phylogeographic analysis, from the [snakemake](snakemake) folder, run the [Snakefile_phylogeography](snakemake/Snakefile_phylogeography) pipeline:
+```bash
+snakemake --snakefile Snakefile_phylogeography --keep-going --use-singularity --singularity-args "--home ~"
 ```
 ![Phylogeographic pipeline](snakemake/pipeline_phylogeography.svg)
 
